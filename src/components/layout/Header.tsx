@@ -2,6 +2,7 @@ import Image from "next/image";
 import Container from "./Container";
 import logo from "@/../public/images/logo.png";
 import Link from "next/link";
+import Btn from "../shared/Btn";
 
 interface ILink {
    href: string;
@@ -21,13 +22,15 @@ const Header = () => {
          <Container>
             <div className="flex items-center justify-between">
                <Image className="w-[160px]" src={logo} alt="" />
-               <nav className="flex items-center gap-8 text-xl font-body font-medium">
+               <nav className="flex items-center gap-8 text-xl font-medium">
                   {links.map((v, k) => (
-                     <Link className="" href={v.href} key={k}>
+                     <Link href={v.href} key={k}>
                         {v.name}
                      </Link>
                   ))}
-                  <Link className="bg-linear-to-b from-yellow-100 to-yellow-300 px-3 py-2 text-black rounded" href="">Portal da Terapeuta</Link>
+                  <Link href="">
+                     <Btn>Portal da Terapeuta</Btn>
+                  </Link>
                </nav>
             </div>
          </Container>

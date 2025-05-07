@@ -2,17 +2,22 @@
 
 :root {
    --background: #ffffff;
-   --gradiente: linear-gradient(50deg, #eec340, #ffff95, #deac17);
 }
 
 @theme inline {
    --color-background: var(--background);
-   --color-gradiente: var(--gradiente);
    --font-body: var(--font-plus-jakarta);
    --font-heading: var(--font-arsenica);
 }
 
-body {
-   background: var(--background);
-   font-family: Arial, Helvetica, sans-serif;
+
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+   background: -webkit-linear-gradient(50deg, #eec340, #ffff95, #deac17);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
 }
