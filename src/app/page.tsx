@@ -1,9 +1,9 @@
 import Image from "next/image";
-
 import { HeadingXl } from "@/components/shared/Typography";
 import Container from "@/components/layout/Container";
-import { terapeutas } from "@/content/data";
+import { destaques, terapeutas } from "@/content/data";
 import CardTerapeuta from "@/components/shared/CardTerapeuta";
+import star from "@/../public/images/star.png";
 
 export default function Home() {
    return (
@@ -36,6 +36,19 @@ export default function Home() {
                </div>
             </div>
          </Container>
+         {/* 5 Estrelas */}
+         <div className=" w-full text-center bg-[url(https://iili.io/3O8uxKG.jpg)] bg-cover bg-center relative py-40">
+            <Container className="flex items-center justify-between z-2 relative">
+               {destaques.map((v, k) => (
+                  <div className="" key={k}>
+                     <Image className="w-[70px] mx-auto mb-5" src={star} alt="Estrela de classificação" />
+                     <p className="text-[18px]">{v}</p>
+                  </div>
+               ))}
+            </Container>
+            {/* Opacidade */}
+            <div className="bg-black opacity-50 absolute inset-0 z-1"></div>
+         </div>
       </div>
    );
 }

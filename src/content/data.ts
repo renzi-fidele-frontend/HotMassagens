@@ -1,5 +1,3 @@
-import { StaticImageData } from "next/image";
-
 export const terapeutas: Iterapeuta[] = [
    {
       foto: "https://hotmassages.pt/wp-content/uploads/2024/09/sol-hot-3-673x1024.jpeg",
@@ -38,3 +36,5 @@ export const terapeutas: Iterapeuta[] = [
       nome: "Ágatha",
    },
 ];
+
+export const destaques = ["Excelência no atendimento", "Terapeutas de Alta Classe", "Requinte", "Discrição", "Segurança"];
