@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
    return (
       <html lang="pt-PT">
-         <body className={`${headingFont.variable} ${bodyFont.variable} antialiased`}>
+         <body className={`${headingFont.variable} ${bodyFont.variable} text-white antialiased`}>
             <Header />
             <main>{children}</main>
             <Footer />
