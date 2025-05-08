@@ -6,3 +6,8 @@ export interface Iterapeuta {
    id: string;
    endereco_curto: string;
 }
+
+export interface IFaq {
+   pergunta: string;
+   resposta: string;
+}

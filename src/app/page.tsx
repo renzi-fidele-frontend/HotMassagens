@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { HeadingXl } from "@/components/shared/Typography";
+import { HeadingLg, HeadingXl } from "@/components/shared/Typography";
 import Container from "@/components/layout/Container";
-import { destaques, terapeutas } from "@/content/data";
+import { destaques, Faqs, terapeutas } from "@/content/data";
 import CardTerapeuta from "@/components/shared/CardTerapeuta";
 import star from "@/../public/images/star.png";
+import { Accordion, AccordionTrigger, AccordionItem, AccordionContent } from "@/components/ui/accordion";
 
 export default function Home() {
    return (
@@ -37,7 +38,7 @@ export default function Home() {
             </div>
          </Container>
          {/* 5 Estrelas */}
-         <div className=" w-full text-center bg-[url(https://iili.io/3O8uxKG.jpg)] bg-cover bg-center relative py-40">
+         <div className="w-full text-center bg-[url(https://iili.io/3O8uxKG.jpg)] bg-cover bg-center relative py-40">
             <Container className="flex items-center justify-between z-2 relative">
                {destaques.map((v, k) => (
                   <div className="" key={k}>
@@ -49,6 +50,29 @@ export default function Home() {
             {/* Opacidade */}
             <div className="bg-black opacity-50 absolute inset-0 z-1"></div>
          </div>
+         {/* Principais dúvidas */}
+         <Container>
+            <div className="grid grid-cols-2 py-15">
+               <Image
+                  src="https://hotmassages.pt/wp-content/uploads/2024/08/blog-banner.png"
+                  width={600}
+                  height={450}
+                  alt="Uma terapeuta no sofá"
+                  className="object-cover h-full"
+               />
+               <div className="">
+                  <HeadingLg>Principais Dúvidas</HeadingLg>
+                  <Accordion type="single" collapsible>
+                     {Faqs.map((v, k) => (
+                        <AccordionItem value={"item-" + k + 1} key={k}>
+                           <AccordionTrigger className="text-xl hover:cursor-pointer text-gray-200">{v.pergunta}</AccordionTrigger>
+                           <AccordionContent className="text-gray-300 text-[17px]">{v.resposta}</AccordionContent>
+                        </AccordionItem>
+                     ))}
+                  </Accordion>
+               </div>
+            </div>
+         </Container>
       </div>
    );
 }
