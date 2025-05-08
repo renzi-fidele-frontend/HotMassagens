@@ -44,7 +44,7 @@ export default function Home() {
          <div className="w-full text-center bg-[url(https://iili.io/3O8uxKG.jpg)] bg-cover bg-center relative py-40">
             <Container className="flex items-center justify-between z-2 relative">
                {destaques.map((v, k) => (
-                  <div className="" key={k}>
+                  <div key={k}>
                      <Image className="w-[70px] mx-auto mb-5" src={star} alt="Estrela de classificação" />
                      <p className="text-[18px]">{v}</p>
                   </div>
@@ -54,7 +54,7 @@ export default function Home() {
             <div className="bg-black opacity-50 absolute inset-0 z-1"></div>
          </div>
 
-         <div className="bg-linear-to-b from-gray-800 to-black">
+         <div className="bg-linear-to-b from-gray-800 from-[50%] to-black">
             {/* Principais dúvidas */}
             <Container>
                <div className="py-18 bg-linear-to-b ">
@@ -66,9 +66,9 @@ export default function Home() {
                         alt="Uma terapeuta no sofá"
                         className="object-cover h-full"
                      />
-                     <div className="">
+                     <div>
                         <HeadingLg>Principais Dúvidas</HeadingLg>
-                        <Accordion type="single" collapsible>
+                        <Accordion className="mt-3" type="single" collapsible>
                            {Faqs.map((v, k) => (
                               <AccordionItem value={"item-" + k + 1} key={k}>
                                  <AccordionTrigger className="text-xl hover:cursor-pointer text-gray-200">{v.pergunta}</AccordionTrigger>
@@ -78,7 +78,7 @@ export default function Home() {
                         </Accordion>
                      </div>
                   </div>
-                  <div className="text-center text-gray-200 mt-12 flex flex-col gap-3">
+                  <div className="text-center text-gray-200 mt-14 flex flex-col gap-3">
                      <p>Aviso:</p>
                      <p>
                         O Grupo Oásis Hot Massages atua exclusivamente como uma plataforma de divulgação para as terapeutas independentes, sem
