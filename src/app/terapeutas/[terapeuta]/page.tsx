@@ -1,5 +1,6 @@
 import Container from "@/components/layout/Container";
 import Btn from "@/components/shared/Btn";
+import CardServico from "@/components/shared/CardServico";
 import { HeadingXl } from "@/components/shared/Typography";
 import { terapeutas } from "@/content/data";
 import { BedDouble, Calendar, Check, X } from "lucide-react";
@@ -15,7 +16,7 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
       terapeuta && (
          <div>
             {/* Seção inicial */}
-            <div className="bg-linear-to-t from-black to-gray-800 text-gray-200 pt-10 pb-14">
+            <div className="bg-linear-to-t from-gray-950 to-gray-800 text-gray-200 pt-10 pb-15">
                <Container className="grid grid-cols-2 gap-10">
                   <div>
                      <Image
@@ -77,6 +78,18 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                            </Link>
                         </div>
                      </div>
+                  </div>
+               </Container>
+            </div>
+
+            {/* Serviços oferecidos */}
+            <div className="bg-[url(/images/bg-smoke.webp)] bg-fixed pt-20 pb-25 text-center">
+               <Container>
+                  <HeadingXl>Serviços oferecidos</HeadingXl>
+                  <div className="grid grid-cols-3 gap-6 mt-12">
+                     {terapeuta.servicos.map((v, k) => (
+                        <CardServico servico={v} key={k} />
+                     ))}
                   </div>
                </Container>
             </div>

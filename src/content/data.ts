@@ -3,7 +3,7 @@ import onTop from "@/assets/onTop.svg";
 
 export const terapeutas: Iterapeuta[] = [
    {
-      foto: "https://hotmassages.pt/wp-content/uploads/2024/09/sol-hot-3-673x1024.jpeg",
+      foto: "https://hotmassages.pt/wp-content/uploads/2024/09/sol-hot-2.jpeg",
       endereco_curto: "Areeiro - Lisboa",
       id: "1223",
       nome: "Sol",

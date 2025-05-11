@@ -6,7 +6,7 @@ import logo from "@/../public/images/logo.png";
 
 const Footer = () => {
    return (
-      <footer className="bg-black pt-5 pb-12 text-gray-200">
+      <footer className="bg-black pt-7 pb-12 text-gray-200">
          <Container>
             <div className="flex justify-between">
                {/* Identidade */}
