@@ -40,7 +40,7 @@ export default function Home() {
                      ))}
                   </div>
 
-                  <Link className="w-fit block mx-auto  mt-10" href="#">
+                  <Link className="w-fit block mx-auto mt-10" href="#">
                      <Btn>
                         Ver todas terapeutas <ArrowRight />
                      </Btn>

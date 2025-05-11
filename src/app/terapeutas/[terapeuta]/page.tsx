@@ -67,12 +67,12 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                         <div className="flex gap-6 items-center">
                            <Link href={terapeuta.whatsapp}>
                               <Btn>
-                                 <Calendar /> Reserve Agora
+                                 <Calendar /> <span className="font-semibold">Reserve Agora</span>
                               </Btn>
                            </Link>
                            <Link href="">
                               <Btn variant="dark">
-                                 <BedDouble /> Ver Massagens
+                                 <BedDouble /> <span className="font-semibold">Ver Massagens</span>
                               </Btn>
                            </Link>
                         </div>
