@@ -1,15 +1,18 @@
 import Image from "next/image";
 import { HeadingLg, HeadingXl } from "@/components/shared/Typography";
 import Container from "@/components/layout/Container";
-import { destaques, Faqs, terapeutas } from "@/content/data";
+import { destaques, faqs, terapeutas } from "@/content/data";
 import CardTerapeuta from "@/components/shared/CardTerapeuta";
 import star from "@/../public/images/star.png";
 import { Accordion, AccordionTrigger, AccordionItem, AccordionContent } from "@/components/ui/accordion";
+import Btn from "@/components/shared/Btn";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
    return (
       <>
-         <div className="bg-linear-to-b from-black to-gray-800">
+         <div className="bg-linear-to-b from-black to-gray-800 pb-20">
             {/* Banner Topo */}
             <div>
                <Image width={1920} height={702} src="https://iili.io/3OksTZv.webp" alt="Banner do topo do site" />
@@ -29,13 +32,19 @@ export default function Home() {
                   </div>
                </div>
                {/* Destaque das terapeutas */}
-               <div className="pb-15">
+               <div>
                   <HeadingXl>Em destaque</HeadingXl>
-                  <div className="mt-12 grid grid-cols-3 gap-7 gap-y-10">
+                  <div className="mt-12 grid grid-cols-3 gap-10 gap-y-12">
                      {terapeutas.map((v, k) => (
                         <CardTerapeuta terapeuta={v} key={k} />
                      ))}
                   </div>
+
+                  <Link className="w-fit block mx-auto  mt-10" href="#">
+                     <Btn>
+                        Ver todas terapeutas <ArrowRight />
+                     </Btn>
+                  </Link>
                </div>
             </Container>
          </div>
@@ -69,7 +78,7 @@ export default function Home() {
                      <div>
                         <HeadingLg>Principais Dúvidas</HeadingLg>
                         <Accordion className="mt-3" type="single" collapsible>
-                           {Faqs.map((v, k) => (
+                           {faqs.map((v, k) => (
                               <AccordionItem value={"item-" + k + 1} key={k}>
                                  <AccordionTrigger className="text-xl hover:cursor-pointer text-gray-200">{v.pergunta}</AccordionTrigger>
                                  <AccordionContent className="text-gray-300 text-[17px]">{v.resposta}</AccordionContent>

@@ -45,10 +45,10 @@ const Footer = () => {
                <div>
                   <h6 className="font-heading font-semibold">Redes Sociais</h6>
                   <div className="flex *:p-3 *:bg-gray-800 *:rounded gap-3 mt-4">
-                     <Link href="" target="_blank">
+                     <Link href="https://www.facebook.com/profile.php?id=61563681704143" target="_blank">
                         <Facebook />
                      </Link>
-                     <Link href="" target="_blank">
+                     <Link href="https://www.instagram.com/hotmassagesofc2" target="_blank">
                         <Instagram />
                      </Link>
                   </div>
