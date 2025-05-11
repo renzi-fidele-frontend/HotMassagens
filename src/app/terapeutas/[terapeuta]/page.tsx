@@ -4,6 +4,7 @@ import { HeadingXl } from "@/components/shared/Typography";
 import { terapeutas } from "@/content/data";
 import { BedDouble, Calendar, Check, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> }) => {
    const { terapeuta: id } = await params;
@@ -16,20 +17,22 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
             {/* Seção inicial */}
             <div className="bg-linear-to-t from-black to-gray-800 text-gray-200 pt-10 pb-14">
                <Container className="grid grid-cols-2 gap-10">
-                  <Image
-                     className="h-full max-h-[750] w-full object-cover"
-                     width={640}
-                     height={400}
-                     alt={`Foto da terapeuta ${terapeuta.nome}`}
-                     src={terapeuta?.foto}
-                  />
+                  <div>
+                     <Image
+                        className="h-full max-h-[790] w-full object-cover"
+                        width={640}
+                        height={400}
+                        alt={`Foto da terapeuta ${terapeuta.nome}`}
+                        src={terapeuta?.foto}
+                     />
+                  </div>
                   <div className="flex flex-col justify-center">
                      {/* Intro */}
                      <div className="flex gap-15 w-full h-fit items-center">
                         <HeadingXl>{terapeuta.nome}</HeadingXl>
                         {terapeuta?.disponivel ? (
-                           <p className="flex gap-2 text-xl items-center text-green-400 underline underline-offset-5">
-                              <Check /> Disponível
+                           <p className="flex gap-2 text-xl items-center text-green-500 underline underline-offset-5">
+                              <Check /> Disponível para atendimento
                            </p>
                         ) : (
                            <p className="flex gap-2 text-xl items-center text-red-600 underline underline-offset-5">
@@ -42,6 +45,7 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                         <p>
                            {terapeuta.caracteristicas.idade} anos - {terapeuta.descricao}
                         </p>
+                        <hr className="border-gray-600" />
                         {/* Biografia */}
                         <div className="flex flex-col gap-3">
                            {terapeuta.bio.map((v, k) => (
@@ -60,13 +64,17 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                            </div>
                         </div>
                         {/* Acões */}
-                        <div className="flex gap-5 items-center">
-                           <Btn>
-                              <Calendar /> Reserve Agora
-                           </Btn>
-                           <Btn variant="dark">
-                              <BedDouble /> Ver Massagens
-                           </Btn>
+                        <div className="flex gap-6 items-center">
+                           <Link href={terapeuta.whatsapp}>
+                              <Btn>
+                                 <Calendar /> Reserve Agora
+                              </Btn>
+                           </Link>
+                           <Link href="">
+                              <Btn variant="dark">
+                                 <BedDouble /> Ver Massagens
+                              </Btn>
+                           </Link>
                         </div>
                      </div>
                   </div>
