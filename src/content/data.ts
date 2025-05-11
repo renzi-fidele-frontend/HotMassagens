@@ -99,6 +99,12 @@ export const terapeutas: Iterapeuta[] = [
             "Aguardo seu agendamento. Muito obrigada e disponha!",
          ],
          horario: ["Segunda à sexta 11h as 23h", "Sábado 12h as 23h", "Domingo 14h as 23h"],
+         fotos: [
+            "https://hotmassages.pt/wp-content/uploads/2024/09/WhatsApp-Image-2024-09-09-at-8.08.44-AM-2.jpeg",
+            "https://hotmassages.pt/wp-content/uploads/2024/09/WhatsApp-Image-2024-09-09-at-8.08.44-AM-2.jpeg",
+            "https://hotmassages.pt/wp-content/uploads/2024/09/WhatsApp-Image-2024-09-09-at-8.08.44-AM-2.jpeg",
+            "https://hotmassages.pt/wp-content/uploads/2024/09/WhatsApp-Image-2024-09-09-at-8.08.44-AM-2.jpeg",
+         ],
       },
    },
    // {

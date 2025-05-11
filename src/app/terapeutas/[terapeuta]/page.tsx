@@ -1,6 +1,8 @@
+import Container from "@/components/layout/Container";
+import Btn from "@/components/shared/Btn";
 import { HeadingXl } from "@/components/shared/Typography";
 import { terapeutas } from "@/content/data";
-import { Check, X } from "lucide-react";
+import { BedDouble, Calendar, Check, X } from "lucide-react";
 import Image from "next/image";
 
 const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> }) => {
@@ -9,28 +11,69 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
    console.log(terapeuta);
 
    return (
-      <div>
-         {/* Seção inicial */}
-         <div className="grid grid-cols-2 bg-linear-to-b from-black to-gray-800">
-            <Image alt="" src="" />
-            <div className="flex">
-               <div className="flex gap-4">
-                  <HeadingXl>{terapeuta?.nome}</HeadingXl>
-                  <p>
-                     {terapeuta?.disponivel ? (
-                        <>
-                           <Check /> Disponível
-                        </>
-                     ) : (
-                        <>
-                           <X /> Indisponível
-                        </>
-                     )}
-                  </p>
-               </div>
+      terapeuta && (
+         <div>
+            {/* Seção inicial */}
+            <div className="bg-linear-to-t from-black to-gray-800 text-gray-200 pt-10 pb-14">
+               <Container className="grid grid-cols-2 gap-10">
+                  <Image
+                     className="h-full max-h-[750] w-full object-cover"
+                     width={640}
+                     height={400}
+                     alt={`Foto da terapeuta ${terapeuta.nome}`}
+                     src={terapeuta?.foto}
+                  />
+                  <div className="flex flex-col justify-center">
+                     {/* Intro */}
+                     <div className="flex gap-15 w-full h-fit items-center">
+                        <HeadingXl>{terapeuta.nome}</HeadingXl>
+                        {terapeuta?.disponivel ? (
+                           <p className="flex gap-2 text-xl items-center text-green-400 underline underline-offset-5">
+                              <Check /> Disponível
+                           </p>
+                        ) : (
+                           <p className="flex gap-2 text-xl items-center text-red-600 underline underline-offset-5">
+                              <X /> Indisponível
+                           </p>
+                        )}
+                     </div>
+                     <div className="flex flex-col gap-7 mt-4">
+                        {/* Descrição */}
+                        <p>
+                           {terapeuta.caracteristicas.idade} anos - {terapeuta.descricao}
+                        </p>
+                        {/* Biografia */}
+                        <div className="flex flex-col gap-3">
+                           {terapeuta.bio.map((v, k) => (
+                              <p key={k}>{v}</p>
+                           ))}
+                        </div>
+                        {/* Personalidade */}
+                        <div>
+                           <h6 className="font-heading font-semibold">Personalidade:</h6>
+                           <div>
+                              {terapeuta.caracteristicas.personalidade.map((v, k) => (
+                                 <p className="flex items-center gap-3" key={k}>
+                                    <Check /> {v}
+                                 </p>
+                              ))}
+                           </div>
+                        </div>
+                        {/* Acões */}
+                        <div className="flex gap-5 items-center">
+                           <Btn>
+                              <Calendar /> Reserve Agora
+                           </Btn>
+                           <Btn variant="dark">
+                              <BedDouble /> Ver Massagens
+                           </Btn>
+                        </div>
+                     </div>
+                  </div>
+               </Container>
             </div>
          </div>
-      </div>
+      )
    );
 };
 export default Terapeuta;

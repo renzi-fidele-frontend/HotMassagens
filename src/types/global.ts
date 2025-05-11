@@ -35,6 +35,7 @@ export interface Iterapeuta {
    localDeAtendimento: {
       descricao: string[];
       horario: string[];
+      fotos: (StaticImageData | string)[];
    };
 }
 
