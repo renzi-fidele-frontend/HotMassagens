@@ -4,14 +4,13 @@ import CardServico from "@/components/shared/CardServico";
 import LightBoxCarousel from "@/components/shared/LightBoxCarousel";
 import { HeadingXl } from "@/components/shared/Typography";
 import { terapeutas } from "@/content/data";
-import { BedDouble, Calendar, Check, X } from "lucide-react";
+import { BedDouble, Calendar, Check, Clock, MapPin, Star, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> }) => {
    const { terapeuta: id } = await params;
    const terapeuta = terapeutas.find((v) => v.id === id);
-   console.log(terapeuta);
 
    return (
       terapeuta && (
@@ -59,8 +58,14 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                            <h6 className="font-heading font-semibold text-lg">Personalidade:</h6>
                            <div className="flex gap-2 mt-2">
                               {terapeuta.caracteristicas.personalidade.map((v, k) => (
-                                 <p className="border w-fit py-1 px-3 rounded-2xl border-gray-500 flex items-center gap-3 text-sm font-medium" key={k}>
-                                    <span className="text-amber-200"><Check size={16} /></span> {v}
+                                 <p
+                                    className="border w-fit py-1 px-3 rounded-2xl border-gray-500 flex items-center gap-3 text-sm font-medium"
+                                    key={k}
+                                 >
+                                    <span className="text-amber-200">
+                                       <Check size={16} />
+                                    </span>{" "}
+                                    {v}
                                  </p>
                               ))}
                            </div>
@@ -96,7 +101,7 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
             </div>
 
             {/* Detalhes do perfil */}
-            <div className="bg-linear-to-b from-gray-950 to-gray-800 pt-20 pb-25">
+            <div className="bg-linear-to-t from-gray-950 to-gray-800 pt-20 pb-25">
                <Container>
                   <div className="text-center mb-13">
                      <HeadingXl>Detalhes da terapeuta</HeadingXl>
@@ -159,13 +164,47 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                   </div>
                   <div className="text-center flex flex-col gap-3 mt-7">
                      {terapeuta.bio2.map((v, k) => (
-                        <p className="text-lg" key={k}>{v}</p>
+                        <p className="text-lg" key={k}>
+                           {v}
+                        </p>
                      ))}
                   </div>
                </Container>
             </div>
 
-            {/*  */}
+            {/* Local de atendimento */}
+            <div className="bg-linear-to-t from-gray-950 to-gray-800 pt-20 pb-25 text-gray-200 text-center">
+               <Container>
+                  <HeadingXl>Detalhes do Local</HeadingXl>
+                  <div className="mt-12 grid grid-cols-2 gap-14">
+                     <div>
+                        <LightBoxCarousel fotos={terapeuta.localDeAtendimento.fotos} />
+                     </div>
+                     <div className="flex flex-col gap-10 text-center items-center justify-center text-lg">
+                        {/* Local de atendimento */}
+                        <div className="flex flex-col gap-3">
+                           <h6 className="flex items-center justify-center gap-3 text-2xl font-medium mb-4">
+                              {<MapPin className="text-amber-300" />} Local de atendimento
+                           </h6>
+                           {terapeuta.localDeAtendimento.descricao.map((v, k) => (
+                              <p key={k}>{v}</p>
+                           ))}
+                        </div>
+                        <hr className="border-gray-700 w-full" />
+                        {/* Horários de atendimento */}
+                        <div>
+                           <h6 className="flex items-center gap-3 text-2xl font-medium mb-4">
+                              {<Clock className="text-amber-300" />} Horários de atendimento
+                           </h6>
+                           {terapeuta.localDeAtendimento.horario.map((v, k) => (
+                              <p key={k}>• {v}</p>
+                           ))}
+                        </div>
+                        <Btn>Reserve Agora</Btn>
+                     </div>
+                  </div>
+               </Container>
+            </div>
          </div>
       )
    );
