@@ -42,10 +42,10 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                            </p>
                         )}
                      </div>
-                     <div className="flex flex-col gap-7 mt-4">
+                     <div className="flex flex-col gap-9 mt-4">
                         {/* Descrição */}
                         <p>
-                           {terapeuta.caracteristicas.idade} anos - {terapeuta.descricao}
+                           {terapeuta.caracteristicas.idade} anos <span className="mx-2">•</span> {terapeuta.descricao}
                         </p>
                         <hr className="border-gray-600" />
                         {/* Biografia */}
@@ -56,11 +56,11 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                         </div>
                         {/* Personalidade */}
                         <div>
-                           <h6 className="font-heading font-semibold">Personalidade:</h6>
-                           <div>
+                           <h6 className="font-heading font-semibold text-lg">Personalidade:</h6>
+                           <div className="flex gap-2 mt-2">
                               {terapeuta.caracteristicas.personalidade.map((v, k) => (
-                                 <p className="flex items-center gap-3" key={k}>
-                                    <Check /> {v}
+                                 <p className="border w-fit py-1 px-3 rounded-2xl border-gray-500 flex items-center gap-3 text-sm font-medium" key={k}>
+                                    <span className="text-amber-200"><Check size={16} /></span> {v}
                                  </p>
                               ))}
                            </div>
@@ -164,6 +164,8 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                   </div>
                </Container>
             </div>
+
+            {/*  */}
          </div>
       )
    );
