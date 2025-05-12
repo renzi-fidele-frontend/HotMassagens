@@ -16,7 +16,7 @@ export interface Iterapeuta {
       nome: string;
       precos?: { duracao: string; preco: number }[];
    }[];
-   galeria: (StaticImageData | string)[];
+   galeria: string[];
    caracteristicas: {
       idade: number;
       personalidade: string[];
