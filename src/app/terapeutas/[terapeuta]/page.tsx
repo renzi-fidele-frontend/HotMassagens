@@ -4,7 +4,7 @@ import CardServico from "@/components/shared/CardServico";
 import LightBoxCarousel from "@/components/shared/LightBoxCarousel";
 import { HeadingXl } from "@/components/shared/Typography";
 import { terapeutas } from "@/content/data";
-import { BedDouble, Calendar, Check, Clock, MapPin, Star, X } from "lucide-react";
+import { BedDouble, Calendar, Check, Clock, MapPin, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,24 +19,18 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
             <div className="bg-linear-to-t from-gray-950 to-gray-800  pt-10 pb-15">
                <Container className="grid grid-cols-2 gap-10">
                   <div>
-                     <Image
-                        className="h-full max-h-[790] w-full object-cover"
-                        width={640}
-                        height={400}
-                        alt={`Foto da terapeuta ${terapeuta.nome}`}
-                        src={terapeuta?.foto}
-                     />
+                     <LightBoxCarousel fotos={terapeuta.galeria} />
                   </div>
                   <div className="flex flex-col justify-center">
                      {/* Intro */}
                      <div className="flex gap-15 w-full h-fit items-center">
                         <HeadingXl>{terapeuta.nome}</HeadingXl>
                         {terapeuta?.disponivel ? (
-                           <p className="flex gap-2 text-xl items-center text-green-500 underline underline-offset-5">
+                           <p className="flex gap-2 text-mg items-center px-2 py-1 rounded-xl text-green-500 border border-gray-500">
                               <Check /> Disponível para atendimento
                            </p>
                         ) : (
-                           <p className="flex gap-2 text-xl items-center text-red-600 underline underline-offset-5">
+                           <p className="flex gap-2 text-mg items-center text-red-600 underline underline-offset-5">
                               <X /> Indisponível
                            </p>
                         )}
@@ -108,7 +102,13 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                   </div>
                   <div className="grid gap-10 grid-cols-2">
                      <div>
-                        <LightBoxCarousel fotos={terapeuta.galeria} />
+                        <Image
+                           className="h-full max-h-[640] w-full object-cover rounded-md"
+                           width={640}
+                           height={400}
+                           alt={`Foto da terapeuta ${terapeuta.nome}`}
+                           src={terapeuta?.foto}
+                        />
                      </div>
                      {/* Caraterísticas da terapeuta */}
                      <div className="grid grid-cols-2 gap-4 *:bg-linear-to-br *:from-gray-700 *:to-gray-900 *:border *:border-gray-600 *:p-4 *:rounded-lg *:backdrop-blur-sm ">

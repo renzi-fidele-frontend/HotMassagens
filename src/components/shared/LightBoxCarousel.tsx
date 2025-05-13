@@ -1,56 +1,31 @@
 "use client";
-import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+// Plugins
 import Inline from "yet-another-react-lightbox/plugins/inline";
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 const LightBoxCarousel = ({ fotos }: { fotos: string[] }) => {
-   const [open, setOpen] = useState(false);
-   const [index, setIndex] = useState(0);
-
-   const updateIndex = ({ index: current }: { index: number }) => setIndex(current);
-
    return (
-      <>
-         {/* Carousel */}
-         <Lightbox
-            index={index}
-            slides={fotos.map((v) => {
-               return { src: v, height:900 };
-            })}
-            
-            plugins={[Inline]}
-            on={{
-               view: updateIndex,
-               click: () => setOpen(true),
-            }}
-            carousel={{
-               padding: 0,
-               spacing: 0,
-               imageFit: "cover",
-            }}
-            inline={{
-               style: {
-                  width: "100%",
-                  maxWidth: "900px",
-                  aspectRatio: "1",
-                  margin: "0 auto",
-               },
-            }}
-         />
-         {/* LightBox */}
-         <Lightbox
-            open={open}
-            close={() => setOpen(false)}
-            index={index}
-            slides={fotos.map((v) => {
-               return { src: v };
-            })}
-            on={{ view: updateIndex }}
-            animation={{ fade: 0 }}
-            controller={{ closeOnPullDown: true, closeOnBackdropClick: true }}
-         />
-      </>
+      <Lightbox
+         slides={fotos.map((v) => {
+            return { src: v, height: 900 };
+         })}
+         inline={{
+            style: {
+               width: "100%",
+               maxWidth: "1000px",
+               aspectRatio: "1 / 1",
+               margin: "0 auto",
+               height: "100%",
+            },
+         }}
+         plugins={[Inline, Fullscreen, Slideshow, Thumbnails, Zoom]}
+      />
    );
 };
 export default LightBoxCarousel;

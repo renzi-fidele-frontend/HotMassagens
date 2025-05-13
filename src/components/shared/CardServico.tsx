@@ -1,6 +1,7 @@
 import { Iterapeuta } from "@/types/global";
 import Image from "next/image";
 
+// TODO: Arranjar um jeito de demostrar a descrição da massagem
 const CardServico = ({ servico }: { servico: Iterapeuta["servicos"][0] }) => {
    return (
       <div className="flex flex-col items-center gap-8 pb-10 px-6 rounded-xl bg-radial from-gray-900 to-black">
