@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 31, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/Fidele/Documents/Estudos.v2/HotMassagens/src/app/terapeutas/%5Bterapeuta%5D/page.tsx"],"sourcesContent":["\"use client\";\r\nimport { useRouter } from \"next/router\";\r\nimport { useEffect } from \"react\";\r\n\r\nconst Terapeuta = () => {\r\n   const router = useRouter();\r\n   useEffect(() => {\r\n      console.log(router?.query);\r\n   }, []);\r\n\r\n   return <div>page</div>;\r\n};\r\nexport default Terapeuta;\r\n"],"names":[],"mappings":";;;;AACA;AACA;AAFA;;;;AAIA,MAAM,YAAY;IACf,MAAM,SAAS,CAAA,GAAA,8HAAA,CAAA,YAAS,AAAD;IACvB,CAAA,GAAA,qMAAA,CAAA,YAAS,AAAD,EAAE;QACP,QAAQ,GAAG,CAAC,QAAQ;IACvB,GAAG,EAAE;IAEL,qBAAO,8OAAC;kBAAI;;;;;;AACf;uCACe","debugId":null}}]
+}

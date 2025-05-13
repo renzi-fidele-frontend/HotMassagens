@@ -1,0 +1,51 @@
+/* [project]/src/app/headingfont_40a7b245.module.css [app-client] (css) */
+@font-face {
+  font-family: headingFont;
+  src: url("../media/ArsenicaTrial_Bold-s.p.ec6bc158.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: headingFont;
+  src: url("../media/ArsenicaTrial_BoldItalic-s.p.c6286332.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: headingFont;
+  src: url("../media/ArsenicaTrial_Italic-s.p.1c23c399.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: headingFont;
+  src: url("../media/ArsenicaTrial_Regular-s.p.23f8bec0.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: headingFont Fallback;
+  src: local(Arial);
+  ascent-override: 95.27%;
+  descent-override: 25.07%;
+  line-gap-override: 0.0%;
+  size-adjust: 99.72%;
+}
+
+.headingfont_40a7b245-module__r0TdBG__className {
+  font-family: headingFont, headingFont Fallback;
+}
+
+.headingfont_40a7b245-module__r0TdBG__variable {
+  --font-arsenica: "headingFont", "headingFont Fallback";
+}
+
+/*# sourceMappingURL=src_app_headingfont_40a7b245_module_css_f9ee138c._.single.css.map*/

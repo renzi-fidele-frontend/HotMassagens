@@ -1,0 +1,212 @@
+import Container from "@/components/layout/Container";
+import Btn from "@/components/shared/Btn";
+import CardServico from "@/components/shared/CardServico";
+import LightBoxCarousel from "@/components/shared/LightBoxCarousel";
+import { HeadingXl } from "@/components/shared/Typography";
+import { terapeutas } from "@/content/data";
+import { BedDouble, Calendar, Check, Clock, MapPin, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> }) => {
+   const { terapeuta: id } = await params;
+   const terapeuta = terapeutas.find((v) => v.id === id);
+
+   return (
+      terapeuta && (
+         <div className="text-gray-200">
+            {/* Seção inicial */}
+            <div className="bg-linear-to-t from-gray-950 to-gray-800  pt-10 pb-15">
+               <Container className="grid grid-cols-2 gap-10">
+                  <div>
+                     <LightBoxCarousel fotos={terapeuta.galeria} />
+                  </div>
+                  <div className="flex flex-col justify-center">
+                     {/* Intro */}
+                     <div className="flex gap-15 w-full h-fit items-center">
+                        <HeadingXl>{terapeuta.nome}</HeadingXl>
+                        {terapeuta?.disponivel ? (
+                           <p className="flex gap-2 text-mg items-center px-2 py-1 rounded-xl text-green-500 border border-gray-500">
+                              <Check /> Disponível para atendimento
+                           </p>
+                        ) : (
+                           <p className="flex gap-2 text-mg items-center text-red-600 underline underline-offset-5">
+                              <X /> Indisponível
+                           </p>
+                        )}
+                     </div>
+                     <div className="flex flex-col gap-9 mt-4">
+                        {/* Descrição */}
+                        <p>
+                           {terapeuta.caracteristicas.idade} anos <span className="mx-2">•</span> {terapeuta.descricao}
+                        </p>
+                        <hr className="border-gray-600" />
+                        {/* Biografia */}
+                        <div className="flex flex-col gap-3">
+                           {terapeuta.bio.map((v, k) => (
+                              <p key={k}>{v}</p>
+                           ))}
+                        </div>
+                        {/* Personalidade */}
+                        <div>
+                           <h6 className="font-heading font-semibold text-lg">Personalidade:</h6>
+                           <div className="flex gap-2 mt-2">
+                              {terapeuta.caracteristicas.personalidade.map((v, k) => (
+                                 <p
+                                    className="border w-fit py-1 px-3 rounded-2xl border-gray-500 flex items-center gap-3 text-sm font-medium"
+                                    key={k}
+                                 >
+                                    <span className="text-amber-200">
+                                       <Check size={16} />
+                                    </span>{" "}
+                                    {v}
+                                 </p>
+                              ))}
+                           </div>
+                        </div>
+                        {/* Acões */}
+                        <div className="flex gap-6 items-center">
+                           <Link href={terapeuta.whatsapp}>
+                              <Btn>
+                                 <Calendar /> <span className="font-semibold">Reserve Agora</span>
+                              </Btn>
+                           </Link>
+                           <Link href="">
+                              <Btn variant="dark">
+                                 <BedDouble /> <span className="font-semibold">Ver Massagens</span>
+                              </Btn>
+                           </Link>
+                        </div>
+                     </div>
+                  </div>
+               </Container>
+            </div>
+
+            {/* Serviços oferecidos */}
+            <div className="bg-[url(/images/bg-smoke.webp)] bg-fixed pt-20 pb-25 text-center">
+               <Container>
+                  <HeadingXl>Serviços oferecidos</HeadingXl>
+                  <div className="grid grid-cols-3 gap-6 mt-12">
+                     {terapeuta.servicos.map((v, k) => (
+                        <CardServico servico={v} key={k} />
+                     ))}
+                  </div>
+               </Container>
+            </div>
+
+            {/* Detalhes do perfil */}
+            <div className="bg-linear-to-t from-gray-950 to-gray-800 pt-20 pb-25">
+               <Container>
+                  <div className="text-center mb-13">
+                     <HeadingXl>Detalhes da terapeuta</HeadingXl>
+                  </div>
+                  <div className="grid gap-10 grid-cols-2">
+                     <div>
+                        <Image
+                           className="h-full max-h-[640] w-full object-cover rounded-md"
+                           width={640}
+                           height={400}
+                           alt={`Foto da terapeuta ${terapeuta.nome}`}
+                           src={terapeuta?.foto}
+                        />
+                     </div>
+                     {/* Caraterísticas da terapeuta */}
+                     <div className="grid grid-cols-2 gap-4 *:bg-linear-to-br *:from-gray-700 *:to-gray-900 *:border *:border-gray-600 *:p-4 *:rounded-lg *:backdrop-blur-sm ">
+                        <div>
+                           <div className="text-zinc-400 text-sm mb-1">Idade</div>
+                           <p className="font-semibold ">28</p>
+                        </div>
+                        <div>
+                           <div className="text-zinc-400 text-sm mb-1">Piercings</div>
+                           <p className="font-semibold ">Não</p>
+                        </div>
+                        <div>
+                           <div className="text-zinc-400 text-sm mb-1">Olhos</div>
+                           <p className="font-semibold ">Castanhos</p>
+                        </div>
+                        <div>
+                           <div className="text-zinc-400 text-sm mb-1">Tatuagens</div>
+                           <p className="font-semibold ">2</p>
+                        </div>
+                        <div>
+                           <div className="text-zinc-400 text-sm mb-1">Altura</div>
+                           <p className="font-semibold ">1,69 M</p>
+                        </div>
+                        <div>
+                           <div className="text-zinc-400 text-sm mb-1">Quadris</div>
+                           <p className="font-semibold ">Grandes</p>
+                        </div>
+                        <div>
+                           <div className="text-zinc-400 text-sm mb-1">Peso</div>
+                           <p className="font-semibold ">67 kg</p>
+                        </div>
+                        <div>
+                           <div className="text-zinc-400 text-sm mb-1">Fumante</div>
+                           <p className="font-semibold ">Não</p>
+                        </div>
+                        <div>
+                           <div className="text-zinc-400 text-sm mb-1">Cabelo</div>
+                           <p className="font-semibold ">Preto</p>
+                        </div>
+                        <div>
+                           <div className="text-zinc-400 text-sm mb-1">Perfume</div>
+                           <p className="font-semibold ">Adocicado</p>
+                        </div>
+                        <div>
+                           <div className="text-zinc-400 text-sm mb-1">Nacionalidade</div>
+                           <p className="font-semibold ">Brasileira</p>
+                        </div>
+                        <div>
+                           <div className="text-zinc-400 text-sm mb-1">Lingerie</div>
+                           <p className="font-semibold ">Várias</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div className="text-center flex flex-col gap-3 mt-7">
+                     {terapeuta.bio2.map((v, k) => (
+                        <p className="text-lg" key={k}>
+                           {v}
+                        </p>
+                     ))}
+                  </div>
+               </Container>
+            </div>
+
+            {/* Local de atendimento */}
+            <div className="bg-linear-to-t from-gray-950 to-gray-800 pt-20 pb-25 text-gray-200 text-center">
+               <Container>
+                  <HeadingXl>Detalhes do Local</HeadingXl>
+                  <div className="mt-12 grid grid-cols-2 gap-14">
+                     <div>
+                        <LightBoxCarousel fotos={terapeuta.localDeAtendimento.fotos} />
+                     </div>
+                     <div className="flex flex-col gap-10 text-center items-center justify-center text-lg">
+                        {/* Local de atendimento */}
+                        <div className="flex flex-col gap-3">
+                           <h6 className="flex items-center justify-center gap-3 text-2xl font-medium mb-4">
+                              {<MapPin className="text-amber-300" />} Local de atendimento
+                           </h6>
+                           {terapeuta.localDeAtendimento.descricao.map((v, k) => (
+                              <p key={k}>{v}</p>
+                           ))}
+                        </div>
+                        <hr className="border-gray-700 w-full" />
+                        {/* Horários de atendimento */}
+                        <div>
+                           <h6 className="flex items-center gap-3 text-2xl font-medium mb-4">
+                              {<Clock className="text-amber-300" />} Horários de atendimento
+                           </h6>
+                           {terapeuta.localDeAtendimento.horario.map((v, k) => (
+                              <p key={k}>• {v}</p>
+                           ))}
+                        </div>
+                        <Btn>Reserve Agora</Btn>
+                     </div>
+                  </div>
+               </Container>
+            </div>
+         </div>
+      )
+   );
+};
+export default Terapeuta;
