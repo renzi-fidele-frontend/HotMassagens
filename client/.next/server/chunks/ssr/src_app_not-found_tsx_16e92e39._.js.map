@@ -2,5 +2,5 @@
   "version": 3,
   "sources": [],
   "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/Fidele/Documents/Estudos.v2/HotMassagens/src/app/not-found.tsx"],"sourcesContent":["const notFound = () => {\r\n   // TODO: Adicionar UI da página de NotFound(404)\r\n   return <div>notFound</div>;\r\n};\r\n\r\nexport default notFound;\r\n"],"names":[],"mappings":";;;;;AAAA,MAAM,WAAW;IACd,gDAAgD;IAChD,qBAAO,8OAAC;kBAAI;;;;;;AACf;uCAEe","debugId":null}}]
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/Fidele/Documents/Estudos.v2/HotMassagens/client/src/app/not-found.tsx"],"sourcesContent":["const notFound = () => {\r\n   // TODO: Adicionar UI da página de NotFound(404)\r\n   return <div>notFound</div>;\r\n};\r\n\r\nexport default notFound;\r\n"],"names":[],"mappings":";;;;;AAAA,MAAM,WAAW;IACd,gDAAgD;IAChD,qBAAO,8OAAC;kBAAI;;;;;;AACf;uCAEe","debugId":null}}]
 }

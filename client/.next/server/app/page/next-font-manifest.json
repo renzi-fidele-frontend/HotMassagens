@@ -2,11 +2,11 @@
   "pages": {},
   "app": {
     "[project]/src/app/page": [
-      "static/media/ArsenicaTrial_BoldItalic-s.p.c6286332.ttf",
       "static/media/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yygg_vb-s.p.072f2e64.woff2",
-      "static/media/ArsenicaTrial_Italic-s.p.1c23c399.ttf",
       "static/media/ArsenicaTrial_Bold-s.p.ec6bc158.ttf",
-      "static/media/ArsenicaTrial_Regular-s.p.23f8bec0.ttf"
+      "static/media/ArsenicaTrial_Italic-s.p.1c23c399.ttf",
+      "static/media/ArsenicaTrial_Regular-s.p.23f8bec0.ttf",
+      "static/media/ArsenicaTrial_BoldItalic-s.p.c6286332.ttf"
     ]
   },
   "appUsingSizeAdjust": true,
