@@ -1,0 +1,57 @@
+{
+  "collectionName": "components_site_caracteristicas",
+  "info": {
+    "displayName": "caracteristica",
+    "icon": "emotionHappy",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "idade": {
+      "type": "integer"
+    },
+    "personalidade": {
+      "type": "component",
+      "repeatable": true,
+      "component": "carateristicas.personalidade"
+    },
+    "olhos": {
+      "type": "string"
+    },
+    "altura": {
+      "type": "decimal"
+    },
+    "peso": {
+      "type": "decimal"
+    },
+    "cabelo": {
+      "type": "string"
+    },
+    "nacionalidade": {
+      "type": "string"
+    },
+    "piercings": {
+      "type": "boolean"
+    },
+    "tatuagens": {
+      "type": "string"
+    },
+    "gluteos": {
+      "type": "string"
+    },
+    "fumante": {
+      "type": "boolean"
+    },
+    "perfume": {
+      "type": "string"
+    },
+    "lingerie": {
+      "type": "string"
+    },
+    "localDeAtendimento": {
+      "type": "component",
+      "repeatable": false,
+      "component": "local.local-de-atendimento"
+    }
+  }
+}

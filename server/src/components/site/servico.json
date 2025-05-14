@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_site_servicos",
+  "info": {
+    "displayName": "servico",
+    "icon": "dashboard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "icone": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "nome": {
+      "type": "string"
+    },
+    "precos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "site.preco"
+    }
+  }
+}

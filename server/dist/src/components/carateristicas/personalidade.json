@@ -1,0 +1,13 @@
+{
+    "collectionName": "components_carateristicas_personalidades",
+    "info": {
+        "displayName": "personalidade",
+        "icon": "alien"
+    },
+    "options": {},
+    "attributes": {
+        "text": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "kind": "collectionType",
+    "collectionName": "terapeutas",
+    "info": {
+        "singularName": "terapeuta",
+        "pluralName": "terapeutas",
+        "displayName": "Terapeuta",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "attributes": {
+        "nome": {
+            "type": "string"
+        },
+        "foto": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        },
+        "endereco_curto": {
+            "type": "string"
+        },
+        "whatsapp": {
+            "type": "string"
+        },
+        "descricao": {
+            "type": "string"
+        },
+        "bio": {
+            "type": "richtext"
+        },
+        "bio2": {
+            "type": "richtext"
+        },
+        "disponivel": {
+            "type": "boolean"
+        },
+        "servicos": {
+            "type": "component",
+            "repeatable": true,
+            "component": "site.servico"
+        },
+        "galeria": {
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ],
+            "type": "media",
+            "multiple": true
+        }
+    }
+}

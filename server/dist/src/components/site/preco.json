@@ -1,0 +1,16 @@
+{
+    "collectionName": "components_site_precos",
+    "info": {
+        "displayName": "preco",
+        "icon": "shoppingCart"
+    },
+    "options": {},
+    "attributes": {
+        "duracao": {
+            "type": "string"
+        },
+        "preco": {
+            "type": "integer"
+        }
+    }
+}
