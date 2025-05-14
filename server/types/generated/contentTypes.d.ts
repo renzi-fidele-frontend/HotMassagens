@@ -387,6 +387,7 @@ export interface ApiTerapeutaTerapeuta extends Struct.CollectionTypeSchema {
   attributes: {
     bio: Schema.Attribute.RichText;
     bio2: Schema.Attribute.RichText;
+    caracteristicas: Schema.Attribute.Component<'site.caracteristicas', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -396,6 +397,10 @@ export interface ApiTerapeutaTerapeuta extends Struct.CollectionTypeSchema {
     foto: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     galeria: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    localDeAtendimento: Schema.Attribute.Component<
+      'local.local-de-atendimento',
       true
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

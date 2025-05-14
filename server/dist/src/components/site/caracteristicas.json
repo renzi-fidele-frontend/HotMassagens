@@ -47,11 +47,6 @@
         },
         "lingerie": {
             "type": "string"
-        },
-        "localDeAtendimento": {
-            "type": "component",
-            "repeatable": false,
-            "component": "local.local-de-atendimento"
         }
     }
 }

@@ -49,14 +49,25 @@
             "component": "site.servico"
         },
         "galeria": {
+            "type": "media",
+            "multiple": true,
+            "required": false,
             "allowedTypes": [
                 "images",
                 "files",
                 "videos",
                 "audios"
-            ],
-            "type": "media",
-            "multiple": true
+            ]
+        },
+        "caracteristicas": {
+            "type": "component",
+            "repeatable": false,
+            "component": "site.caracteristicas"
+        },
+        "localDeAtendimento": {
+            "type": "component",
+            "repeatable": true,
+            "component": "local.local-de-atendimento"
         }
     }
 }

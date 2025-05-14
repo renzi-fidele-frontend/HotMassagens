@@ -41,10 +41,6 @@ export interface SiteCaracteristicas extends Struct.ComponentSchema {
     gluteos: Schema.Attribute.String;
     idade: Schema.Attribute.Integer;
     lingerie: Schema.Attribute.String;
-    localDeAtendimento: Schema.Attribute.Component<
-      'local.local-de-atendimento',
-      false
-    >;
     nacionalidade: Schema.Attribute.String;
     olhos: Schema.Attribute.String;
     perfume: Schema.Attribute.String;
