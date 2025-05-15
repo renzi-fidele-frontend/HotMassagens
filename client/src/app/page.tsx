@@ -8,8 +8,12 @@ import { Accordion, AccordionTrigger, AccordionItem, AccordionContent } from "@/
 import Btn from "@/components/shared/Btn";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { getTerapeutas } from "@/services/strapi";
 
-export default function Home() {
+export default async function Home() {
+   const { data: terapeutas } = await getTerapeutas();
+   console.log(terapeutas);
+
    return (
       <>
          <div className="bg-linear-to-b from-black to-gray-800 pb-20">

@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
       remotePatterns: [
          { protocol: "https", hostname: "iili.io" },
          { protocol: "https", hostname: "hotmassages.pt" },
+         { protocol: "http", hostname: "127.0.0.1" },
       ],
    },
 };

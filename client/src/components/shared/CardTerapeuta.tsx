@@ -10,7 +10,7 @@ const CardTerapeuta = ({ terapeuta }: { terapeuta: Iterapeuta }) => {
             width={325}
             height={500}
             className="w-full object-cover h-full max-h-[600]"
-            src={terapeuta.foto}
+            src={`${process.env.STRAPI_URL}${terapeuta.foto.formats?.large?.url}`}
             alt={`Foto da terapeuta: ${terapeuta.nome}`}
          />
          <div className="mt-5 mb-1">

@@ -1,7 +1,8 @@
 import { StaticImageData } from "next/image";
+import { StrapiImage } from "./strapi";
 
 export interface Iterapeuta {
-   foto: string | StaticImageData;
+   foto: StrapiImage;
    nome: string;
    id: string;
    endereco_curto: string;
