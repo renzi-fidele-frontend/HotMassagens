@@ -1,4 +1,3 @@
-import { StaticImageData } from "next/image";
 import { StrapiImage } from "./strapi";
 
 export interface Iterapeuta {
@@ -8,19 +7,17 @@ export interface Iterapeuta {
    endereco_curto: string;
    whatsapp: string;
    descricao: string;
-   /** Cada item será um parágrafo */
-   bio: string[];
-   bio2: string[];
+   bio: string;
+   bio2: string;
    disponivel: boolean;
    servicos: {
-      icone: StaticImageData;
+      icone: StrapiImage;
       nome: string;
       precos?: { duracao: string; preco: number }[];
    }[];
-   galeria: string[];
+   galeria: StrapiImage[];
    caracteristicas: {
       idade: number;
-      personalidade: string[];
       olhos: string;
       altura: number;
       peso: number;
@@ -34,10 +31,13 @@ export interface Iterapeuta {
       lingerie: string;
    };
    localDeAtendimento: {
-      descricao: string[];
-      horario: string[];
-      fotos: string[];
+      descricao: string;
+      horario: string;
+      fotos: StrapiImage[];
    };
+   personalidades: { nome: string; id: number }[];
+   // Extra Strapi API
+   documentId: string;
 }
 
 export interface IFaq {

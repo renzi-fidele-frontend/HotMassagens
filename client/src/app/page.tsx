@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { HeadingLg, HeadingXl } from "@/components/shared/Typography";
 import Container from "@/components/layout/Container";
-import { destaques, faqs, terapeutas } from "@/content/data";
+import { destaques, faqs } from "@/content/data";
 import CardTerapeuta from "@/components/shared/CardTerapeuta";
 import star from "@/../public/images/star.png";
 import { Accordion, AccordionTrigger, AccordionItem, AccordionContent } from "@/components/ui/accordion";
@@ -12,7 +12,6 @@ import { getTerapeutas } from "@/services/strapi";
 
 export default async function Home() {
    const { data: terapeutas } = await getTerapeutas();
-   console.log(terapeutas);
 
    return (
       <>

@@ -8,12 +8,14 @@ import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
+import { StrapiImage } from "@/types/strapi";
+import { processarFoto } from "@/services/strapi";
 
-const LightBoxCarousel = ({ fotos }: { fotos: string[] }) => {
+const LightBoxCarousel = ({ fotos }: { fotos: StrapiImage[] }) => {
    return (
       <Lightbox
-         slides={fotos.map((v) => {
-            return { src: v, height: 900 };
+         slides={fotos?.map((v) => {
+            return { src: processarFoto(v.url), height: 900 };
          })}
          inline={{
             style: {

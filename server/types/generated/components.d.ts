@@ -1,16 +1,5 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface CarateristicasPersonalidade extends Struct.ComponentSchema {
-  collectionName: 'components_carateristicas_personalidades';
-  info: {
-    displayName: 'personalidade';
-    icon: 'alien';
-  };
-  attributes: {
-    text: Schema.Attribute.String;
-  };
-}
-
 export interface LocalLocalDeAtendimento extends Struct.ComponentSchema {
   collectionName: 'components_local_local_de_atendimentos';
   info: {
@@ -44,13 +33,20 @@ export interface SiteCaracteristicas extends Struct.ComponentSchema {
     nacionalidade: Schema.Attribute.String;
     olhos: Schema.Attribute.String;
     perfume: Schema.Attribute.String;
-    personalidade: Schema.Attribute.Component<
-      'carateristicas.personalidade',
-      true
-    >;
     peso: Schema.Attribute.Decimal;
     piercings: Schema.Attribute.Boolean;
     tatuagens: Schema.Attribute.String;
+  };
+}
+
+export interface SitePersonalidade extends Struct.ComponentSchema {
+  collectionName: 'components_site_personalidades';
+  info: {
+    displayName: 'personalidade';
+    icon: 'plane';
+  };
+  attributes: {
+    nome: Schema.Attribute.String;
   };
 }
 
@@ -83,9 +79,9 @@ export interface SiteServico extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'carateristicas.personalidade': CarateristicasPersonalidade;
       'local.local-de-atendimento': LocalLocalDeAtendimento;
       'site.caracteristicas': SiteCaracteristicas;
+      'site.personalidade': SitePersonalidade;
       'site.preco': SitePreco;
       'site.servico': SiteServico;
     }

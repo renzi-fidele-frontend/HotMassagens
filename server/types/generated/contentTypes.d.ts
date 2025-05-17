@@ -401,7 +401,7 @@ export interface ApiTerapeutaTerapeuta extends Struct.CollectionTypeSchema {
     >;
     localDeAtendimento: Schema.Attribute.Component<
       'local.local-de-atendimento',
-      true
+      false
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -410,6 +410,7 @@ export interface ApiTerapeutaTerapeuta extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     nome: Schema.Attribute.String;
+    personalidades: Schema.Attribute.Component<'site.personalidade', true>;
     publishedAt: Schema.Attribute.DateTime;
     servicos: Schema.Attribute.Component<'site.servico', true>;
     updatedAt: Schema.Attribute.DateTime;

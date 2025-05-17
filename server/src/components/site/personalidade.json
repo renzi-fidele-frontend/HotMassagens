@@ -1,12 +1,12 @@
 {
-  "collectionName": "components_carateristicas_personalidades",
+  "collectionName": "components_site_personalidades",
   "info": {
     "displayName": "personalidade",
-    "icon": "alien"
+    "icon": "plane"
   },
   "options": {},
   "attributes": {
-    "text": {
+    "nome": {
       "type": "string"
     }
   }

@@ -66,8 +66,13 @@
     },
     "localDeAtendimento": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "local.local-de-atendimento"
+    },
+    "personalidades": {
+      "type": "component",
+      "repeatable": true,
+      "component": "site.personalidade"
     }
   }
 }
