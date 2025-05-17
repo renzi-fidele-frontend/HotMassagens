@@ -22,8 +22,10 @@ export default async function Home() {
             </div>
             <Container>
                {/* Intro */}
-               <div className="text-center pt-13 pb-20 text-[17px] text-[#dddddd]">
-                  <HeadingXl>Bem vindo...</HeadingXl>
+               <div className="text-center pt-13 pb-20 text-[17px] text-[#dddddd]" id="sobre">
+                  <div className="flex justify-center">
+                     <HeadingXl>Bem vindo...</HeadingXl>
+                  </div>
                   <div className="mt-9 flex flex-col gap-3">
                      <p>Aqui você encontra as melhores massagistas, terapeutas e SPA’s de topo no distrito de Lisboa.</p>
                      <p>Excelência, segurança e discrição são nossos pilares base. Todas as terapeutas possuem identidade verificada.</p>
