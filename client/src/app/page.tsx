@@ -22,11 +22,11 @@ export default async function Home() {
             </div>
             <Container>
                {/* Intro */}
-               <div className="text-center pt-13 pb-20 text-[17px] text-[#dddddd]" id="sobre">
+               <div className="text-center pt-8 sm:pt-13 pb-20 text-[16px] sm:text-[19px] text-[#dddddd]" id="sobre">
                   <div className="flex justify-center">
                      <HeadingXl>Bem vindo...</HeadingXl>
                   </div>
-                  <div className="mt-9 flex flex-col gap-3">
+                  <div className="mt-5 sm:mt-9 flex flex-col gap-2 sm:gap-3">
                      <p>Aqui você encontra as melhores massagistas, terapeutas e SPA’s de topo no distrito de Lisboa.</p>
                      <p>Excelência, segurança e discrição são nossos pilares base. Todas as terapeutas possuem identidade verificada.</p>
                      <p>
@@ -39,7 +39,7 @@ export default async function Home() {
                {/* Destaque das terapeutas */}
                <div>
                   <HeadingXl>Em destaque</HeadingXl>
-                  <div className="mt-12 grid grid-cols-3 gap-10 gap-y-12">
+                  <div className="mt-12 grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10">
                      {terapeutas.map((v, k) => (
                         <CardTerapeuta terapeuta={v} key={k} />
                      ))}
@@ -55,12 +55,12 @@ export default async function Home() {
          </div>
 
          {/* 5 Estrelas */}
-         <div className="w-full text-center bg-[url(https://iili.io/3O8uxKG.jpg)] bg-cover bg-center relative py-40">
-            <Container className="flex items-center justify-between z-2 relative">
+         <div className="w-full text-center bg-[url(https://iili.io/3O8uxKG.jpg)] bg-cover bg-center relative py-15 lg:py-40">
+            <Container className="flex sm:gap-7 gap-y-7 justify-center z-2 relative *:basis-[50%] sm:*:basis-[33.3%] lg:*:basis-[25%] flex-wrap lg:flex-nowrap ">
                {destaques.map((v, k) => (
                   <div key={k}>
-                     <Image className="w-[70px] mx-auto mb-5" src={star} alt="Estrela de classificação" />
-                     <p className="text-[18px]">{v}</p>
+                     <Image className="w-[50] sm:w-[70] mx-auto mb-5" src={star} alt="Estrela de classificação" />
+                     <p className="text-[18px] font-medium">{v}</p>
                   </div>
                ))}
             </Container>
