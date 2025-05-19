@@ -15,7 +15,7 @@ export default async function Home() {
 
    return (
       <>
-         <div className="bg-linear-to-b from-black to-gray-800 pb-20">
+         <div className="bg-linear-to-b from-black to-gray-800 pb-15 lg:pb-20">
             {/* Banner Topo */}
             <div>
                <Image width={1920} height={702} src="https://iili.io/3OksTZv.webp" alt="Banner do topo do site" />
@@ -55,7 +55,7 @@ export default async function Home() {
          </div>
 
          {/* 5 Estrelas */}
-         <div className="w-full text-center bg-[url(https://iili.io/3O8uxKG.jpg)] bg-cover bg-center relative py-15 lg:py-40">
+         <div className="w-full text-center bg-[url(https://iili.io/3O8uxKG.jpg)] bg-cover bg-center relative py-15 md:py-40">
             <Container className="flex sm:gap-7 gap-y-7 justify-center z-2 relative *:basis-[50%] sm:*:basis-[33.3%] lg:*:basis-[25%] flex-wrap lg:flex-nowrap ">
                {destaques.map((v, k) => (
                   <div key={k}>
@@ -71,22 +71,22 @@ export default async function Home() {
          <div className="bg-linear-to-b from-gray-800 from-[50%] to-black">
             {/* Principais dúvidas */}
             <Container>
-               <div className="py-18 bg-linear-to-b ">
-                  <div className="grid grid-cols-2">
+               <div className="py-7 sm:py-18 bg-linear-to-b ">
+                  <div className="grid lg:grid-cols-2 gap-6 xl:gap-4">
                      <Image
                         src="https://hotmassages.pt/wp-content/uploads/2024/08/blog-banner.png"
                         width={600}
                         height={450}
                         alt="Uma terapeuta no sofá"
-                        className="object-cover h-full"
+                        className="object-cover h-full w-full lg:w-auto"
                      />
                      <div>
                         <HeadingLg>Principais Dúvidas</HeadingLg>
                         <Accordion className="mt-3" type="single" collapsible>
                            {faqs.map((v, k) => (
                               <AccordionItem value={"item-" + k + 1} key={k}>
-                                 <AccordionTrigger className="text-xl hover:cursor-pointer text-gray-200">{v.pergunta}</AccordionTrigger>
-                                 <AccordionContent className="text-gray-300 text-[17px]">{v.resposta}</AccordionContent>
+                                 <AccordionTrigger className="text-lg sm:text-xl hover:cursor-pointer text-gray-200">{v.pergunta}</AccordionTrigger>
+                                 <AccordionContent className="text-gray-300 sm:text-[17px]">{v.resposta}</AccordionContent>
                               </AccordionItem>
                            ))}
                         </Accordion>
