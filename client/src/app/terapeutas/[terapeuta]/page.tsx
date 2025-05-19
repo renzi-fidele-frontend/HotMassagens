@@ -83,7 +83,9 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
          {/* Serviços oferecidos */}
          <div className="bg-[url(/images/bg-smoke.webp)] bg-fixed pt-20 pb-25 text-center">
             <Container>
-               <HeadingXl>Serviços oferecidos</HeadingXl>
+               <div className="flex justify-center">
+                  <HeadingXl>Serviços oferecidos</HeadingXl>
+               </div>
                <div className="grid grid-cols-3 gap-6 mt-12">
                   {terapeuta.servicos.map((v, k) => (
                      <CardServico servico={v} key={k} />
@@ -95,7 +97,7 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
          {/* Detalhes do perfil */}
          <div className="bg-linear-to-t from-gray-950 to-gray-800 pt-20 pb-25">
             <Container>
-               <div className="text-center mb-13">
+               <div className="flex justify-center mb-13">
                   <HeadingXl>Detalhes da terapeuta</HeadingXl>
                </div>
                <div className="grid gap-10 grid-cols-2">
@@ -169,7 +171,9 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
          {/* Local de atendimento */}
          <div className="bg-linear-to-t from-gray-950 to-gray-800 pt-20 pb-25 text-gray-200 text-center">
             <Container>
-               <HeadingXl>Detalhes do Local</HeadingXl>
+               <div className="flex justify-center">
+                  <HeadingXl>Detalhes do Local</HeadingXl>
+               </div>
                <div className="mt-12 grid grid-cols-2 gap-14">
                   <div>
                      <LightBoxCarousel fotos={terapeuta.localDeAtendimento.fotos} />
