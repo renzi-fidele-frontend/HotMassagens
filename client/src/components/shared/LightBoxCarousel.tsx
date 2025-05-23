@@ -15,12 +15,12 @@ const LightBoxCarousel = ({ fotos }: { fotos: StrapiImage[] }) => {
    return (
       <Lightbox
          slides={fotos?.map((v) => {
-            return { src: processarFoto(v.url), height: 900 };
+            return { src: processarFoto(v.url) };
          })}
          inline={{
             style: {
                width: "100%",
-               maxWidth: "1000px",
+               maxWidth: "100%",
                aspectRatio: "1 / 1",
                margin: "0 auto",
                height: "100%",

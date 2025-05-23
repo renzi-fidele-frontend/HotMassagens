@@ -16,31 +16,39 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
    return (
       <div className="text-gray-200">
          {/* Seção inicial */}
-         <div className="bg-linear-to-t from-gray-950 to-gray-800  pt-10 pb-15">
-            <Container className="grid grid-cols-2 gap-10">
+         <div className="bg-linear-to-t from-gray-950 to-gray-800  pt-0 lg:pt-10 pb-15">
+            <Container className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                <div>
-                  <LightBoxCarousel fotos={terapeuta.galeria} />
+                  {/* Galeria Desktop */}
+                  <div className="h-full hidden lg:block">
+                     <LightBoxCarousel fotos={terapeuta.galeria} />
+                  </div>
                </div>
                <div className="flex flex-col justify-center">
                   {/* Intro */}
                   <div className="flex gap-15 w-full h-fit items-center">
                      <HeadingXl>{terapeuta.nome}</HeadingXl>
                      {terapeuta?.disponivel ? (
-                        <p className="flex gap-2 text-mg items-center px-2 py-1 rounded-xl text-green-500 border border-gray-500">
+                        <p className="flex gap-2 items-center px-2 py-1 rounded-xl bg-green-950 text-green-500 border border-gray-500">
                            <Check /> Disponível para atendimento
                         </p>
                      ) : (
-                        <p className="flex gap-2 text-mg items-center text-red-600 underline underline-offset-5">
+                        <p className="flex gap-2 items-center px-2 py-1 rounded-xl bg-red-950 text-red-500 border border-gray-700">
                            <X /> Indisponível
                         </p>
                      )}
                   </div>
-                  <div className="flex flex-col gap-9 mt-4">
+                  <div className="flex flex-col gap-6 sm:gap-9 mt-4">
                      {/* Descrição */}
                      <p>
-                        {terapeuta.caracteristicas.idade} anos <span className="mx-2">•</span> {terapeuta.descricao}
+                        {terapeuta.caracteristicas.idade} anos <span className="mx-2">•</span>{" "}
+                        <span className="italic">{terapeuta.descricao}</span>
                      </p>
                      <hr className="border-gray-600" />
+                     {/* Galeria Mobile */}
+                     <div className="h-fit max-h-[600] lg:max-h-full lg:hidden">
+                        <LightBoxCarousel fotos={terapeuta.galeria} />
+                     </div>
                      {/* Biografia */}
                      <div className="flex flex-col gap-3">
                         <Markdown texto={terapeuta.bio} separador="\n\n" />
@@ -48,7 +56,7 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                      {/* Personalidade */}
                      <div>
                         <h6 className="font-heading font-semibold text-lg">Personalidade:</h6>
-                        <div className="flex gap-2 mt-2">
+                        <div className="flex flex-wrap sm:flex-nowrap gap-2 mt-2">
                            {terapeuta.personalidades.map((v, k) => (
                               <p
                                  className="border w-fit py-1 px-3 rounded-2xl border-gray-500 flex items-center gap-3 text-sm font-medium"
@@ -63,14 +71,14 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                         </div>
                      </div>
                      {/* Acões */}
-                     <div className="flex gap-6 items-center">
+                     <div className="mt-4 sm:mt-0 flex gap-4 sm:gap-6 items-center flex-wrap sm:flex-nowrap *:basis-full sm:*:basis-auto ">
                         <Link href={terapeuta.whatsapp}>
-                           <Btn>
+                           <Btn className="w-full sm:w-fit justify-center sm:justify-start">
                               <Calendar /> <span className="font-semibold">Reserve Agora</span>
                            </Btn>
                         </Link>
-                        <Link href="">
-                           <Btn variant="dark">
+                        <Link href="#servicos">
+                           <Btn className="w-full sm:w-fit justify-center sm:justify-start" variant="dark">
                               <BedDouble /> <span className="font-semibold">Ver Massagens</span>
                            </Btn>
                         </Link>
@@ -81,7 +89,7 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
          </div>
 
          {/* Serviços oferecidos */}
-         <div className="bg-[url(/images/bg-smoke.webp)] bg-fixed pt-20 pb-25 text-center">
+         <div className="bg-[url(/images/bg-smoke.webp)] bg-fixed pt-20 pb-25 text-center" id="servicos">
             <Container>
                <div className="flex justify-center">
                   <HeadingXl>Serviços oferecidos</HeadingXl>

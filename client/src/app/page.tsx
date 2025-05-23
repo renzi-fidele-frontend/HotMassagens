@@ -37,7 +37,7 @@ export default async function Home() {
                   </div>
                </div>
                {/* Destaque das terapeutas */}
-               <div>
+               <div id="terapeutas">
                   <HeadingXl>Em destaque</HeadingXl>
                   <div className="mt-12 grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10">
                      {terapeutas.map((v, k) => (
@@ -72,7 +72,7 @@ export default async function Home() {
             {/* Principais dúvidas */}
             <Container>
                <div className="py-7 sm:py-18 bg-linear-to-b ">
-                  <div className="grid lg:grid-cols-2 gap-6 xl:gap-4">
+                  <div className="grid lg:grid-cols-2 gap-6 xl:gap-9">
                      <Image
                         src="https://hotmassages.pt/wp-content/uploads/2024/08/blog-banner.png"
                         width={600}
