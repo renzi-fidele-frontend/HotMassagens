@@ -89,12 +89,12 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
          </div>
 
          {/* Serviços oferecidos */}
-         <div className="bg-[url(/images/bg-smoke.webp)] bg-fixed pt-20 pb-25 text-center" id="servicos">
+         <div className="bg-[url(/images/bg-smoke.webp)] bg-fixed pt-10 pb-20 lg:pb-25 lg:pt-20 text-center" id="servicos">
             <Container>
                <div className="flex justify-center">
                   <HeadingXl>Serviços oferecidos</HeadingXl>
                </div>
-               <div className="grid grid-cols-3 gap-6 mt-12">
+               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12">
                   {terapeuta.servicos.map((v, k) => (
                      <CardServico servico={v} key={k} />
                   ))}

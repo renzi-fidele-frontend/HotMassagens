@@ -9,11 +9,11 @@ const CardServico = ({ servico }: { servico: Iterapeuta["servicos"][0] }) => {
          <Image
             width={100}
             height={100}
-            className="w-[100]"
+            className="w-[80] lg:w-[100]"
             src={processarFoto(servico.icone.url)}
             alt={`Ícone ilustrando a massagem ${servico.nome}`}
          />
-         <h6 className="font-heading font-semibold text-3xl">{servico.nome}</h6>
+         <h6 className="font-heading font-semibold text-xl lg:text-3xl">{servico.nome}</h6>
          <div className="flex flex-col gap-4">
             {servico.precos ? (
                servico.precos?.map((v, k) => (
