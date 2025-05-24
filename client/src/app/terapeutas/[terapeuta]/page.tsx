@@ -103,15 +103,15 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
          </div>
 
          {/* Detalhes do perfil */}
-         <div className="bg-linear-to-t from-gray-950 to-gray-800 pt-20 pb-25">
+         <div className="bg-linear-to-t from-gray-950 to-gray-800 pt-10 pb-15 lg:pt-20 lg:pb-25">
             <Container>
-               <div className="flex justify-center mb-13">
+               <div className="flex justify-center mb-8 md:mb-13">
                   <HeadingXl>Detalhes da terapeuta</HeadingXl>
                </div>
-               <div className="grid gap-10 grid-cols-2">
+               <div className="grid gap-10 md:grid-cols-2">
                   <div>
                      <Image
-                        className="h-full max-h-[640] w-full object-cover rounded-md"
+                        className="h-full max-h-[640] w-full object-contain md:object-cover rounded-md"
                         width={640}
                         height={400}
                         alt={`Foto da terapeuta ${terapeuta.nome}`}
