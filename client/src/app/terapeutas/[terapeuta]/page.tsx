@@ -177,16 +177,16 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
          </div>
 
          {/* Local de atendimento */}
-         <div className="bg-linear-to-t from-gray-950 to-gray-800 pt-20 pb-25 text-gray-200 text-center">
+         <div className="bg-linear-to-t from-gray-950 to-gray-800 pt-10 pb-15 sm:pt-20 sm:pb-25 text-gray-200 text-center">
             <Container>
                <div className="flex justify-center">
                   <HeadingXl>Detalhes do Local</HeadingXl>
                </div>
-               <div className="mt-12 grid grid-cols-2 gap-14">
+               <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-14">
                   <div>
                      <LightBoxCarousel fotos={terapeuta.localDeAtendimento.fotos} />
                   </div>
-                  <div className="flex flex-col gap-10 text-center items-center justify-center text-lg">
+                  <div className="flex flex-col gap-10 text-center items-center justify-center sm:text-lg">
                      {/* Local de atendimento */}
                      <div className="flex flex-col gap-3">
                         <h6 className="flex items-center justify-center gap-3 text-2xl font-medium mb-4">
