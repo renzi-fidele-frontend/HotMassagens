@@ -6,6 +6,7 @@ export async function getTerapeutas() {
       cache: "force-cache",
    });
    const data = await res.json();
+   console.log(data);
 
    return { data: data.data as Iterapeuta[] };
 }
@@ -30,6 +31,7 @@ export async function getTerapeuta(id: string) {
    );
    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/terapeutas/${id}?${query}`, { cache: "force-cache" });
    const data = await res.json();
+   console.log(data);
 
    return { data: data.data as Iterapeuta };
 }
