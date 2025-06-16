@@ -40,7 +40,7 @@ export default async function Home() {
                <div id="terapeutas">
                   <HeadingXl>Em destaque</HeadingXl>
                   <div className="mt-12 grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10">
-                     {terapeutas.map((v, k) => (
+                     {terapeutas?.map((v, k) => (
                         <CardTerapeuta terapeuta={v} key={k} />
                      ))}
                   </div>
@@ -57,7 +57,7 @@ export default async function Home() {
          {/* 5 Estrelas */}
          <div className="w-full text-center bg-[url(https://iili.io/3O8uxKG.jpg)] bg-cover bg-center relative py-15 md:py-40">
             <Container className="flex sm:gap-7 gap-y-7 justify-center z-2 relative *:basis-[50%] sm:*:basis-[33.3%] lg:*:basis-[25%] flex-wrap lg:flex-nowrap ">
-               {destaques.map((v, k) => (
+               {destaques?.map((v, k) => (
                   <div key={k}>
                      <Image className="w-[50] sm:w-[70] mx-auto mb-5" src={star} alt="Estrela de classificação" />
                      <p className="text-[18px] font-medium">{v}</p>
@@ -83,7 +83,7 @@ export default async function Home() {
                      <div>
                         <HeadingLg>Principais Dúvidas</HeadingLg>
                         <Accordion className="mt-3" type="single" collapsible>
-                           {faqs.map((v, k) => (
+                           {faqs?.map((v, k) => (
                               <AccordionItem value={"item-" + k + 1} key={k}>
                                  <AccordionTrigger className="text-lg sm:text-xl hover:cursor-pointer text-gray-200">{v.pergunta}</AccordionTrigger>
                                  <AccordionContent className="text-gray-300 sm:text-[17px]">{v.resposta}</AccordionContent>

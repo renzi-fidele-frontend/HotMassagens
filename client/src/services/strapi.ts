@@ -2,12 +2,11 @@ import { Iterapeuta } from "@/types/global";
 import qs from "qs";
 
 export async function getTerapeutas() {
+   console.log(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/terapeutas?fields[0]=nome&fields[1]=endereco_curto&populate=foto`);
    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/terapeutas?fields[0]=nome&fields[1]=endereco_curto&populate=foto`, {
       cache: "force-cache",
    });
    const data = await res.json();
-   console.log(data);
-
    return { data: data.data as Iterapeuta[] };
 }
 
@@ -31,11 +30,10 @@ export async function getTerapeuta(id: string) {
    );
    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/terapeutas/${id}?${query}`, { cache: "force-cache" });
    const data = await res.json();
-   console.log(data);
-
    return { data: data.data as Iterapeuta };
 }
 
 export function processarFoto(path: string) {
+   console.log(path);
    return process.env.NEXT_PUBLIC_STRAPI_URL + path;
 }

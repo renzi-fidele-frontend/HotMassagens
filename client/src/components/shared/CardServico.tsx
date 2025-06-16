@@ -1,4 +1,3 @@
-import { processarFoto } from "@/services/strapi";
 import { Iterapeuta } from "@/types/global";
 import Image from "next/image";
 
@@ -10,7 +9,7 @@ const CardServico = ({ servico }: { servico: Iterapeuta["servicos"][0] }) => {
             width={100}
             height={100}
             className="w-[80] lg:w-[100]"
-            src={processarFoto(servico.icone.url)}
+            src={servico.icone.url}
             alt={`Ícone ilustrando a massagem ${servico.nome}`}
          />
          <h6 className="font-heading font-semibold text-xl lg:text-3xl">{servico.nome}</h6>

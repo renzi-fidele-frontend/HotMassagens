@@ -2,7 +2,6 @@ import Image from "next/image";
 import { HeadingSm } from "./Typography";
 import { Iterapeuta } from "@/types/global";
 import Link from "next/link";
-import { processarFoto } from "@/services/strapi";
 
 const CardTerapeuta = ({ terapeuta }: { terapeuta: Iterapeuta }) => {
    return (
@@ -12,7 +11,7 @@ const CardTerapeuta = ({ terapeuta }: { terapeuta: Iterapeuta }) => {
                width={325}
                height={500}
                className="w-full object-cover h-full max-h-[600]"
-               src={processarFoto(String(terapeuta?.foto?.formats?.large?.url))}
+               src={String(terapeuta?.foto?.formats?.large?.url)}
                alt={`Foto da terapeuta: ${terapeuta.nome}`}
             />
             <div className="mt-5 mb-1">

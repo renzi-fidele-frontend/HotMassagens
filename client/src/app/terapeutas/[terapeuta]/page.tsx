@@ -4,7 +4,7 @@ import CardServico from "@/components/shared/CardServico";
 import LightBoxCarousel from "@/components/shared/LightBoxCarousel";
 import Markdown from "@/components/shared/Markdown";
 import { HeadingXl } from "@/components/shared/Typography";
-import { getTerapeuta, processarFoto } from "@/services/strapi";
+import { getTerapeuta } from "@/services/strapi";
 import { BedDouble, Calendar, Check, Clock, MapPin, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -115,7 +115,7 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                         width={640}
                         height={400}
                         alt={`Foto da terapeuta ${terapeuta.nome}`}
-                        src={processarFoto(terapeuta?.foto.url)}
+                        src={terapeuta?.foto.url}
                      />
                   </div>
                   {/* Caraterísticas da terapeuta */}
