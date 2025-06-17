@@ -3,7 +3,7 @@ import qs from "qs";
 
 export async function getTerapeutas() {
    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/terapeutas?fields[0]=nome&fields[1]=endereco_curto&populate=foto`, {
-      cache: "no-cache",
+      cache: "no-store",
    });
    const data = await res.json();
    return { data: data.data as Iterapeuta[] };
