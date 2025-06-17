@@ -3,6 +3,7 @@ import Image from "next/image";
 
 // TODO: Arranjar um jeito de demostrar a descrição da massagem
 const CardServico = ({ servico }: { servico: Iterapeuta["servicos"][0] }) => {
+   console.log(servico.precos);
    return (
       <div className="flex flex-col items-center gap-8 py-10 px-6 rounded-xl bg-radial from-gray-900 to-black">
          <Image
@@ -14,7 +15,7 @@ const CardServico = ({ servico }: { servico: Iterapeuta["servicos"][0] }) => {
          />
          <h6 className="font-heading font-semibold text-xl lg:text-3xl">{servico.nome}</h6>
          <div className="flex flex-col gap-4">
-            {servico.precos ? (
+            {Number(servico.precos?.length) > 0 ? (
                servico.precos?.map((v, k) => (
                   <p key={k}>
                      {v.duracao}............{v.preco}€

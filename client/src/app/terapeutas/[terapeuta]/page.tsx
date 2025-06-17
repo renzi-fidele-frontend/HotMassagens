@@ -203,7 +203,7 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                            {<Clock className="text-amber-300" />} Horários de atendimento
                         </h6>
                         <div className="flex flex-col gap-2">
-                           <Markdown separador="-" texto={terapeuta.localDeAtendimento.horario} />
+                           <Markdown separador="\" texto={terapeuta.localDeAtendimento.horario} />
                         </div>
                      </div>
                      <Btn>Reserve Agora</Btn>
