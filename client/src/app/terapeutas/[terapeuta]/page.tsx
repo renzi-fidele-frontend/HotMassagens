@@ -193,7 +193,9 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                            {<MapPin className="text-amber-300" />} Local de atendimento
                         </h6>
                         <div className="flex flex-col gap-2">
-                           <p>{terapeuta.localDeAtendimento.descricao}</p>
+                           <p>
+                              <Markdown separador="\" texto={terapeuta.localDeAtendimento.descricao} />{" "}
+                           </p>
                         </div>
                      </div>
                      <hr className="border-gray-700 w-full" />
