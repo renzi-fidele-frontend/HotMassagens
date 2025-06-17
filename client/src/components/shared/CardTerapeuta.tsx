@@ -10,7 +10,7 @@ const CardTerapeuta = ({ terapeuta }: { terapeuta: Iterapeuta }) => {
             <Image
                width={325}
                height={500}
-               className="w-full object-cover h-full max-h-[600]"
+               className="w-full object-cover h-[300] sm:h-[480]"
                src={String(terapeuta?.foto?.formats?.large?.url)}
                alt={`Foto da terapeuta: ${terapeuta.nome}`}
             />

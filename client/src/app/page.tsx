@@ -39,7 +39,7 @@ export default async function Home() {
                {/* Destaque das terapeutas */}
                <div id="terapeutas">
                   <HeadingXl>Em destaque</HeadingXl>
-                  <div className="mt-12 grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10">
+                  <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10">
                      {terapeutas?.map((v, k) => (
                         <CardTerapeuta terapeuta={v} key={k} />
                      ))}
