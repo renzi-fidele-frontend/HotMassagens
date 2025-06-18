@@ -1,5 +1,5 @@
 import Preloader from "@/components/shared/Preloader";
 
 export default function Loading() {
-   return <Preloader texto="Carregando o perfil da terapeuta..." />;
+   return <Preloader texto="Carregando o site..." />;
 }

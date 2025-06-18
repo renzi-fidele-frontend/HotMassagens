@@ -9,6 +9,7 @@ import Btn from "@/components/shared/Btn";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getTerapeutas } from "@/services/strapi";
+import { Suspense } from "react";
 
 export default async function Home() {
    const { data: terapeutas } = await getTerapeutas();
@@ -39,11 +40,19 @@ export default async function Home() {
                {/* Destaque das terapeutas */}
                <div id="terapeutas">
                   <HeadingXl>Em destaque</HeadingXl>
-                  <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-4 lg:gap-10">
-                     {terapeutas?.map((v, k) => (
-                        <CardTerapeuta terapeuta={v} key={k} />
-                     ))}
-                  </div>
+                  <Suspense
+                     fallback={
+                        <div className="py-6">
+                           <p>Carregando as terapeutas...</p>
+                        </div>
+                     }
+                  >
+                     <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-4 lg:gap-10">
+                        {terapeutas?.map((v, k) => (
+                           <CardTerapeuta terapeuta={v} key={k} />
+                        ))}
+                     </div>
+                  </Suspense>
                   <Link className="w-fit block mx-auto mt-10" href="#">
                      <Btn>
                         Ver todas terapeutas <ArrowRight />
