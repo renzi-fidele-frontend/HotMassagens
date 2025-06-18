@@ -1,11 +1,12 @@
 import { Iterapeuta } from "@/types/global";
 import Image from "next/image";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import { Info } from "lucide-react";
 
 // TODO: Arranjar um jeito de demostrar a descrição da massagem
 const CardServico = ({ servico }: { servico: Iterapeuta["servicos"][0] }) => {
-   console.log(servico.precos);
    return (
-      <div className="flex flex-col items-center gap-8 py-10 px-6 rounded-xl bg-radial from-gray-900 to-black">
+      <div className="flex flex-col items-center gap-8 py-10 px-6 rounded-xl bg-radial from-gray-900 to-black relative">
          <Image
             width={100}
             height={100}
@@ -24,6 +25,22 @@ const CardServico = ({ servico }: { servico: Iterapeuta["servicos"][0] }) => {
             ) : (
                <p>Valor à Combinar.</p>
             )}
+         </div>
+         {/* Tooltip */}
+         <div className="absolute right-4 top-4">
+            <Tooltip>
+               <TooltipTrigger>
+                  <Info className="hover:cursor-pointer" />
+               </TooltipTrigger>
+               <TooltipContent>
+                  <div className="max-w-lg">
+                     <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur minus voluptatum quas eos recusandae aspernatur
+                        adipisci, distinctio, fugit optio, iste quam ipsam nesciunt praesentium dignissimos commodi atque repellat harum illo.
+                     </p>
+                  </div>
+               </TooltipContent>
+            </Tooltip>
          </div>
       </div>
    );
