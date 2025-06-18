@@ -39,12 +39,11 @@ export default async function Home() {
                {/* Destaque das terapeutas */}
                <div id="terapeutas">
                   <HeadingXl>Em destaque</HeadingXl>
-                  <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10">
+                  <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-4 lg:gap-10">
                      {terapeutas?.map((v, k) => (
                         <CardTerapeuta terapeuta={v} key={k} />
                      ))}
                   </div>
-
                   <Link className="w-fit block mx-auto mt-10" href="#">
                      <Btn>
                         Ver todas terapeutas <ArrowRight />
@@ -85,7 +84,9 @@ export default async function Home() {
                         <Accordion className="mt-3" type="single" collapsible>
                            {faqs?.map((v, k) => (
                               <AccordionItem value={"item-" + k + 1} key={k}>
-                                 <AccordionTrigger className="text-lg sm:text-xl hover:cursor-pointer text-gray-200">{v.pergunta}</AccordionTrigger>
+                                 <AccordionTrigger className="text-lg sm:text-xl hover:cursor-pointer text-gray-200">
+                                    {v.pergunta}
+                                 </AccordionTrigger>
                                  <AccordionContent className="text-gray-300 sm:text-[17px]">{v.resposta}</AccordionContent>
                               </AccordionItem>
                            ))}
