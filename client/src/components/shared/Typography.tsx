@@ -5,7 +5,7 @@ export const HeadingXl = ({ children }: { children: ReactNode }) => (
 );
 
 export const HeadingLg = ({ children }: { children: ReactNode }) => (
-   <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl  gradiente w-fit">{children}</h2>
+   <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl gradiente w-fit">{children}</h2>
 );
 
 export const HeadingSm = ({ children }: { children: ReactNode }) => <h2 className="font-heading text-2xl gradiente w-fit">{children}</h2>;

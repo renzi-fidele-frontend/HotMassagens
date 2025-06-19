@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { StrapiImage } from "./strapi";
 
 export interface Iterapeuta {
@@ -43,4 +44,11 @@ export interface Iterapeuta {
 export interface IFaq {
    pergunta: string;
    resposta: string;
+}
+
+export interface IBtn {
+   children: ReactNode;
+   variant?: "dark";
+   className?: string;
+   type?: "submit" | "reset" | "button";
 }
