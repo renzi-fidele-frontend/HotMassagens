@@ -20,10 +20,10 @@ const Footer = () => {
                <div className="basis-[100%] lg:basis-[auto] flex flex-col items-center lg:items-start">
                   <h6 className="font-heading font-semibold">Mapa do site</h6>
                   <div className="flex text-lg sm:text-xl lg:text-base lg:flex-col mt-4 mb-7 lg:mb-0 gap-5 lg:gap-3 underline lg:no-underline flex-wrap sm:flex-nowrap justify-center">
-                     <Link href="">Início</Link>
-                     <Link href="">Sobre</Link>
-                     <Link href="">Terapeutas</Link>
-                     <Link href="">Contato</Link>
+                     <Link href="/">Início</Link>
+                     <Link href="/#sobre">Sobre</Link>
+                     <Link href="/#terapeutas">Terapeutas</Link>
+                     <Link href="/contato">Contato</Link>
                   </div>
                </div>
                {/* Informações de contato */}
