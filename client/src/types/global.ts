@@ -52,3 +52,10 @@ export interface IBtn {
    className?: string;
    type?: "submit" | "reset" | "button";
 }
+
+export interface IEmailTemplate {
+   nome: string;
+   email: string;
+   telefone: string;
+   mensagem: string;
+}

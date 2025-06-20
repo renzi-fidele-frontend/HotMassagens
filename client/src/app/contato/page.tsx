@@ -25,7 +25,7 @@ const Contato = () => {
          nome: "",
          email: "",
          telefone: "",
-         mensagem: "",
+         mensagem: "Prefiro somente responder diretamente",
       },
    });
 
