@@ -35,15 +35,23 @@ const Contato = () => {
 
    return (
       <div className="bg-linear-to-t from-gray-950 to-gray-800">
-         <Container className="py-15 grid grid-cols-2 gap-12">
+         <Container className="py-10 sm:py-15 grid lg:grid-cols-2 gap-12">
             <div>
                <HeadingXl>Entre em contato</HeadingXl>
-               <div className="text-lg mt-3 mb-5">
+               <div className="xl:text-lg mt-3 mb-5">
                   <p>
                      Estamos aqui para ajudar! Se você tiver qualquer dúvida, sugestão ou precisar de assistência, sinta-se à vontade para nos
                      contatar.
                   </p>
                   <p>Basta preencher o formulário e nossa equipe entrará em contato com você o mais breve possível.</p>
+                  {/* Foto Mobile */}
+                  <Image
+                     className="rounded lg:hidden mt-6 w-[80%] sm:w-auto"
+                     width={520}
+                     height={580}
+                     src="https://iili.io/FoscuUl.jpg"
+                     alt="Foto de contato"
+                  />
                </div>
                <Form {...form}>
                   <form className="space-y-5" onSubmit={form.handleSubmit(onSubmit)}>
@@ -107,8 +115,15 @@ const Contato = () => {
                   </form>
                </Form>
             </div>
+            {/* Foto Desktop */}
             <div>
-               <Image className="rounded border-4" width={520} height={580} src="https://iili.io/FoscuUl.jpg" alt="Foto de contato" />
+               <Image
+                  className="rounded border-4 hidden lg:block"
+                  width={520}
+                  height={580}
+                  src="https://iili.io/FoscuUl.jpg"
+                  alt="Foto de contato"
+               />
             </div>
          </Container>
       </div>
