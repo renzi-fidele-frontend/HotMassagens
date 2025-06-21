@@ -25,12 +25,15 @@ const Contato = () => {
          nome: "",
          email: "",
          telefone: "",
-         mensagem: "Prefiro somente responder diretamente",
+         mensagem: "",
       },
    });
 
-   function onSubmit(values: z.infer<typeof formSchema>) {
-      console.log(values);
+   async function onSubmit(values: z.infer<typeof formSchema>) {
+      const urlParams = new URLSearchParams(values);
+      const res = await fetch(`/api/email?${urlParams}`);
+      const data = await res.json();
+      console.log(data);
    }
 
    return (

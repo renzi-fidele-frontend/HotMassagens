@@ -5,22 +5,32 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(req: NextRequest) {
-   const body = await req.json();
-   const { email, mensagem, nome, telefone } = body;
+interface IDados {
+   nome: string;
+   email: string;
+   telefone: string;
+   mensagem: string;
+}
+
+export async function GET(req: NextRequest) {
+   const searchParams = req.nextUrl.searchParams;
+   const dados: IDados = {
+      nome: searchParams.get("nome") || "",
+      email: searchParams.get("email") || "",
+      telefone: searchParams.get("telefone") || "",
+      mensagem: searchParams.get("mensagem") || "",
+   };
 
    try {
       const { data, error } = await resend.emails.send({
          from: "contacto@hotmassages.pt",
          to: "renzifidele2001@gmail.com",
          subject: "Chegada de novo cliente",
-         react: EmailTemplate({ email, mensagem, nome, telefone }) as ReactNode,
+         react: EmailTemplate(dados) as ReactNode,
       });
-
       if (error) {
          return NextResponse.json({ error });
       }
-
       return NextResponse.json(data);
    } catch (error) {
       return NextResponse.json({ error });
