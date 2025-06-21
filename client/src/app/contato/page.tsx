@@ -38,7 +38,7 @@ const Contato = () => {
 
    return (
       <div className="bg-linear-to-t from-gray-950 to-gray-800">
-         <Container className="py-10 sm:py-15 grid lg:grid-cols-2 gap-12">
+         <Container className="py-10 sm:py-15 flex flex-col lg:flex-row gap-12 xl:gap-[auto]">
             <div>
                <HeadingXl>Entre em contato</HeadingXl>
                <div className="xl:text-lg mt-3 mb-5">
@@ -119,15 +119,13 @@ const Contato = () => {
                </Form>
             </div>
             {/* Foto Desktop */}
-            <div>
-               <Image
-                  className="rounded border-4 hidden lg:block"
-                  width={520}
-                  height={580}
-                  src="https://iili.io/FoscuUl.jpg"
-                  alt="Foto de contato"
-               />
-            </div>
+            <Image
+               className="rounded border-4 hidden lg:block"
+               width={520}
+               height={580}
+               src="https://iili.io/FoscuUl.jpg"
+               alt="Foto de contato"
+            />
          </Container>
       </div>
    );
