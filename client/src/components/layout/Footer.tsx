@@ -56,7 +56,7 @@ const Footer = () => {
             </div>
             {/* Políticas */}
             <div className="flex justify-center flex-wrap md:flex-nowrap gap-7 md:gap-15 font-heading my-10 *:underline lg:*:no-underline">
-               <Link href="#">Aviso Legal</Link>
+               <Link href="/aviso_legal">Aviso Legal</Link>
                <Link href="/politica_de_cookies">Política de Cookies</Link>
                <Link href="/politica_de_privacidade">Políticas de Privacidade</Link>
                <Link href="/termos_de_uso">Termos de Uso</Link>
