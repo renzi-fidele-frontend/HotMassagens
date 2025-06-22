@@ -59,7 +59,7 @@ const Footer = () => {
                <Link href="#">Aviso Legal</Link>
                <Link href="/politica_de_cookies">Política de Cookies</Link>
                <Link href="/politica_de_privacidade">Políticas de Privacidade</Link>
-               <Link href="">Termos de Uso</Link>
+               <Link href="/termos_de_uso">Termos de Uso</Link>
             </div>
             <div className="text-center">
                <p>2024 Hot Massages © Todos os direitos reservados</p>
