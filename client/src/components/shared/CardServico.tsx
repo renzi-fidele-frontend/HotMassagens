@@ -6,7 +6,7 @@ import { Info } from "lucide-react";
 // TODO: Arranjar um jeito de demostrar a descrição da massagem
 const CardServico = ({ servico }: { servico: Iterapeuta["servicos"][0] }) => {
    return (
-      <div className="flex flex-col items-center gap-8 py-10 px-6 rounded-xl bg-radial from-gray-900 to-black relative">
+      <div className="flex flex-col items-center gap-8 py-10 px-6 rounded-xl bg-radial from-gray-900 to-black relative w-full">
          <Image
             width={100}
             height={100}
@@ -33,7 +33,7 @@ const CardServico = ({ servico }: { servico: Iterapeuta["servicos"][0] }) => {
                   <Info className="hover:cursor-pointer" />
                </TooltipTrigger>
                <TooltipContent>
-                  <div className="max-w-lg">
+                  <div className="max-w-[240px] md:max-w-sm">
                      <p>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur minus voluptatum quas eos recusandae aspernatur
                         adipisci, distinctio, fugit optio, iste quam ipsam nesciunt praesentium dignissimos commodi atque repellat harum illo.
