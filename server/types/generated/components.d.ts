@@ -70,6 +70,7 @@ export interface SiteServico extends Struct.ComponentSchema {
     icon: 'dashboard';
   };
   attributes: {
+    descricao: Schema.Attribute.String;
     icone: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     nome: Schema.Attribute.String;
     precos: Schema.Attribute.Component<'site.preco', true>;

@@ -23,8 +23,11 @@
     },
     "precos": {
       "type": "component",
-      "repeatable": true,
-      "component": "site.preco"
+      "component": "site.preco",
+      "repeatable": true
+    },
+    "descricao": {
+      "type": "string"
     }
   }
 }

@@ -15,6 +15,7 @@ export interface Iterapeuta {
       icone: StrapiImage;
       nome: string;
       precos?: { duracao: string; preco: number }[];
+      descricao: string;
    }[];
    galeria: StrapiImage[];
    caracteristicas: {

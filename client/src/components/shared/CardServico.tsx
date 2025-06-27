@@ -34,10 +34,7 @@ const CardServico = ({ servico }: { servico: Iterapeuta["servicos"][0] }) => {
                </TooltipTrigger>
                <TooltipContent>
                   <div className="max-w-[240px] md:max-w-sm">
-                     <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur minus voluptatum quas eos recusandae aspernatur
-                        adipisci, distinctio, fugit optio, iste quam ipsam nesciunt praesentium dignissimos commodi atque repellat harum illo.
-                     </p>
+                     <p>{servico.descricao}</p>
                   </div>
                </TooltipContent>
             </Tooltip>
