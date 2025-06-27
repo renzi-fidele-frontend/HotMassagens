@@ -27,18 +27,20 @@ const CardServico = ({ servico }: { servico: Iterapeuta["servicos"][0] }) => {
             )}
          </div>
          {/* Tooltip */}
-         <div className="absolute right-4 top-4">
-            <Tooltip>
-               <TooltipTrigger>
-                  <Info className="hover:cursor-pointer" />
-               </TooltipTrigger>
-               <TooltipContent>
-                  <div className="max-w-[240px] md:max-w-sm">
-                     <p>{servico.descricao}</p>
-                  </div>
-               </TooltipContent>
-            </Tooltip>
-         </div>
+         {servico.descricao && (
+            <div className="absolute right-4 top-4">
+               <Tooltip>
+                  <TooltipTrigger>
+                     <Info className="hover:cursor-pointer" />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                     <div className="max-w-[240px] md:max-w-sm">
+                        <p>{servico?.descricao}</p>
+                     </div>
+                  </TooltipContent>
+               </Tooltip>
+            </div>
+         )}
       </div>
    );
 };
