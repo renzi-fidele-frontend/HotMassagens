@@ -10,10 +10,12 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { getHome, getTerapeutas } from "@/services/strapi";
 import { Suspense } from "react";
+import Markdown from "@/components/shared/Markdown";
 
 export default async function Home() {
    const { data: terapeutas } = await getTerapeutas();
    const { data: home } = await getHome();
+   console.log(home.data.sobre);
 
    return (
       <>
@@ -29,13 +31,7 @@ export default async function Home() {
                      <HeadingXl>Bem vindo...</HeadingXl>
                   </div>
                   <div className="mt-5 sm:mt-9 flex flex-col gap-2 sm:gap-3">
-                     <p>Aqui você encontra as melhores massagistas, terapeutas e SPA’s de topo no distrito de Lisboa.</p>
-                     <p>Excelência, segurança e discrição são nossos pilares base. Todas as terapeutas possuem identidade verificada.</p>
-                     <p>
-                        Seja em hotéis, gabinetes privados ou spas de luxo, as terapeutas proporcionarão momentos de pura indulgência e
-                        relaxamento, com massagens hots que são verdadeiras obras de arte.
-                     </p>
-                     <p>Encontre a terapeuta que gosta e sinta a experiência inigualável dos melhores serviços de bem-estar e prazer.</p>
+                     <Markdown separador="/" texto={home.data.sobre} />
                   </div>
                </div>
                {/* Destaque das terapeutas */}
