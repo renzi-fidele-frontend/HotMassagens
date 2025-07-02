@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "contatoes",
+  "info": {
+    "singularName": "contato",
+    "pluralName": "contatoes",
+    "displayName": "Contato"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "foto": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
