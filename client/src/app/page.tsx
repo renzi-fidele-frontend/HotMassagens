@@ -8,18 +8,19 @@ import { Accordion, AccordionTrigger, AccordionItem, AccordionContent } from "@/
 import Btn from "@/components/shared/Btn";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { getTerapeutas } from "@/services/strapi";
+import { getHome, getTerapeutas } from "@/services/strapi";
 import { Suspense } from "react";
 
 export default async function Home() {
    const { data: terapeutas } = await getTerapeutas();
+   const { data: home } = await getHome();
 
    return (
       <>
          <div className="bg-linear-to-b from-black to-gray-800 pb-15 lg:pb-20">
             {/* Banner Topo */}
             <div>
-               <Image width={1920} height={702} src="https://iili.io/3OksTZv.webp" alt="Banner do topo do site" />
+               <Image width={1920} height={702} src={home?.data?.BannerTopo[0].url} alt="Banner do topo do site" />
             </div>
             <Container>
                {/* Intro */}
@@ -48,9 +49,7 @@ export default async function Home() {
                      }
                   >
                      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-4 lg:gap-10">
-                        {terapeutas?.map((v, k) => (
-                           <CardTerapeuta terapeuta={v} key={k} />
-                        ))}
+                        {terapeutas?.map((v, k) => <CardTerapeuta terapeuta={v} key={k} />)}
                      </div>
                   </Suspense>
                   <Link className="w-fit block mx-auto mt-10" href="#">

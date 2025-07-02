@@ -32,7 +32,13 @@ export async function getTerapeuta(id: string) {
    return { data: data.data as Iterapeuta };
 }
 
+export async function getHome() {
+   const query = qs.stringify({ populate: ["BannerTopo"] }, { encodeValuesOnly: true });
+   const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/home?${query}`, { cache: "no-store" });
+   const data = await res.json();
+   return { data };
+}
+
 export function processarFoto(path: string) {
-   console.log(path);
    return process.env.NEXT_PUBLIC_STRAPI_URL + path;
 }
