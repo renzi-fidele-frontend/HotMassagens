@@ -39,6 +39,13 @@ export async function getHome() {
    return { data };
 }
 
+export async function getContato() {
+   const query = qs.stringify({ populate: ["foto"] }, { encodeValuesOnly: true });
+   const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/contato?${query}`, { cache: "no-store" });
+   const data = await res.json();
+   return { data };
+}
+
 export function processarFoto(path: string) {
    return process.env.NEXT_PUBLIC_STRAPI_URL + path;
 }
