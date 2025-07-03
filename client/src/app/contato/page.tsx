@@ -5,7 +5,7 @@ import { getContato } from "@/services/strapi";
 import ContactForm from "../../components/shared/ContactForm";
 
 export default async function Contato() {
-   const { data: contato } = getContato();
+   const { data: contato } = await getContato();
 
    return (
       <div className="bg-linear-to-t from-gray-950 to-gray-800">
@@ -23,20 +23,14 @@ export default async function Contato() {
                      className="rounded lg:hidden mt-6 w-[80%] sm:w-auto"
                      width={520}
                      height={580}
-                     src="https://iili.io/FoscuUl.jpg"
+                     src={contato?.data?.foto?.url}
                      alt="Foto de contato"
                   />
                </div>
                <ContactForm />
             </div>
             {/* Foto Desktop */}
-            <Image
-               className="rounded border-4 hidden lg:block"
-               width={520}
-               height={580}
-               src="https://iili.io/FoscuUl.jpg"
-               alt="Foto de contato"
-            />
+            <Image className="rounded border-4 hidden lg:block" width={520} height={580} src={contato?.data?.foto?.url} alt="Foto de contato" />
          </Container>
       </div>
    );
