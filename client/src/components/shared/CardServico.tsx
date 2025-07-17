@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { Info } from "lucide-react";
 
-// TODO: Arranjar um jeito de demostrar a descrição da massagem
 const CardServico = ({ servico }: { servico: Iterapeuta["servicos"][0] }) => {
    return (
       <div className="flex flex-col items-center gap-8 py-10 px-6 rounded-xl bg-radial from-gray-900 to-black relative w-full">
@@ -26,9 +25,9 @@ const CardServico = ({ servico }: { servico: Iterapeuta["servicos"][0] }) => {
                <p>Valor à Combinar.</p>
             )}
          </div>
-         {/* Tooltip */}
+         {/* Tooltip do desktop */}
          {servico.descricao && (
-            <div className="absolute right-4 top-4">
+            <div className="absolute right-4 top-4 hidden lg:block">
                <Tooltip>
                   <TooltipTrigger>
                      <Info className="hover:cursor-pointer" />
@@ -41,6 +40,7 @@ const CardServico = ({ servico }: { servico: Iterapeuta["servicos"][0] }) => {
                </Tooltip>
             </div>
          )}
+         {/*  */}
       </div>
    );
 };
