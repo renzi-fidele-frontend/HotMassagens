@@ -1,4 +1,5 @@
 import Container from "@/components/layout/Container";
+import FiltragemTerapeutas from "@/components/shared/FiltragemTerapeutas";
 import { HeadingXl } from "@/components/shared/Typography";
 import { Input } from "@/components/ui/input";
 import { Search, Venus } from "lucide-react";
@@ -25,12 +26,10 @@ export default function Terapeutas() {
             </div>
             {/* Corpo */}
             <main className="flex gap-8">
-                <div className="basis-[25%]">
-                    <div>
-                        
-                    </div>
-                </div>
-                <div></div>
+               <div className="basis-[25%]">
+                  <FiltragemTerapeutas />
+               </div>
+               <div></div>
             </main>
          </Container>
       </div>
