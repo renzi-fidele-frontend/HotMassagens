@@ -60,7 +60,12 @@ const FiltragemTerapeutas = () => {
    return (
       <section className="space-y-4">
          {/* Filtragem da localização */}
-         <SecaoCollapsivel titulo="Localização" filtros={toggleFiltros} onOpenChange={() => toggleSection("localizacao")}>
+         <SecaoCollapsivel
+            mostrar={toggleFiltros.localizacao}
+            titulo="Localização"
+            filtros={toggleFiltros}
+            onOpenChange={() => toggleSection("localizacao")}
+         >
             <ScrollArea className="h-[200px]">
                <div className="space-y-2.5">
                   {cidadesEmPortugal.map((v, k) => (
@@ -74,7 +79,7 @@ const FiltragemTerapeutas = () => {
          </SecaoCollapsivel>
 
          {/* Filtragem da idade */}
-         <SecaoCollapsivel titulo="Idade" filtros={toggleFiltros} onOpenChange={() => toggleSection("idade")}>
+         <SecaoCollapsivel titulo="Idade" mostrar={toggleFiltros.idade} filtros={toggleFiltros} onOpenChange={() => toggleSection("idade")}>
             <div className="flex items-center justify-between mb-3">
                <span>{filtros.idade[0]} anos</span>
                <span>50 anos</span>
