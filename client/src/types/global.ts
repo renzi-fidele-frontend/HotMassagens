@@ -64,6 +64,8 @@ export interface IEmailTemplate {
 export interface IFiltros {
    localizacao: string | null;
    idade: number[];
+   altura: number[];
+   peso: number[];
 }
 
 export interface IToggleFiltros {

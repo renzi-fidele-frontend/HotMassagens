@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible";
-import { ChevronDown, ChevronUp } from "lucide-react";
 import { ScrollArea } from "../ui/scroll-area";
 import { Label } from "../ui/label";
 import { Checkbox } from "../ui/checkbox";
@@ -46,6 +44,8 @@ const FiltragemTerapeutas = () => {
    const [filtros, setFiltros] = useState<IFiltros>({
       localizacao: null,
       idade: [18, 50],
+      altura: [150, 190],
+      peso: [45, 100],
    });
 
    //    Ativa e desativa o collapsivel dos cards de filtragem
@@ -60,13 +60,8 @@ const FiltragemTerapeutas = () => {
    return (
       <section className="space-y-4">
          {/* Filtragem da localização */}
-         <SecaoCollapsivel
-            mostrar={toggleFiltros.localizacao}
-            titulo="Localização"
-            filtros={toggleFiltros}
-            onOpenChange={() => toggleSection("localizacao")}
-         >
-            <ScrollArea className="h-[200px]">
+         <SecaoCollapsivel mostrar={toggleFiltros.localizacao} titulo="Localização" onOpenChange={() => toggleSection("localizacao")}>
+            <ScrollArea className="h-[150px]">
                <div className="space-y-2.5">
                   {cidadesEmPortugal.map((v, k) => (
                      <div key={k} className="flex items-center gap-2">
@@ -79,8 +74,8 @@ const FiltragemTerapeutas = () => {
          </SecaoCollapsivel>
 
          {/* Filtragem da idade */}
-         <SecaoCollapsivel titulo="Idade" mostrar={toggleFiltros.idade} filtros={toggleFiltros} onOpenChange={() => toggleSection("idade")}>
-            <div className="flex items-center justify-between mb-3">
+         <SecaoCollapsivel titulo="Idade" mostrar={toggleFiltros.idade} onOpenChange={() => toggleSection("idade")}>
+            <div className="flex items-center justify-between mb-3 text-zinc-400">
                <span>{filtros.idade[0]} anos</span>
                <span>50 anos</span>
             </div>
@@ -88,6 +83,60 @@ const FiltragemTerapeutas = () => {
          </SecaoCollapsivel>
 
          {/* Filtragem das características físicas */}
+         <SecaoCollapsivel
+            mostrar={toggleFiltros.caracteristicasFisicas}
+            onOpenChange={() => toggleSection("caracteristicasFisicas")}
+            titulo="Características Físicas"
+         >
+            <div className="space-y-6 *:space-y-2">
+               {/* Cor dos olhos */}
+               <div>
+                  <p className="font-semibold">Cor dos olhos</p>
+                  <div className="grid grid-cols-2 gap-2">
+                     {coresDeOlho.map((v, k) => (
+                        <div key={k} className="flex items-center gap-2">
+                           <Checkbox className="border-yellow-200" />
+                           <Label>{v}</Label>
+                        </div>
+                     ))}
+                  </div>
+               </div>
+               {/* Altura */}
+               <div>
+                  <p className="font-semibold">Altura</p>
+                  <div>
+                     <div className="flex items-center justify-between mb-3 text-zinc-400">
+                        <span>{filtros.altura[0]} cm</span>
+                        <span>190 cm</span>
+                     </div>
+                     <Slider min={150} max={190} onValueChange={(value) => atualizarFiltros("altura", value)} />
+                  </div>
+               </div>
+               {/* Peso */}
+               <div>
+                  <p className="font-semibold">Peso</p>
+                  <div>
+                     <div className="flex items-center justify-between mb-3 text-zinc-400">
+                        <span>{filtros.peso[0]} kg</span>
+                        <span>100 kg</span>
+                     </div>
+                     <Slider min={150} max={190} onValueChange={(value) => atualizarFiltros("peso", value)} />
+                  </div>
+               </div>
+               {/* Cor do cabelo */}
+               <div>
+                  <p className="font-semibold">Cor do cabelo</p>
+                  <div className="grid grid-cols-2 gap-2">
+                     {coresDeCabelo.map((v, k) => (
+                        <div key={k} className="flex items-center gap-2">
+                           <Checkbox className="border-yellow-200" />
+                           <Label>{v}</Label>
+                        </div>
+                     ))}
+                  </div>
+               </div>
+            </div>
+         </SecaoCollapsivel>
       </section>
    );
 };

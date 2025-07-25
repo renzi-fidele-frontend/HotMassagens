@@ -1,17 +1,15 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/collapsible";
 import { ReactNode } from "react";
-import { IToggleFiltros } from "@/types/global";
 
 interface ISecaoCollapsivel {
    titulo: string;
    onOpenChange: () => void;
-   filtros: IToggleFiltros;
    children: ReactNode;
    mostrar: boolean;
 }
 
-const SecaoCollapsivel = ({ titulo, onOpenChange, filtros, children, mostrar }: ISecaoCollapsivel) => {
+const SecaoCollapsivel = ({ titulo, onOpenChange, children, mostrar }: ISecaoCollapsivel) => {
    return (
       <Collapsible open={mostrar} onOpenChange={onOpenChange}>
          <div className="border border-zinc-500 rounded-xl">
