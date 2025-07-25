@@ -38,8 +38,8 @@ const FiltragemTerapeutas = () => {
    const [toggleFiltros, setToggleFiltros] = useState<IToggleFiltros>({
       localizacao: true,
       idade: true,
-      caracteristicasFisicas: true,
-      caracteristicasPessoais: true,
+      caracteristicasFisicas: false,
+      caracteristicasPessoais: false,
    });
    const [filtros, setFiltros] = useState<IFiltros>({
       localizacao: null,
@@ -133,6 +133,66 @@ const FiltragemTerapeutas = () => {
                            <Label>{v}</Label>
                         </div>
                      ))}
+                  </div>
+               </div>
+            </div>
+         </SecaoCollapsivel>
+
+         {/* Filtragem das características Pessoais */}
+         <SecaoCollapsivel
+            titulo="Características Pessoais"
+            mostrar={toggleFiltros.caracteristicasPessoais}
+            onOpenChange={() => toggleSection("caracteristicasPessoais")}
+         >
+            <div className="space-y-6 *:space-y-2">
+               <div>
+                  <p className="font-semibold">Nacionalidade</p>
+                  <div className="flex flex-col gap-3">
+                     {nacionalidades.map((v, k) => (
+                        <div className="flex items-center gap-2" key={k}>
+                           <Checkbox className="border-yellow-200" />
+                           <Label>{v}</Label>
+                        </div>
+                     ))}
+                  </div>
+               </div>
+               <div>
+                  <p className="font-semibold">Usa Piercings?</p>
+                  <div className="flex items-center gap-6">
+                     <div className="flex items-center gap-2">
+                        <Checkbox className="border-yellow-200" />
+                        <Label>Sim</Label>
+                     </div>
+                     <div className="flex items-center gap-2">
+                        <Checkbox className="border-yellow-200" />
+                        <Label>Não</Label>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <p className="font-semibold">Tem tatuagens?</p>
+                  <div className="flex items-center gap-6">
+                     <div className="flex items-center gap-2">
+                        <Checkbox className="border-yellow-200" />
+                        <Label>Sim</Label>
+                     </div>
+                     <div className="flex items-center gap-2">
+                        <Checkbox className="border-yellow-200" />
+                        <Label>Não</Label>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <p className="font-semibold">Fumante?</p>
+                  <div className="flex items-center gap-6">
+                     <div className="flex items-center gap-2">
+                        <Checkbox className="border-yellow-200" />
+                        <Label>Sim</Label>
+                     </div>
+                     <div className="flex items-center gap-2">
+                        <Checkbox className="border-yellow-200" />
+                        <Label>Não</Label>
+                     </div>
                   </div>
                </div>
             </div>
