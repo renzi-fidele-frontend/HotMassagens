@@ -60,3 +60,15 @@ export interface IEmailTemplate {
    telefone: string;
    mensagem: string;
 }
+
+export interface IFiltros {
+   localizacao: string | null;
+   idade: number[];
+}
+
+export interface IToggleFiltros {
+   localizacao: boolean;
+   idade: boolean;
+   caracteristicasFisicas: boolean;
+   caracteristicasPessoais: boolean;
+}

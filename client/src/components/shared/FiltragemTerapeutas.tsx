@@ -7,6 +7,8 @@ import { ScrollArea } from "../ui/scroll-area";
 import { Label } from "../ui/label";
 import { Checkbox } from "../ui/checkbox";
 import { Slider } from "../ui/slider";
+import { IFiltros, IToggleFiltros } from "@/types/global";
+import SecaoCollapsivel from "./SecaoCollapsivel";
 
 const cidadesEmPortugal = [
    "Lisboa",
@@ -35,13 +37,13 @@ const coresDeCabelo = ["Preto", "Castanho", "Loiro", "Ruivo", "Grisalho"];
 const nacionalidades = ["Portuguesa", "Brasileira", "Espanhola"];
 
 const FiltragemTerapeutas = () => {
-   const [toggleFiltros, setToggleFiltros] = useState({
+   const [toggleFiltros, setToggleFiltros] = useState<IToggleFiltros>({
       localizacao: true,
       idade: true,
       caracteristicasFisicas: true,
       caracteristicasPessoais: true,
    });
-   const [filtros, setFiltros] = useState({
+   const [filtros, setFiltros] = useState<IFiltros>({
       localizacao: null,
       idade: [18, 50],
    });
@@ -58,58 +60,29 @@ const FiltragemTerapeutas = () => {
    return (
       <section className="space-y-4">
          {/* Filtragem da localização */}
-         <Collapsible open={toggleFiltros.localizacao} onOpenChange={() => toggleSection("localizacao")}>
-            <div className="border border-zinc-500 rounded-xl">
-               {/* Head */}
-               <CollapsibleTrigger asChild>
-                  <div className="flex items-center justify-between p-6 pb-4 hover:bg-gray-900 rounded-[inherit] hover:cursor-pointer">
-                     <h6 className="text-lg font-bold">Localização</h6>
-                     {toggleFiltros.localizacao ? <ChevronUp /> : <ChevronDown />}
-                  </div>
-               </CollapsibleTrigger>
-               {/* Body */}
-               <CollapsibleContent>
-                  <ScrollArea className="px-6 pb-6 h-[200px]">
-                     <div className="space-y-2.5">
-                        {cidadesEmPortugal.map((v, k) => (
-                           <div key={k} className="flex items-center gap-2">
-                              <Checkbox className="border-yellow-200" />
-                              <Label>{v}</Label>
-                           </div>
-                        ))}
+         <SecaoCollapsivel titulo="Localização" filtros={toggleFiltros} onOpenChange={() => toggleSection("localizacao")}>
+            <ScrollArea className="h-[200px]">
+               <div className="space-y-2.5">
+                  {cidadesEmPortugal.map((v, k) => (
+                     <div key={k} className="flex items-center gap-2">
+                        <Checkbox className="border-yellow-200" />
+                        <Label>{v}</Label>
                      </div>
-                  </ScrollArea>
-               </CollapsibleContent>
-            </div>
-         </Collapsible>
+                  ))}
+               </div>
+            </ScrollArea>
+         </SecaoCollapsivel>
 
          {/* Filtragem da idade */}
-         <Collapsible open={toggleFiltros.idade} onOpenChange={() => toggleSection("idade")}>
-            <div className="border border-zinc-500 rounded-xl">
-               {/* Head */}
-               <CollapsibleTrigger asChild>
-                  <div className="flex items-center justify-between p-6 pb-4 hover:bg-gray-900 rounded-[inherit] hover:cursor-pointer">
-                     <h6 className="text-lg font-bold">Idade</h6>
-                     {toggleFiltros.idade ? <ChevronUp /> : <ChevronDown />}
-                  </div>
-               </CollapsibleTrigger>
-               {/* Body */}
-               <CollapsibleContent className="px-6 pb-6">
-                  <div className="flex items-center justify-between mb-3">
-                     <span>{filtros.idade[0]} anos</span>
-                     <span>50 anos</span>
-                  </div>
-                  <Slider
-                     min={18}
-                     max={50}
-                     onValueChange={(value) => {
-                        atualizarFiltros("idade", value);
-                        console.log(value);
-                     }}
-                  />
-               </CollapsibleContent>
+         <SecaoCollapsivel titulo="Idade" filtros={toggleFiltros} onOpenChange={() => toggleSection("idade")}>
+            <div className="flex items-center justify-between mb-3">
+               <span>{filtros.idade[0]} anos</span>
+               <span>50 anos</span>
             </div>
-         </Collapsible>
+            <Slider min={18} max={50} onValueChange={(value) => atualizarFiltros("idade", value)} />
+         </SecaoCollapsivel>
+
+         {/* Filtragem das características físicas */}
       </section>
    );
 };
