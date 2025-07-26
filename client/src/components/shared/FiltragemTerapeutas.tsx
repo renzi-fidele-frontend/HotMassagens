@@ -58,7 +58,7 @@ const FiltragemTerapeutas = () => {
    }
 
    return (
-      <section className="space-y-4">
+      <section className="space-y-4 sticky top-[20px]">
          {/* Filtragem da localização */}
          <SecaoCollapsivel mostrar={toggleFiltros.localizacao} titulo="Localização" onOpenChange={() => toggleSection("localizacao")}>
             <ScrollArea className="h-[150px]">

@@ -1,10 +1,15 @@
 import Container from "@/components/layout/Container";
+import CardTerapeuta from "@/components/shared/CardTerapeuta";
 import FiltragemTerapeutas from "@/components/shared/FiltragemTerapeutas";
 import { HeadingXl } from "@/components/shared/Typography";
 import { Input } from "@/components/ui/input";
+import { getTerapeutas } from "@/services/strapi";
 import { Search, Venus } from "lucide-react";
 
-export default function Terapeutas() {
+export default async function Terapeutas() {
+   const { data: terapeutas } = await getTerapeutas();
+   // TODO: Adicionar a funcionalidade de paginação
+
    return (
       <div className="bg-linear-to-b from-black to-gray-800 pb-15 lg:pb-20 text-white">
          <Container>
@@ -29,7 +34,14 @@ export default function Terapeutas() {
                <div className="basis-[25%]">
                   <FiltragemTerapeutas />
                </div>
-               <div></div>
+               <div className="basis-[75%]">
+                  <div className="grid grid-cols-3 gap-7">
+                     {terapeutas.map((v, k) => (
+
+                        <CardTerapeuta terapeuta={v} key={k} />
+                     ))}
+                  </div>
+               </div>
             </main>
          </Container>
       </div>
