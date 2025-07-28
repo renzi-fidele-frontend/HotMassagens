@@ -5,6 +5,7 @@ import FiltragemTerapeutas from "@/components/shared/FiltragemTerapeutas";
 import { HeadingXl } from "@/components/shared/Typography";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { getTerapeutas } from "@/services/strapi";
 import { ListFilter, Search, Venus } from "lucide-react";
 
@@ -40,9 +41,9 @@ export default async function Terapeutas() {
                      </Btn>
                   </DrawerTrigger>
                   <DrawerContent className="bg-black pb-5 px-5">
-                     <div className="mt-5">
+                     <ScrollArea className="mt-5 h-[65dvh]">
                         <FiltragemTerapeutas />
-                     </div>
+                     </ScrollArea>
                   </DrawerContent>
                </Drawer>
             </div>
