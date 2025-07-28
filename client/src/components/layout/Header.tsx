@@ -14,7 +14,7 @@ interface ILink {
 const links: ILink[] = [
    { href: "/", name: "Início" },
    { href: "/#sobre", name: "Sobre nós" },
-   { href: "/#terapeutas", name: "Terapeutas" },
+   { href: "/terapeutas", name: "Terapeutas" },
    { href: "/contato", name: "Contato" },
 ];
 
@@ -47,7 +47,7 @@ const Header = () => {
                   {/* NavMobile */}
                   <Drawer direction="top">
                      <DrawerTrigger asChild className="hover:cursor-pointer">
-                        <Menu  className="me-[-4px] size-10 sm:size-12" />
+                        <Menu className="me-[-4px] size-10 sm:size-12" />
                      </DrawerTrigger>
                      <DrawerContent className="bg-black text-center py-7">
                         <DrawerHeader>

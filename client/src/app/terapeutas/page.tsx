@@ -1,10 +1,11 @@
 import Container from "@/components/layout/Container";
+import Btn from "@/components/shared/Btn";
 import CardTerapeuta from "@/components/shared/CardTerapeuta";
 import FiltragemTerapeutas from "@/components/shared/FiltragemTerapeutas";
 import { HeadingXl } from "@/components/shared/Typography";
 import { Input } from "@/components/ui/input";
 import { getTerapeutas } from "@/services/strapi";
-import { Search, Venus } from "lucide-react";
+import { ListFilter, Search, Venus } from "lucide-react";
 
 export default async function Terapeutas() {
    const { data: terapeutas } = await getTerapeutas();
@@ -14,7 +15,7 @@ export default async function Terapeutas() {
       <div className="bg-linear-to-b from-black to-gray-800 pb-15 lg:pb-20 text-white">
          <Container>
             {/* Heading */}
-            <div className="flex items-end gap-6 pt-8 pb-5">
+            <div className="flex flex-wrap sm:flex-nowrap items-end gap-3 sm:gap-6 pt-5 sm:pt-8 pb-5">
                <HeadingXl>Nossas terapeutas</HeadingXl>
                <div className="flex border rounded-4xl border-zinc-600 py-2 px-7 gap-2.5 font-semibold">
                   <Venus /> 8 Disponíveis
@@ -25,20 +26,26 @@ export default async function Terapeutas() {
                <hr className="bg-gradiente py-1 border-0" />
             </div>
             {/* Pesquisa */}
-            <div className="relative flex items-center mt-10 mb-9 ">
-               <Input placeholder="Buscar por nome..." className="ps-13 placeholder:text-lg py-6 border-zinc-500" />
+            <div className="relative flex items-center mt-10 mb-9 gap-2 sm:gap-5">
+               <Input placeholder="Buscar por nome..." className="ps-13 sm:placeholder:text-lg py-5 md:py-6 border-zinc-500" />
                <Search className="absolute start-4 text-zinc-400" />
+               <Btn className="whitespace-nowrap md:hidden">
+                  <span className="hidden sm:block">Mostrar filtros</span>
+                  {/* TODO: Adicionar offcanvas da filtragem para mobile */}
+                  <span className="sm:hidden">
+                     <ListFilter />
+                  </span>
+               </Btn>
             </div>
             {/* Corpo */}
             <main className="flex gap-8">
-               <div className="basis-[25%]">
+               <div className="hidden md:block md:basis-[30%] xl:basis-[25%]">
                   <FiltragemTerapeutas />
                </div>
-               <div className="basis-[75%]">
-                  <div className="grid grid-cols-3 gap-7">
+               <div className="md:basis-[70%] xl:basis-[75%]">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-7">
                      {terapeutas.map((v, k) => (
-
-                        <CardTerapeuta terapeuta={v} key={k} />
+                        <CardTerapeuta modoFiltragem={true} terapeuta={v} key={k} />
                      ))}
                   </div>
                </div>

@@ -15,7 +15,6 @@ import Markdown from "@/components/shared/Markdown";
 export default async function Home() {
    const { data: terapeutas } = await getTerapeutas();
    const { data: home } = await getHome();
-   console.log(home.data.sobre);
 
    return (
       <>
@@ -48,7 +47,7 @@ export default async function Home() {
                         {terapeutas?.map((v, k) => <CardTerapeuta terapeuta={v} key={k} />)}
                      </div>
                   </Suspense>
-                  <Link className="w-fit block mx-auto mt-10" href="#">
+                  <Link className="w-fit block mx-auto mt-12" href="/terapeutas">
                      <Btn>
                         Ver todas terapeutas <ArrowRight />
                      </Btn>

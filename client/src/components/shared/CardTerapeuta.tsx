@@ -3,14 +3,14 @@ import { HeadingSm } from "./Typography";
 import { Iterapeuta } from "@/types/global";
 import Link from "next/link";
 
-const CardTerapeuta = ({ terapeuta }: { terapeuta: Iterapeuta }) => {
+const CardTerapeuta = ({ terapeuta, modoFiltragem = false }: { terapeuta: Iterapeuta; modoFiltragem?: boolean }) => {
    return (
       <div className="h-fit transition bg-gray-800 lg:hover:scale-105 rounded-xl">
          <Link href={`/terapeutas/${terapeuta?.documentId}`}>
             <Image
                width={325}
                height={500}
-               className="w-full object-cover sm:h-[480]"
+               className={`w-full object-cover ${!modoFiltragem ? "sm:h-[480]" : "h-[370] sm:h-[400]"}`}
                src={String(terapeuta?.foto?.formats?.large?.url)}
                alt={`Foto da terapeuta: ${terapeuta.nome}`}
             />
