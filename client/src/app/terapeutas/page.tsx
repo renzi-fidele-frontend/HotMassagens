@@ -3,6 +3,7 @@ import Btn from "@/components/shared/Btn";
 import CardTerapeuta from "@/components/shared/CardTerapeuta";
 import FiltragemTerapeutas from "@/components/shared/FiltragemTerapeutas";
 import { HeadingXl } from "@/components/shared/Typography";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 import { getTerapeutas } from "@/services/strapi";
 import { ListFilter, Search, Venus } from "lucide-react";
@@ -29,13 +30,21 @@ export default async function Terapeutas() {
             <div className="relative flex items-center mt-10 mb-9 gap-2 sm:gap-5">
                <Input placeholder="Buscar por nome..." className="ps-13 sm:placeholder:text-lg py-5 md:py-6 border-zinc-500" />
                <Search className="absolute start-4 text-zinc-400" />
-               <Btn className="whitespace-nowrap md:hidden">
-                  <span className="hidden sm:block">Mostrar filtros</span>
-                  {/* TODO: Adicionar offcanvas da filtragem para mobile */}
-                  <span className="sm:hidden">
-                     <ListFilter />
-                  </span>
-               </Btn>
+               <Drawer>
+                  <DrawerTrigger asChild>
+                     <Btn className="whitespace-nowrap md:hidden">
+                        <span className="hidden sm:block">Mostrar filtros</span>
+                        <span className="sm:hidden">
+                           <ListFilter />
+                        </span>
+                     </Btn>
+                  </DrawerTrigger>
+                  <DrawerContent className="bg-black pb-5 px-5">
+                     <div className="mt-5">
+                        <FiltragemTerapeutas />
+                     </div>
+                  </DrawerContent>
+               </Drawer>
             </div>
             {/* Corpo */}
             <main className="flex gap-8">
