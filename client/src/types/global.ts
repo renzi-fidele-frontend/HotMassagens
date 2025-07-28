@@ -62,10 +62,16 @@ export interface IEmailTemplate {
 }
 
 export interface IFiltros {
-   localizacao: string | null;
+   localizacao: string[];
    idade: number[];
    altura: number[];
    peso: number[];
+   corDosOlhos: string[];
+   corDoCabelo: string[];
+   nacionalidade: string[];
+   usaPiercings?: boolean;
+   temTatuagens?: boolean;
+   fumante?: boolean;
 }
 
 export interface IToggleFiltros {

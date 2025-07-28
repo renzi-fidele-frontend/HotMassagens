@@ -7,6 +7,7 @@ import { Checkbox } from "../ui/checkbox";
 import { Slider } from "../ui/slider";
 import { IFiltros, IToggleFiltros } from "@/types/global";
 import SecaoCollapsivel from "./SecaoCollapsivel";
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 
 const cidadesEmPortugal = [
    "Lisboa",
@@ -42,10 +43,16 @@ const FiltragemTerapeutas = () => {
       caracteristicasPessoais: false,
    });
    const [filtros, setFiltros] = useState<IFiltros>({
-      localizacao: null,
+      localizacao: [],
       idade: [18, 50],
+      corDosOlhos: [],
       altura: [150, 190],
       peso: [45, 100],
+      corDoCabelo: [],
+      nacionalidade: [],
+      fumante: undefined,
+      temTatuagens: undefined,
+      usaPiercings: undefined,
    });
 
    //    Ativa e desativa o collapsivel dos cards de filtragem
@@ -57,6 +64,13 @@ const FiltragemTerapeutas = () => {
       setFiltros({ ...filtros, [key]: value });
    }
 
+   /** Adiciona ou remove items selecionados ao array de filtragem */
+   function atualizarArrayDeFiltros(key: keyof typeof filtros, value: string | number) {
+      const arrayAtual = filtros[key] as (number | string)[];
+      const novoArray = arrayAtual.includes(value) ? arrayAtual.filter((v) => v !== value) : [...arrayAtual, value];
+      atualizarFiltros(key, novoArray);
+   }
+
    return (
       <section className="space-y-4 sticky top-[20px]">
          {/* Filtragem da localização */}
@@ -65,8 +79,15 @@ const FiltragemTerapeutas = () => {
                <div className="space-y-2.5">
                   {cidadesEmPortugal.map((v, k) => (
                      <div key={k} className="flex items-center gap-2">
-                        <Checkbox className="border-yellow-200" />
-                        <Label>{v}</Label>
+                        <Checkbox
+                           checked={filtros.localizacao?.includes(v)}
+                           onCheckedChange={() => {
+                              atualizarArrayDeFiltros("localizacao", v);
+                           }}
+                           id={`local-${v}`}
+                           className="border-yellow-200"
+                        />
+                        <Label htmlFor={`local-${v}`}>{v}</Label>
                      </div>
                   ))}
                </div>
@@ -95,8 +116,12 @@ const FiltragemTerapeutas = () => {
                   <div className="grid grid-cols-2 gap-2">
                      {coresDeOlho.map((v, k) => (
                         <div key={k} className="flex items-center gap-2">
-                           <Checkbox className="border-yellow-200" />
-                           <Label>{v}</Label>
+                           <Checkbox
+                              id={`olho-${v}`}
+                              className="border-yellow-200"
+                              onCheckedChange={() => atualizarArrayDeFiltros("corDosOlhos", v)}
+                           />
+                           <Label htmlFor={`olho-${v}`}>{v}</Label>
                         </div>
                      ))}
                   </div>
@@ -129,8 +154,12 @@ const FiltragemTerapeutas = () => {
                   <div className="grid grid-cols-2 gap-2">
                      {coresDeCabelo.map((v, k) => (
                         <div key={k} className="flex items-center gap-2">
-                           <Checkbox className="border-yellow-200" />
-                           <Label>{v}</Label>
+                           <Checkbox
+                              id={`cabelo-${v}`}
+                              className="border-yellow-200"
+                              onCheckedChange={() => atualizarArrayDeFiltros("corDoCabelo", v)}
+                           />
+                           <Label htmlFor={`cabelo-${v}`}>{v}</Label>
                         </div>
                      ))}
                   </div>
@@ -145,55 +174,64 @@ const FiltragemTerapeutas = () => {
             onOpenChange={() => toggleSection("caracteristicasPessoais")}
          >
             <div className="space-y-6 *:space-y-2">
+               {/* Nacionalidade */}
                <div>
                   <p className="font-semibold">Nacionalidade</p>
                   <div className="flex flex-col gap-3">
                      {nacionalidades.map((v, k) => (
                         <div className="flex items-center gap-2" key={k}>
-                           <Checkbox className="border-yellow-200" />
-                           <Label>{v}</Label>
+                           <Checkbox
+                              checked={filtros.nacionalidade.includes(v)}
+                              onCheckedChange={() => atualizarArrayDeFiltros("nacionalidade", v)}
+                              id={`nacionalidade-${v}`}
+                              className="border-yellow-200"
+                           />
+                           <Label htmlFor={`nacionalidade-${v}`}>{v}</Label>
                         </div>
                      ))}
                   </div>
                </div>
+               {/* Piercings */}
                <div>
                   <p className="font-semibold">Usa Piercings?</p>
-                  <div className="flex items-center gap-6">
+                  <RadioGroup onValueChange={(v) => atualizarFiltros("usaPiercings", v)} className="flex items-center gap-6">
                      <div className="flex items-center gap-2">
-                        <Checkbox className="border-yellow-200" />
-                        <Label>Sim</Label>
+                        <RadioGroupItem value="sim" id="usaPiercings" className="border-yellow-200" />
+                        <Label htmlFor="usaPiercings">Sim</Label>
                      </div>
                      <div className="flex items-center gap-2">
-                        <Checkbox className="border-yellow-200" />
-                        <Label>Não</Label>
+                        <RadioGroupItem value="não" id="naoUsaPiercings" className="border-yellow-200" />
+                        <Label htmlFor="naoUsaPiercings">Não</Label>
                      </div>
-                  </div>
+                  </RadioGroup>
                </div>
+               {/* Tatuagens */}
                <div>
                   <p className="font-semibold">Tem tatuagens?</p>
-                  <div className="flex items-center gap-6">
+                  <RadioGroup onValueChange={(v) => atualizarFiltros("temTatuagens", v)} className="flex items-center gap-6">
                      <div className="flex items-center gap-2">
-                        <Checkbox className="border-yellow-200" />
-                        <Label>Sim</Label>
+                        <RadioGroupItem value="sim" id="usaPiercings" className="border-yellow-200" />
+                        <Label htmlFor="usaPiercings">Sim</Label>
                      </div>
                      <div className="flex items-center gap-2">
-                        <Checkbox className="border-yellow-200" />
-                        <Label>Não</Label>
+                        <RadioGroupItem value="não" id="naoUsaPiercings" className="border-yellow-200" />
+                        <Label htmlFor="naoUsaPiercings">Não</Label>
                      </div>
-                  </div>
+                  </RadioGroup>
                </div>
+               {/* Fumante */}
                <div>
                   <p className="font-semibold">Fumante?</p>
-                  <div className="flex items-center gap-6">
+                  <RadioGroup onValueChange={(v) => atualizarFiltros("fumante", v)} className="flex items-center gap-6">
                      <div className="flex items-center gap-2">
-                        <Checkbox className="border-yellow-200" />
-                        <Label>Sim</Label>
+                        <RadioGroupItem value="sim" id="usaPiercings" className="border-yellow-200" />
+                        <Label htmlFor="usaPiercings">Sim</Label>
                      </div>
                      <div className="flex items-center gap-2">
-                        <Checkbox className="border-yellow-200" />
-                        <Label>Não</Label>
+                        <RadioGroupItem value="não" id="naoUsaPiercings" className="border-yellow-200" />
+                        <Label htmlFor="naoUsaPiercings">Não</Label>
                      </div>
-                  </div>
+                  </RadioGroup>
                </div>
             </div>
          </SecaoCollapsivel>
