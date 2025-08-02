@@ -11,6 +11,7 @@ import { ListFilter, Search, Venus } from "lucide-react";
 
 export default async function Terapeutas() {
    const { data: terapeutas } = await getTerapeutas();
+   console.log(terapeutas);
    // TODO: Adicionar a funcionalidade de paginação
 
    return (
@@ -20,7 +21,7 @@ export default async function Terapeutas() {
             <div className="flex flex-wrap sm:flex-nowrap items-end gap-3 sm:gap-6 pt-5 sm:pt-8 pb-5">
                <HeadingXl>Nossas terapeutas</HeadingXl>
                <div className="flex border rounded-4xl border-zinc-600 py-2 px-7 gap-2.5 font-semibold">
-                  <Venus /> 8 Disponíveis
+                  <Venus /> <span>{terapeutas.length}</span> Disponíveis
                </div>
             </div>
             {/* Separador */}

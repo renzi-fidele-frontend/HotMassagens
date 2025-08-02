@@ -210,12 +210,12 @@ const FiltragemTerapeutas = () => {
                   <p className="font-semibold">Tem tatuagens?</p>
                   <RadioGroup onValueChange={(v) => atualizarFiltros("temTatuagens", v)} className="flex items-center gap-6">
                      <div className="flex items-center gap-2">
-                        <RadioGroupItem value="sim" id="usaPiercings" className="border-yellow-200" />
-                        <Label htmlFor="usaPiercings">Sim</Label>
+                        <RadioGroupItem value="sim" id="comTatuagem" className="border-yellow-200" />
+                        <Label htmlFor="comTatuagem">Sim</Label>
                      </div>
                      <div className="flex items-center gap-2">
-                        <RadioGroupItem value="não" id="naoUsaPiercings" className="border-yellow-200" />
-                        <Label htmlFor="naoUsaPiercings">Não</Label>
+                        <RadioGroupItem value="não" id="semTatuagem" className="border-yellow-200" />
+                        <Label htmlFor="semTatuagem">Não</Label>
                      </div>
                   </RadioGroup>
                </div>
@@ -224,12 +224,12 @@ const FiltragemTerapeutas = () => {
                   <p className="font-semibold">Fumante?</p>
                   <RadioGroup onValueChange={(v) => atualizarFiltros("fumante", v)} className="flex items-center gap-6">
                      <div className="flex items-center gap-2">
-                        <RadioGroupItem value="sim" id="usaPiercings" className="border-yellow-200" />
-                        <Label htmlFor="usaPiercings">Sim</Label>
+                        <RadioGroupItem value="sim" id="fumante" className="border-yellow-200" />
+                        <Label htmlFor="fumante">Sim</Label>
                      </div>
                      <div className="flex items-center gap-2">
-                        <RadioGroupItem value="não" id="naoUsaPiercings" className="border-yellow-200" />
-                        <Label htmlFor="naoUsaPiercings">Não</Label>
+                        <RadioGroupItem value="não" id="naoFumante" className="border-yellow-200" />
+                        <Label htmlFor="naoFumante">Não</Label>
                      </div>
                   </RadioGroup>
                </div>
