@@ -5,9 +5,10 @@ import { ScrollArea } from "../ui/scroll-area";
 import { Label } from "../ui/label";
 import { Checkbox } from "../ui/checkbox";
 import { Slider } from "../ui/slider";
-import { IFiltros, IToggleFiltros } from "@/types/global";
+import { IToggleFiltros } from "@/types/global";
 import SecaoCollapsivel from "./SecaoCollapsivel";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { UseFiltrosValue } from "@/context/Provider";
 
 const cidadesEmPortugal = [
    "Lisboa",
@@ -42,18 +43,7 @@ const FiltragemTerapeutas = () => {
       caracteristicasFisicas: false,
       caracteristicasPessoais: false,
    });
-   const [filtros, setFiltros] = useState<IFiltros>({
-      localizacao: [],
-      idade: [18, 50],
-      corDosOlhos: [],
-      altura: [150, 190],
-      peso: [45, 100],
-      corDoCabelo: [],
-      nacionalidade: [],
-      fumante: undefined,
-      temTatuagens: undefined,
-      usaPiercings: undefined,
-   });
+   const { filtros, setFiltros } = UseFiltrosValue();
 
    //    Ativa e desativa o collapsivel dos cards de filtragem
    function toggleSection(section: keyof typeof toggleFiltros) {
@@ -80,10 +70,8 @@ const FiltragemTerapeutas = () => {
                   {cidadesEmPortugal.map((v, k) => (
                      <div key={k} className="flex items-center gap-2">
                         <Checkbox
-                           checked={filtros.localizacao?.includes(v)}
-                           onCheckedChange={() => {
-                              atualizarArrayDeFiltros("localizacao", v);
-                           }}
+                           checked={filtros?.localizacao?.includes(v)}
+                           onCheckedChange={() => atualizarArrayDeFiltros("localizacao", v)}
                            id={`local-${v}`}
                            className="border-yellow-200"
                         />

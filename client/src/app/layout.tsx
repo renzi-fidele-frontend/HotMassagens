@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import FiltrosProvider from "@/context/Provider";
 
 const bodyFont = Plus_Jakarta_Sans({
    variable: "--font-plus-jakarta",
@@ -34,9 +35,11 @@ export default function RootLayout({
    return (
       <html lang="pt-PT">
          <body className={`${headingFont.variable} ${bodyFont.variable} text-white antialiased font-body`}>
-            <Header />
-            <main>{children}</main>
-            <Footer />
+            <FiltrosProvider>
+               <Header />
+               <main>{children}</main>
+               <Footer />
+            </FiltrosProvider>
          </body>
       </html>
    );
