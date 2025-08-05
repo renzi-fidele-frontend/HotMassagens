@@ -450,6 +450,30 @@ export interface ApiTerapeutaTerapeuta extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     descricao: Schema.Attribute.String;
     disponivel: Schema.Attribute.Boolean;
+    distrito: Schema.Attribute.Enumeration<
+      [
+        'Lisboa',
+        'Porto',
+        'Aveiro',
+        'Faro',
+        'Set\u00FAbal',
+        'Braga',
+        'Beja',
+        'Bragan\u00E7a',
+        'Castelo Branco',
+        'Coimbra',
+        '\u00C9vora',
+        'Guarda',
+        'Leiria',
+        'Portalegre',
+        'Santar\u00E9m',
+        'Viana do Castelo',
+        'Vila Real',
+        'Viseu',
+        'Regi\u00E3o Aut\u00F3noma dos A\u00E7ores',
+        'Regi\u00E3o Aut\u00F3noma da Madeira',
+      ]
+    >;
     endereco_curto: Schema.Attribute.String;
     foto: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     galeria: Schema.Attribute.Media<

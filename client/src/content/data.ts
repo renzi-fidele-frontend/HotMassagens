@@ -29,3 +29,29 @@ export const faqs: IFaq[] = [
 ];
 
 export const destaques = ["Excelência no atendimento", "Terapeutas de Alta Classe", "Requinte", "Discrição", "Segurança"];
+
+export const cidadesEmPortugal = [
+   "Lisboa",
+   "Porto",
+   "Aveiro",
+   "Faro",
+   "Setúbal",
+   "Braga",
+   "Beja",
+   "Bragança",
+   "Castelo Branco",
+   "Coimbra",
+   "Évora",
+   "Guarda",
+   "Leiria",
+   "Portalegre",
+   "Santarém",
+   "Viana do Castelo",
+   "Vila Real",
+   "Viseu",
+   "Região Autónoma dos Açores",
+   "Região Autónoma da Madeira",
+];
+export const coresDeOlho = ["Castanhos", "Azuis", "Verdes", "Pretos", "Mel", "Cinzentos"];
+export const coresDeCabelo = ["Preto", "Castanho", "Loiro", "Ruivo", "Grisalho"];
+export const nacionalidades = ["Portuguesa", "Brasileira", "Espanhola"];

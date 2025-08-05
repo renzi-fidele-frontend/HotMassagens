@@ -10,6 +10,7 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {},
   "attributes": {
     "nome": {
       "type": "string"
@@ -45,8 +46,8 @@
     },
     "servicos": {
       "type": "component",
-      "repeatable": true,
-      "component": "site.servico"
+      "component": "site.servico",
+      "repeatable": true
     },
     "galeria": {
       "type": "media",
@@ -61,18 +62,43 @@
     },
     "caracteristicas": {
       "type": "component",
-      "repeatable": false,
-      "component": "site.caracteristicas"
+      "component": "site.caracteristicas",
+      "repeatable": false
     },
     "localDeAtendimento": {
       "type": "component",
-      "repeatable": false,
-      "component": "local.local-de-atendimento"
+      "component": "local.local-de-atendimento",
+      "repeatable": false
     },
     "personalidades": {
       "type": "component",
-      "repeatable": true,
-      "component": "site.personalidade"
+      "component": "site.personalidade",
+      "repeatable": true
+    },
+    "distrito": {
+      "type": "enumeration",
+      "enum": [
+        "Lisboa",
+        "Porto",
+        "Aveiro",
+        "Faro",
+        "Setúbal",
+        "Braga",
+        "Beja",
+        "Bragança",
+        "Castelo Branco",
+        "Coimbra",
+        "Évora",
+        "Guarda",
+        "Leiria",
+        "Portalegre",
+        "Santarém",
+        "Viana do Castelo",
+        "Vila Real",
+        "Viseu",
+        "Região Autónoma dos Açores",
+        "Região Autónoma da Madeira"
+      ]
     }
   }
 }

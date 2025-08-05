@@ -38,6 +38,7 @@ export interface Iterapeuta {
       fotos: StrapiImage[];
    };
    personalidades: { nome: string; id: number }[];
+   distrito: string;
    // Extra Strapi API
    documentId: string;
 }

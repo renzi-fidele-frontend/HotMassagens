@@ -9,32 +9,8 @@ import { IToggleFiltros } from "@/types/global";
 import SecaoCollapsivel from "./SecaoCollapsivel";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { UseFiltrosValue } from "@/context/Provider";
+import { cidadesEmPortugal, coresDeCabelo, coresDeOlho, nacionalidades } from "@/content/data";
 
-const cidadesEmPortugal = [
-   "Lisboa",
-   "Porto",
-   "Aveiro",
-   "Faro",
-   "Setúbal",
-   "Braga",
-   "Beja",
-   "Bragança",
-   "Castelo Branco",
-   "Coimbra",
-   "Évora",
-   "Guarda",
-   "Leiria",
-   "Portalegre",
-   "Santarém",
-   "Viana do Castelo",
-   "Vila Real",
-   "Viseu",
-   "Região Autónoma dos Açores",
-   "Região Autónoma da Madeira",
-];
-const coresDeOlho = ["Castanhos", "Azuis", "Verdes", "Pretos", "Mel", "Cinzentos"];
-const coresDeCabelo = ["Preto", "Castanho", "Loiro", "Ruivo", "Grisalho"];
-const nacionalidades = ["Portuguesa", "Brasileira", "Espanhola"];
 
 const FiltragemTerapeutas = () => {
    const [toggleFiltros, setToggleFiltros] = useState<IToggleFiltros>({
