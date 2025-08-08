@@ -59,6 +59,13 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
                } else {
                   return filtros.corDoCabelo.includes(caracteristicas.cabelo);
                }
+            })
+            .filter(({ caracteristicas }) => {
+               if (filtros.nacionalidade.length === 0) {
+                  return true;
+               } else {
+                  return filtros.nacionalidade.includes(caracteristicas.nacionalidade);
+               }
             });
          setTerapeutasFiltradas(dados);
       }
