@@ -119,55 +119,54 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                      />
                   </div>
                   {/* Caraterísticas da terapeuta */}
-                  {/* TODO: Atualizar os detalhes da terapeuta para que apresente os dados reais da API ao invés de mockados */}
                   <div className="grid grid-cols-2 gap-4 *:bg-linear-to-br *:from-gray-700 *:to-gray-900 *:border *:border-gray-600 *:p-4 *:rounded-lg *:backdrop-blur-sm ">
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Idade</div>
-                        <p className="font-semibold ">28</p>
+                        <p className="font-semibold ">{terapeuta.caracteristicas.idade}</p>
                      </div>
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Piercings</div>
-                        <p className="font-semibold ">Não</p>
+                        <p className="font-semibold ">{terapeuta.caracteristicas.piercings ? "Sim" : "Não"}</p>
                      </div>
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Olhos</div>
-                        <p className="font-semibold ">Castanhos</p>
+                        <p className="font-semibold ">{terapeuta.caracteristicas.olhos}</p>
                      </div>
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Tatuagens</div>
-                        <p className="font-semibold ">2</p>
+                        <p className="font-semibold">{terapeuta.caracteristicas.tatuagens}</p>
                      </div>
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Altura</div>
-                        <p className="font-semibold ">1,69 cm</p>
+                        <p className="font-semibold">{terapeuta.caracteristicas.altura} cm</p>
                      </div>
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Quadris</div>
-                        <p className="font-semibold ">Grandes</p>
+                        <p className="font-semibold">{terapeuta.caracteristicas.gluteos}</p>
                      </div>
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Peso</div>
-                        <p className="font-semibold ">67 kg</p>
+                        <p className="font-semibold">{terapeuta.caracteristicas.peso} kg</p>
                      </div>
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Fumante</div>
-                        <p className="font-semibold ">Não</p>
+                        <p className="font-semibold">{terapeuta.caracteristicas.fumante ? "Sim" : "Não"}</p>
                      </div>
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Cabelo</div>
-                        <p className="font-semibold ">Preto</p>
+                        <p className="font-semibold">{terapeuta.caracteristicas.cabelo}</p>
                      </div>
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Perfume</div>
-                        <p className="font-semibold ">Adocicado</p>
+                        <p className="font-semibold">{terapeuta.caracteristicas.perfume}</p>
                      </div>
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Nacionalidade</div>
-                        <p className="font-semibold ">Brasileira</p>
+                        <p className="font-semibold">{terapeuta.caracteristicas.nacionalidade}</p>
                      </div>
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Lingerie</div>
-                        <p className="font-semibold ">Várias</p>
+                        <p className="font-semibold">{terapeuta.caracteristicas.lingerie}</p>
                      </div>
                   </div>
                </div>
