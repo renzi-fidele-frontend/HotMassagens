@@ -5,7 +5,6 @@ import { UseFiltrosValue } from "@/context/Provider";
 import { Iterapeuta } from "@/types/global";
 import { useEffect, useState } from "react";
 
-// TODO: Adicionar mais um controlador de idade ao slider
 // TODO: Adicionar o botão de limpar os filtros
 
 const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
@@ -17,13 +16,21 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
    useEffect(() => {
       function filtrarTerapeutas() {
          let dados = terapeutas.map((v) => v);
-         dados = dados.filter(({ distrito }) => {
-            if (filtros.localizacao.length === 0) {
-               return true;
-            } else {
-               return filtros.localizacao.includes(distrito);
-            }
-         });
+         dados = dados
+            .filter(({ distrito }) => {
+               if (filtros.localizacao.length === 0) {
+                  return true;
+               } else {
+                  return filtros.localizacao.includes(distrito);
+               }
+            })
+            .filter(({ caracteristicas }) => {
+               if (filtros.idade[0] <= caracteristicas.idade && filtros.idade[1] >= caracteristicas.idade) {
+                  return true;
+               } else {
+                  return false;
+               }
+            });
          setTerapeutasFiltradas(dados);
       }
       filtrarTerapeutas();

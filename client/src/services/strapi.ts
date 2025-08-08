@@ -2,7 +2,8 @@ import { Iterapeuta } from "@/types/global";
 import qs from "qs";
 
 export async function getTerapeutas() {
-   const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/terapeutas?fields[0]=nome&fields[1]=endereco_curto&fields[2]=distrito&populate=foto`, {
+   const query = qs.stringify({ populate: ["foto", "caracteristicas"], fields: ["nome", "endereco_curto", "distrito"] }, { encodeValuesOnly: true });
+   const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/terapeutas?${query}`, {
       cache: "no-store",
    });
    const data = await res.json();
