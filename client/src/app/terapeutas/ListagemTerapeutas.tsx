@@ -66,7 +66,8 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
                } else {
                   return filtros.nacionalidade.includes(caracteristicas.nacionalidade);
                }
-            });
+            })
+            .filter(({ caracteristicas }) => caracteristicas.piercings);
          setTerapeutasFiltradas(dados);
       }
       filtrarTerapeutas();

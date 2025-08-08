@@ -169,7 +169,10 @@ const FiltragemTerapeutas = () => {
                {/* Piercings */}
                <div>
                   <p className="font-semibold">Usa Piercings?</p>
-                  <RadioGroup onValueChange={(v) => atualizarFiltros("usaPiercings", v)} className="flex items-center gap-6">
+                  <RadioGroup
+                     onValueChange={(v) => atualizarFiltros("usaPiercings", v === "sim" ? true : false)}
+                     className="flex items-center gap-6"
+                  >
                      <div className="flex items-center gap-2">
                         <RadioGroupItem value="sim" id="usaPiercings" className="border-yellow-200" />
                         <Label htmlFor="usaPiercings">Sim</Label>
@@ -183,7 +186,10 @@ const FiltragemTerapeutas = () => {
                {/* Tatuagens */}
                <div>
                   <p className="font-semibold">Tem tatuagens?</p>
-                  <RadioGroup onValueChange={(v) => atualizarFiltros("temTatuagens", v)} className="flex items-center gap-6">
+                  <RadioGroup
+                     onValueChange={(v) => atualizarFiltros("temTatuagens", v === "sim" ? true : false)}
+                     className="flex items-center gap-6"
+                  >
                      <div className="flex items-center gap-2">
                         <RadioGroupItem value="sim" id="comTatuagem" className="border-yellow-200" />
                         <Label htmlFor="comTatuagem">Sim</Label>
@@ -197,7 +203,7 @@ const FiltragemTerapeutas = () => {
                {/* Fumante */}
                <div>
                   <p className="font-semibold">Fumante?</p>
-                  <RadioGroup onValueChange={(v) => atualizarFiltros("fumante", v)} className="flex items-center gap-6">
+                  <RadioGroup onValueChange={(v) => atualizarFiltros("fumante", v === "sim" ? true : false)} className="flex items-center gap-6">
                      <div className="flex items-center gap-2">
                         <RadioGroupItem value="sim" id="fumante" className="border-yellow-200" />
                         <Label htmlFor="fumante">Sim</Label>
