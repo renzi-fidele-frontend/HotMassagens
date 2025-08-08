@@ -10,20 +10,11 @@
     "idade": {
       "type": "integer"
     },
-    "olhos": {
-      "type": "string"
-    },
     "altura": {
       "type": "decimal"
     },
     "peso": {
       "type": "decimal"
-    },
-    "cabelo": {
-      "type": "string"
-    },
-    "nacionalidade": {
-      "type": "string"
     },
     "piercings": {
       "type": "boolean"
@@ -42,6 +33,35 @@
     },
     "lingerie": {
       "type": "string"
+    },
+    "olhos": {
+      "type": "enumeration",
+      "enum": [
+        "Castanhos",
+        "Azuis",
+        "Verdes",
+        "Pretos",
+        "Mel",
+        "Cinzentos"
+      ]
+    },
+    "cabelo": {
+      "type": "enumeration",
+      "enum": [
+        "Preto",
+        "Castanho",
+        "Loiro",
+        "Ruivo",
+        "Grisalho"
+      ]
+    },
+    "nacionalidade": {
+      "type": "enumeration",
+      "enum": [
+        "Portuguesa",
+        "Brasileira",
+        "Espanhola"
+      ]
     }
   }
 }

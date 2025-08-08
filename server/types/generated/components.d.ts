@@ -25,13 +25,19 @@ export interface SiteCaracteristicas extends Struct.ComponentSchema {
   };
   attributes: {
     altura: Schema.Attribute.Decimal;
-    cabelo: Schema.Attribute.String;
+    cabelo: Schema.Attribute.Enumeration<
+      ['Preto', 'Castanho', 'Loiro', 'Ruivo', 'Grisalho']
+    >;
     fumante: Schema.Attribute.Boolean;
     gluteos: Schema.Attribute.String;
     idade: Schema.Attribute.Integer;
     lingerie: Schema.Attribute.String;
-    nacionalidade: Schema.Attribute.String;
-    olhos: Schema.Attribute.String;
+    nacionalidade: Schema.Attribute.Enumeration<
+      ['Portuguesa', 'Brasileira', 'Espanhola']
+    >;
+    olhos: Schema.Attribute.Enumeration<
+      ['Castanhos', 'Azuis', 'Verdes', 'Pretos', 'Mel', 'Cinzentos']
+    >;
     perfume: Schema.Attribute.String;
     peso: Schema.Attribute.Decimal;
     piercings: Schema.Attribute.Boolean;
