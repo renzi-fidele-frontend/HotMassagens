@@ -11,7 +11,6 @@ import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { UseFiltrosValue } from "@/context/Provider";
 import { cidadesEmPortugal, coresDeCabelo, coresDeOlho, nacionalidades } from "@/content/data";
 
-
 const FiltragemTerapeutas = () => {
    const [toggleFiltros, setToggleFiltros] = useState<IToggleFiltros>({
       localizacao: true,
@@ -62,9 +61,9 @@ const FiltragemTerapeutas = () => {
          <SecaoCollapsivel titulo="Idade" mostrar={toggleFiltros.idade} onOpenChange={() => toggleSection("idade")}>
             <div className="flex items-center justify-between mb-3 text-zinc-400">
                <span>{filtros.idade[0]} anos</span>
-               <span>50 anos</span>
+               <span>{filtros.idade[1]} anos</span>
             </div>
-            <Slider min={18} max={50} onValueChange={(value) => atualizarFiltros("idade", value)} />
+            <Slider minStepsBetweenThumbs={2} defaultValue={filtros.idade} min={18} max={50} onValueChange={(value) => atualizarFiltros("idade", value)} />
          </SecaoCollapsivel>
 
          {/* Filtragem das características físicas */}
