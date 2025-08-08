@@ -2,7 +2,7 @@ import { Iterapeuta } from "@/types/global";
 import qs from "qs";
 
 export async function getTerapeutas() {
-   const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/terapeutas?fields[0]=nome&fields[1]=endereco_curto&populate=foto`, {
+   const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/terapeutas?fields[0]=nome&fields[1]=endereco_curto&fields[2]=distrito&populate=foto`, {
       cache: "no-store",
    });
    const data = await res.json();
@@ -23,7 +23,7 @@ export async function getTerapeuta(id: string) {
             "localDeAtendimento.fotos",
             "personalidades",
          ],
-         fields: ["nome", "endereco_curto", "whatsapp", "descricao", "bio", "bio2", "disponivel"],
+         fields: ["nome", "endereco_curto", "whatsapp", "descricao", "bio", "bio2", "disponivel", "distrito"],
       },
       { encodeValuesOnly: true }
    );
