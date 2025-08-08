@@ -45,6 +45,13 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
                } else {
                   return false;
                }
+            })
+            .filter(({ caracteristicas }) => {
+               if (filtros.peso[0] <= caracteristicas.peso && filtros.peso[1] >= caracteristicas.peso) {
+                  return true;
+               } else {
+                  return false;
+               }
             });
          setTerapeutasFiltradas(dados);
       }

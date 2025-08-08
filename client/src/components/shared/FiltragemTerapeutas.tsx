@@ -118,9 +118,9 @@ const FiltragemTerapeutas = () => {
                   <div>
                      <div className="flex items-center justify-between mb-3 text-zinc-400">
                         <span>{filtros.peso[0]} kg</span>
-                        <span>100 kg</span>
+                        <span>{filtros.peso[1]} kg</span>
                      </div>
-                     <Slider min={150} max={190} onValueChange={(value) => atualizarFiltros("peso", value)} />
+                     <Slider defaultValue={filtros.peso} min={45} max={100} onValueChange={(value) => atualizarFiltros("peso", value)} />
                   </div>
                </div>
                {/* Cor do cabelo */}
