@@ -6,6 +6,7 @@ import { Iterapeuta } from "@/types/global";
 import { useEffect, useState } from "react";
 
 // TODO: Adicionar o botão de limpar os filtros
+// TODO: Adicionar uma ilustração caso não haja nenhuma terapeuta correspondente com os filtros
 
 const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
    const { filtros } = UseFiltrosValue();
@@ -29,6 +30,13 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
                   return true;
                } else {
                   return false;
+               }
+            })
+            .filter(({ caracteristicas }) => {
+               if (filtros.corDosOlhos.length === 0) {
+                  return true;
+               } else {
+                  return filtros.corDosOlhos.includes(caracteristicas.olhos);
                }
             });
          setTerapeutasFiltradas(dados);
