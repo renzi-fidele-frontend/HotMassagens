@@ -63,7 +63,13 @@ const FiltragemTerapeutas = () => {
                <span>{filtros.idade[0]} anos</span>
                <span>{filtros.idade[1]} anos</span>
             </div>
-            <Slider minStepsBetweenThumbs={2} defaultValue={filtros.idade} min={18} max={50} onValueChange={(value) => atualizarFiltros("idade", value)} />
+            <Slider
+               minStepsBetweenThumbs={2}
+               defaultValue={filtros.idade}
+               min={18}
+               max={50}
+               onValueChange={(value) => atualizarFiltros("idade", value)}
+            />
          </SecaoCollapsivel>
 
          {/* Filtragem das características físicas */}
@@ -95,9 +101,15 @@ const FiltragemTerapeutas = () => {
                   <div>
                      <div className="flex items-center justify-between mb-3 text-zinc-400">
                         <span>{filtros.altura[0]} cm</span>
-                        <span>190 cm</span>
+                        <span>{filtros.altura[1]} cm</span>
                      </div>
-                     <Slider min={150} max={190} onValueChange={(value) => atualizarFiltros("altura", value)} />
+                     <Slider
+                        defaultValue={filtros.altura}
+                        minStepsBetweenThumbs={2}
+                        min={150}
+                        max={200}
+                        onValueChange={(value) => atualizarFiltros("altura", value)}
+                     />
                   </div>
                </div>
                {/* Peso */}

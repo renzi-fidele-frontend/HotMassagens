@@ -119,6 +119,7 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                      />
                   </div>
                   {/* Caraterísticas da terapeuta */}
+                  {/* TODO: Atualizar os detalhes da terapeuta para que apresente os dados reais da API ao invés de mockados */}
                   <div className="grid grid-cols-2 gap-4 *:bg-linear-to-br *:from-gray-700 *:to-gray-900 *:border *:border-gray-600 *:p-4 *:rounded-lg *:backdrop-blur-sm ">
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Idade</div>
@@ -138,7 +139,7 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                      </div>
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Altura</div>
-                        <p className="font-semibold ">1,69 M</p>
+                        <p className="font-semibold ">1,69 cm</p>
                      </div>
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Quadris</div>

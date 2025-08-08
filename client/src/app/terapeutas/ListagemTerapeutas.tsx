@@ -38,6 +38,13 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
                } else {
                   return filtros.corDosOlhos.includes(caracteristicas.olhos);
                }
+            })
+            .filter(({ caracteristicas }) => {
+               if (filtros.altura[0] <= caracteristicas.altura && filtros.altura[1] >= caracteristicas.altura) {
+                  return true;
+               } else {
+                  return false;
+               }
             });
          setTerapeutasFiltradas(dados);
       }

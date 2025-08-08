@@ -16,7 +16,7 @@ const FiltrosProvider = ({ children }: { children: ReactNode }) => {
       localizacao: [],
       idade: [18, 50],
       corDosOlhos: [],
-      altura: [150, 190],
+      altura: [150, 200],
       peso: [45, 100],
       corDoCabelo: [],
       nacionalidade: [],
