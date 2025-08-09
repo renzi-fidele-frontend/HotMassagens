@@ -134,7 +134,9 @@ const Terapeuta = async ({ params }: { params: Promise<{ terapeuta: string }> })
                      </div>
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Tatuagens</div>
-                        <p className="font-semibold">{terapeuta.caracteristicas.tatuagens}</p>
+                        <p className="font-semibold">
+                           {terapeuta.caracteristicas.tatuagens !== null ? terapeuta.caracteristicas.tatuagens : "Não tem"}
+                        </p>
                      </div>
                      <div>
                         <div className="text-zinc-400 text-sm mb-1">Altura</div>

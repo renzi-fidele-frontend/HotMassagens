@@ -25,6 +25,7 @@ const FiltragemTerapeutas = () => {
       setToggleFiltros((prev) => ({ ...prev, [section]: !prev[section] }));
    }
 
+   // TODO: Descobrir um jeito de identificar o type de value que por agora está definido como sendo unknown
    function atualizarFiltros(key: keyof typeof filtros, value: unknown) {
       setFiltros({ ...filtros, [key]: value });
    }
@@ -34,6 +35,16 @@ const FiltragemTerapeutas = () => {
       const arrayAtual = filtros[key] as (number | string)[];
       const novoArray = arrayAtual.includes(value) ? arrayAtual.filter((v) => v !== value) : [...arrayAtual, value];
       atualizarFiltros(key, novoArray);
+   }
+   
+   function processarRadio(value: unknown) {
+      if (value === "sim") {
+         return true;
+      } else if (value === "não") {
+         return false;
+      } else if (value === "qualquer") {
+         return undefined;
+      }
    }
 
    return (
@@ -169,10 +180,11 @@ const FiltragemTerapeutas = () => {
                {/* Piercings */}
                <div>
                   <p className="font-semibold">Usa Piercings?</p>
-                  <RadioGroup
-                     onValueChange={(v) => atualizarFiltros("usaPiercings", v === "sim" ? true : false)}
-                     className="flex items-center gap-6"
-                  >
+                  <RadioGroup onValueChange={(v) => atualizarFiltros("usaPiercings", processarRadio(v))} className="flex items-center gap-4">
+                     <div className="flex items-center gap-2">
+                        <RadioGroupItem value="qualquer" id="qualquerPiercings" className="border-yellow-200" />
+                        <Label htmlFor="qualquerPiercings">Qualquer</Label>
+                     </div>
                      <div className="flex items-center gap-2">
                         <RadioGroupItem value="sim" id="usaPiercings" className="border-yellow-200" />
                         <Label htmlFor="usaPiercings">Sim</Label>
@@ -186,10 +198,11 @@ const FiltragemTerapeutas = () => {
                {/* Tatuagens */}
                <div>
                   <p className="font-semibold">Tem tatuagens?</p>
-                  <RadioGroup
-                     onValueChange={(v) => atualizarFiltros("temTatuagens", v === "sim" ? true : false)}
-                     className="flex items-center gap-6"
-                  >
+                  <RadioGroup onValueChange={(v) => atualizarFiltros("temTatuagens", processarRadio(v))} className="flex items-center gap-4">
+                     <div className="flex items-center gap-2">
+                        <RadioGroupItem value="qualquer" id="qualquerTatuagens" className="border-yellow-200" />
+                        <Label htmlFor="qualquerTatuagens">Qualquer</Label>
+                     </div>
                      <div className="flex items-center gap-2">
                         <RadioGroupItem value="sim" id="comTatuagem" className="border-yellow-200" />
                         <Label htmlFor="comTatuagem">Sim</Label>
@@ -203,7 +216,11 @@ const FiltragemTerapeutas = () => {
                {/* Fumante */}
                <div>
                   <p className="font-semibold">Fumante?</p>
-                  <RadioGroup onValueChange={(v) => atualizarFiltros("fumante", v === "sim" ? true : false)} className="flex items-center gap-6">
+                  <RadioGroup onValueChange={(v) => atualizarFiltros("fumante", processarRadio(v))} className="flex items-center gap-4">
+                     <div className="flex items-center gap-2">
+                        <RadioGroupItem value="qualquer" id="qualquerFumante" className="border-yellow-200" />
+                        <Label htmlFor="qualquerFumante">Qualquer</Label>
+                     </div>
                      <div className="flex items-center gap-2">
                         <RadioGroupItem value="sim" id="fumante" className="border-yellow-200" />
                         <Label htmlFor="fumante">Sim</Label>

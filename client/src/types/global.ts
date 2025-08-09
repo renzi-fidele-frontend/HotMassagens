@@ -25,7 +25,7 @@ export interface Iterapeuta {
       peso: number;
       cabelo: string;
       nacionalidade: string;
-      piercings: boolean;
+      piercings: boolean | null;
       tatuagens: string;
       gluteos: string;
       fumante: boolean;

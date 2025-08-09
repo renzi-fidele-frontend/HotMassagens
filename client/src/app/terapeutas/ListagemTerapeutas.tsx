@@ -18,6 +18,7 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
       function filtrarTerapeutas() {
          let dados = terapeutas.map((v) => v);
          dados = dados
+            // Localização
             .filter(({ distrito }) => {
                if (filtros.localizacao.length === 0) {
                   return true;
@@ -25,6 +26,7 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
                   return filtros.localizacao.includes(distrito);
                }
             })
+            // Idade
             .filter(({ caracteristicas }) => {
                if (filtros.idade[0] <= caracteristicas.idade && filtros.idade[1] >= caracteristicas.idade) {
                   return true;
@@ -32,6 +34,7 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
                   return false;
                }
             })
+            // Cor dos olhos
             .filter(({ caracteristicas }) => {
                if (filtros.corDosOlhos.length === 0) {
                   return true;
@@ -39,6 +42,7 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
                   return filtros.corDosOlhos.includes(caracteristicas.olhos);
                }
             })
+            // Altura
             .filter(({ caracteristicas }) => {
                if (filtros.altura[0] <= caracteristicas.altura && filtros.altura[1] >= caracteristicas.altura) {
                   return true;
@@ -46,6 +50,7 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
                   return false;
                }
             })
+            // Peso
             .filter(({ caracteristicas }) => {
                if (filtros.peso[0] <= caracteristicas.peso && filtros.peso[1] >= caracteristicas.peso) {
                   return true;
@@ -53,6 +58,7 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
                   return false;
                }
             })
+            // Cor de cabelo
             .filter(({ caracteristicas }) => {
                if (filtros.corDoCabelo.length === 0) {
                   return true;
@@ -60,6 +66,7 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
                   return filtros.corDoCabelo.includes(caracteristicas.cabelo);
                }
             })
+            // Nacionalidade
             .filter(({ caracteristicas }) => {
                if (filtros.nacionalidade.length === 0) {
                   return true;
@@ -67,7 +74,16 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
                   return filtros.nacionalidade.includes(caracteristicas.nacionalidade);
                }
             })
-            .filter(({ caracteristicas }) => caracteristicas.piercings);
+            // Piercings
+            .filter(({ caracteristicas }) => {
+               console.log(caracteristicas.piercings);
+               // Caso nenhum checkbox esteja selecionado retornar todas terapeutas
+               if (filtros.usaPiercings === undefined) {
+                  return true;
+               } else {
+                  return !!caracteristicas.piercings === filtros.usaPiercings;
+               }
+            });
          setTerapeutasFiltradas(dados);
       }
       filtrarTerapeutas();
