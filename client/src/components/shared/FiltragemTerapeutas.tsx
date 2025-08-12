@@ -62,6 +62,7 @@ const FiltragemTerapeutas = () => {
    return (
       <section className="space-y-4 sticky top-[20px]">
          {/* Filtragem da localização */}
+         {/* TODO: Melhorar a UI da Filtragem de terapeutas ao adicionar ícones para melhorar a percepção */}
          {/* TODO: Renderizar o nr de terapeutas disponíveis para cada distrito */}
          <SecaoCollapsivel mostrar={toggleFiltros.localizacao} titulo="Localização" onOpenChange={() => toggleSection("localizacao")}>
             <ScrollArea className="h-[100px] sm:h-[130px]">

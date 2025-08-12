@@ -88,8 +88,15 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
                } else {
                   return !!caracteristicas.tatuagens === filtros.temTatuagens;
                }
+            })
+            // Fumante
+            .filter(({ caracteristicas }) => {
+               if (filtros.fumante === undefined) {
+                  return true;
+               } else {
+                  return !!caracteristicas.fumante === filtros.fumante;
+               }
             });
-         // Fumante
          setTerapeutasFiltradas(dados);
       }
       filtrarTerapeutas();
