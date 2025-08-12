@@ -36,7 +36,7 @@ const FiltragemTerapeutas = () => {
       const novoArray = arrayAtual.includes(value) ? arrayAtual.filter((v) => v !== value) : [...arrayAtual, value];
       atualizarFiltros(key, novoArray);
    }
-   
+
    function processarRadio(value: unknown) {
       if (value === "sim") {
          return true;
@@ -47,11 +47,24 @@ const FiltragemTerapeutas = () => {
       }
    }
 
+   /** Retorna o default value dos radios */
+   function processarFiltrosDefaultValue(value?: boolean): string {
+      switch (value) {
+         case true:
+            return "sim";
+         case false:
+            return "não";
+         case undefined:
+            return "qualquer";
+      }
+   }
+
    return (
       <section className="space-y-4 sticky top-[20px]">
          {/* Filtragem da localização */}
+         {/* TODO: Renderizar o nr de terapeutas disponíveis para cada distrito */}
          <SecaoCollapsivel mostrar={toggleFiltros.localizacao} titulo="Localização" onOpenChange={() => toggleSection("localizacao")}>
-            <ScrollArea className="h-[100px] sm:h-[150px]">
+            <ScrollArea className="h-[100px] sm:h-[130px]">
                <div className="space-y-2.5">
                   {cidadesEmPortugal.map((v, k) => (
                      <div key={k} className="flex items-center gap-2">
@@ -180,7 +193,11 @@ const FiltragemTerapeutas = () => {
                {/* Piercings */}
                <div>
                   <p className="font-semibold">Usa Piercings?</p>
-                  <RadioGroup onValueChange={(v) => atualizarFiltros("usaPiercings", processarRadio(v))} className="flex items-center gap-4">
+                  <RadioGroup
+                     defaultValue={processarFiltrosDefaultValue(filtros.usaPiercings)}
+                     onValueChange={(v) => atualizarFiltros("usaPiercings", processarRadio(v))}
+                     className="flex items-center gap-4"
+                  >
                      <div className="flex items-center gap-2">
                         <RadioGroupItem value="qualquer" id="qualquerPiercings" className="border-yellow-200" />
                         <Label htmlFor="qualquerPiercings">Qualquer</Label>
@@ -198,7 +215,11 @@ const FiltragemTerapeutas = () => {
                {/* Tatuagens */}
                <div>
                   <p className="font-semibold">Tem tatuagens?</p>
-                  <RadioGroup onValueChange={(v) => atualizarFiltros("temTatuagens", processarRadio(v))} className="flex items-center gap-4">
+                  <RadioGroup
+                     defaultValue={processarFiltrosDefaultValue(filtros.temTatuagens)}
+                     onValueChange={(v) => atualizarFiltros("temTatuagens", processarRadio(v))}
+                     className="flex items-center gap-4"
+                  >
                      <div className="flex items-center gap-2">
                         <RadioGroupItem value="qualquer" id="qualquerTatuagens" className="border-yellow-200" />
                         <Label htmlFor="qualquerTatuagens">Qualquer</Label>
@@ -216,7 +237,11 @@ const FiltragemTerapeutas = () => {
                {/* Fumante */}
                <div>
                   <p className="font-semibold">Fumante?</p>
-                  <RadioGroup onValueChange={(v) => atualizarFiltros("fumante", processarRadio(v))} className="flex items-center gap-4">
+                  <RadioGroup
+                     defaultValue={processarFiltrosDefaultValue(filtros.fumante)}
+                     onValueChange={(v) => atualizarFiltros("fumante", processarRadio(v))}
+                     className="flex items-center gap-4"
+                  >
                      <div className="flex items-center gap-2">
                         <RadioGroupItem value="qualquer" id="qualquerFumante" className="border-yellow-200" />
                         <Label htmlFor="qualquerFumante">Qualquer</Label>

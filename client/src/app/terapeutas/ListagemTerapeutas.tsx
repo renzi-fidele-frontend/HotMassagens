@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
    const { filtros } = UseFiltrosValue();
    const [terapeutasFiltradas, setTerapeutasFiltradas] = useState(terapeutas);
-   console.log(filtros);
 
    // Atualizar os filtros sempre que houver uma mudança no estado
    useEffect(() => {
@@ -76,14 +75,21 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
             })
             // Piercings
             .filter(({ caracteristicas }) => {
-               console.log(caracteristicas.piercings);
-               // Caso nenhum checkbox esteja selecionado retornar todas terapeutas
                if (filtros.usaPiercings === undefined) {
                   return true;
                } else {
                   return !!caracteristicas.piercings === filtros.usaPiercings;
                }
+            })
+            // Tatuagens
+            .filter(({ caracteristicas }) => {
+               if (filtros.temTatuagens === undefined) {
+                  return true;
+               } else {
+                  return !!caracteristicas.tatuagens === filtros.temTatuagens;
+               }
             });
+         // Fumante
          setTerapeutasFiltradas(dados);
       }
       filtrarTerapeutas();
