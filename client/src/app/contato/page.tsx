@@ -2,7 +2,7 @@ import Container from "@/components/layout/Container";
 import { HeadingXl } from "@/components/shared/Typography";
 import Image from "next/image";
 import { getContato } from "@/services/strapi";
-import ContactForm from "../../components/shared/ContactForm";
+import ContactForm from "./components/ContactForm";
 
 export default async function Contato() {
    const { data: contato } = await getContato();

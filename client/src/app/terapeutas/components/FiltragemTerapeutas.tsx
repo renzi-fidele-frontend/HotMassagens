@@ -1,15 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { ScrollArea } from "../ui/scroll-area";
-import { Label } from "../ui/label";
-import { Checkbox } from "../ui/checkbox";
-import { Slider } from "../ui/slider";
+import { ScrollArea } from "../../../components/ui/scroll-area";
+import { Label } from "../../../components/ui/label";
+import { Checkbox } from "../../../components/ui/checkbox";
+import { Slider } from "../../../components/ui/slider";
 import { IToggleFiltros } from "@/types/global";
-import SecaoCollapsivel from "./SecaoCollapsivel";
-import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import { RadioGroup, RadioGroupItem } from "../../../components/ui/radio-group";
 import { UseFiltrosValue } from "@/context/Provider";
 import { cidadesEmPortugal, coresDeCabelo, coresDeOlho, nacionalidades } from "@/content/data";
+import SecaoCollapsivel from "./SecaoCollapsivel";
 
 const FiltragemTerapeutas = () => {
    const [toggleFiltros, setToggleFiltros] = useState<IToggleFiltros>({

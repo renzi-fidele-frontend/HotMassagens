@@ -1,4 +1,4 @@
-import { EmailTemplate } from "@/components/shared/EmailTemplate";
+import { EmailTemplate } from "@/app/contato/components/EmailTemplate";
 import { NextRequest, NextResponse } from "next/server";
 import { ReactNode } from "react";
 import { Resend } from "resend";
