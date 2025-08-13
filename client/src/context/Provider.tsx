@@ -23,6 +23,7 @@ const FiltrosProvider = ({ children }: { children: ReactNode }) => {
       fumante: undefined,
       temTatuagens: undefined,
       usaPiercings: undefined,
+      pesquisa: "",
    });
 
    return <FiltrosContext.Provider value={{ filtros, setFiltros }}>{children}</FiltrosContext.Provider>;

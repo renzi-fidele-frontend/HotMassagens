@@ -73,6 +73,8 @@ export interface IFiltros {
    usaPiercings?: boolean;
    temTatuagens?: boolean;
    fumante?: boolean;
+   /** Texto de pesquisa da página de terapeutas */
+   pesquisa: string;
 }
 
 export interface IToggleFiltros {
