@@ -8,7 +8,6 @@ import { ListFilter, Search } from "lucide-react";
 import FiltragemTerapeutas from "./FiltragemTerapeutas";
 import { UseFiltrosValue } from "@/context/Provider";
 
-// TODO: Adicionar funcionalidade de pesquisa via context api
 const SearchBar = () => {
    const { filtros, setFiltros } = UseFiltrosValue();
 
@@ -19,7 +18,9 @@ const SearchBar = () => {
             <Input
                defaultValue={filtros.pesquisa}
                placeholder="Buscar por nome..."
-               onChange={(e) => setFiltros((prevValue) => ({ ...prevValue, pesquisa: e.target.value }))}
+               onChange={(e) => {
+                  setFiltros((prevValue) => ({ ...prevValue, pesquisa: e.target.value }));
+               }}
                className="ps-13 sm:placeholder:text-lg py-5 md:py-6 border-zinc-500"
             />
             <Search className="absolute start-4 text-zinc-400" />

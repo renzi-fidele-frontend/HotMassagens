@@ -17,6 +17,17 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
       function filtrarTerapeutas() {
          let dados = terapeutas.map((v) => v);
          dados = dados
+            // Filtragem de acordo com o texto de pesquisa, ignorando acentuações
+            .filter(({ nome }) => {
+               if (filtros.pesquisa.length === 0) {
+                 return true;
+               } else {
+                 // Função para remover acentuações
+                 const normalize = (str: string) =>
+                   str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+                 return normalize(nome).includes(normalize(filtros.pesquisa));
+               }
+            })
             // Localização
             .filter(({ distrito }) => {
                if (filtros.localizacao.length === 0) {
