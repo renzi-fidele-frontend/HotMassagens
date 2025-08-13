@@ -39,12 +39,13 @@ const SearchBar = () => {
                   </Btn>
                </DrawerTrigger>
                <DrawerContent className="bg-black pb-5 px-5">
-                  <ScrollArea className="mt-5 h-[65dvh]">
+                  <ScrollArea className="mt-5 h-[50dvh]">
                      <FiltragemTerapeutas />
-                     <div className="flex justify-center mt-9">
-                        <BotaoDeLimparFiltros />
-                     </div>
                   </ScrollArea>
+                  <div className="flex flex-col items-center mt-9 gap-4">
+                     <hr className="bg-white w-full" />
+                     <BotaoDeLimparFiltros />
+                  </div>
                </DrawerContent>
             </Drawer>
          </div>
