@@ -29,9 +29,9 @@ const SearchBar = () => {
             />
             <Search className="absolute start-4 text-zinc-400" />
             {/* Drawer da filtragem da versão mobile */}
-            <Drawer open={open}>
+            <Drawer onClose={() => setOpen(false)} open={open}>
                <DrawerTrigger asChild onClick={() => setOpen(true)}>
-                  <Btn className="whitespace-nowrap md:hidden">
+                  <Btn onClick={() => setOpen(true)} className="whitespace-nowrap md:hidden">
                      <span className="hidden sm:block">Mostrar filtros</span>
                      <span className="sm:hidden">
                         <ListFilter />
@@ -41,7 +41,7 @@ const SearchBar = () => {
                <DrawerContent className="bg-black pb-5 px-5">
                   <ScrollArea className="mt-5 h-[65dvh]">
                      <FiltragemTerapeutas />
-                     <div className="flex justify-center">
+                     <div className="flex justify-center mt-9">
                         <BotaoDeLimparFiltros />
                      </div>
                   </ScrollArea>

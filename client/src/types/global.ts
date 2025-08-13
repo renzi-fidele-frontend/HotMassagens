@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 import { StrapiImage } from "./strapi";
 
 export interface Iterapeuta {
@@ -53,6 +53,7 @@ export interface IBtn {
    variant?: "dark";
    className?: string;
    type?: "submit" | "reset" | "button";
+   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 export interface IEmailTemplate {
