@@ -61,9 +61,9 @@ const FiltragemTerapeutas = () => {
 
    return (
       <section className="space-y-4 sticky top-[20px]">
-         {/* Filtragem da localização */}
          {/* TODO: Melhorar a UI da Filtragem de terapeutas ao adicionar ícones para melhorar a percepção */}
          {/* TODO: Renderizar o nr de terapeutas disponíveis para cada distrito */}
+         {/* Filtragem da localização */}
          <SecaoCollapsivel mostrar={toggleFiltros.localizacao} titulo="Localização" onOpenChange={() => toggleSection("localizacao")}>
             <ScrollArea className="h-[100px] sm:h-[130px]">
                <div className="space-y-2.5">
@@ -90,7 +90,7 @@ const FiltragemTerapeutas = () => {
             </div>
             <Slider
                minStepsBetweenThumbs={2}
-               defaultValue={filtros.idade}
+               value={filtros.idade}
                min={18}
                max={50}
                onValueChange={(value) => atualizarFiltros("idade", value)}
@@ -113,6 +113,7 @@ const FiltragemTerapeutas = () => {
                            <Checkbox
                               id={`olho-${v}`}
                               className="border-yellow-200"
+                              checked={filtros.corDosOlhos.includes(v)}
                               onCheckedChange={() => atualizarArrayDeFiltros("corDosOlhos", v)}
                            />
                            <Label htmlFor={`olho-${v}`}>{v}</Label>
@@ -129,7 +130,7 @@ const FiltragemTerapeutas = () => {
                         <span>{filtros.altura[1]} cm</span>
                      </div>
                      <Slider
-                        defaultValue={filtros.altura}
+                        value={filtros.altura}
                         minStepsBetweenThumbs={2}
                         min={150}
                         max={200}
@@ -145,7 +146,7 @@ const FiltragemTerapeutas = () => {
                         <span>{filtros.peso[0]} kg</span>
                         <span>{filtros.peso[1]} kg</span>
                      </div>
-                     <Slider defaultValue={filtros.peso} min={45} max={100} onValueChange={(value) => atualizarFiltros("peso", value)} />
+                     <Slider value={filtros.peso} min={45} max={100} onValueChange={(value) => atualizarFiltros("peso", value)} />
                   </div>
                </div>
                {/* Cor do cabelo */}
@@ -157,6 +158,7 @@ const FiltragemTerapeutas = () => {
                            <Checkbox
                               id={`cabelo-${v}`}
                               className="border-yellow-200"
+                              checked={filtros.corDoCabelo.includes(v)}
                               onCheckedChange={() => atualizarArrayDeFiltros("corDoCabelo", v)}
                            />
                            <Label htmlFor={`cabelo-${v}`}>{v}</Label>
@@ -195,7 +197,7 @@ const FiltragemTerapeutas = () => {
                <div>
                   <p className="font-semibold">Usa Piercings?</p>
                   <RadioGroup
-                     defaultValue={processarFiltrosDefaultValue(filtros.usaPiercings)}
+                     value={processarFiltrosDefaultValue(filtros.usaPiercings)}
                      onValueChange={(v) => atualizarFiltros("usaPiercings", processarRadio(v))}
                      className="flex items-center gap-4"
                   >
@@ -217,7 +219,7 @@ const FiltragemTerapeutas = () => {
                <div>
                   <p className="font-semibold">Tem tatuagens?</p>
                   <RadioGroup
-                     defaultValue={processarFiltrosDefaultValue(filtros.temTatuagens)}
+                     value={processarFiltrosDefaultValue(filtros.temTatuagens)}
                      onValueChange={(v) => atualizarFiltros("temTatuagens", processarRadio(v))}
                      className="flex items-center gap-4"
                   >
@@ -239,7 +241,7 @@ const FiltragemTerapeutas = () => {
                <div>
                   <p className="font-semibold">Fumante?</p>
                   <RadioGroup
-                     defaultValue={processarFiltrosDefaultValue(filtros.fumante)}
+                     value={processarFiltrosDefaultValue(filtros.fumante)}
                      onValueChange={(v) => atualizarFiltros("fumante", processarRadio(v))}
                      className="flex items-center gap-4"
                   >

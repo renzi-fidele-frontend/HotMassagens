@@ -5,7 +5,6 @@ import { UseFiltrosValue } from "@/context/Provider";
 import { Iterapeuta } from "@/types/global";
 import { useEffect, useState } from "react";
 
-// TODO: Adicionar o botão de limpar os filtros
 // TODO: Adicionar uma ilustração caso não haja nenhuma terapeuta correspondente com os filtros
 
 const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
@@ -20,12 +19,15 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
             // Filtragem de acordo com o texto de pesquisa, ignorando acentuações
             .filter(({ nome }) => {
                if (filtros.pesquisa.length === 0) {
-                 return true;
+                  return true;
                } else {
-                 // Função para remover acentuações
-                 const normalize = (str: string) =>
-                   str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-                 return normalize(nome).includes(normalize(filtros.pesquisa));
+                  // Função para remover acentuações
+                  const normalize = (str: string) =>
+                     str
+                        .normalize("NFD")
+                        .replace(/[\u0300-\u036f]/g, "")
+                        .toLowerCase();
+                  return normalize(nome).includes(normalize(filtros.pesquisa));
                }
             })
             // Localização

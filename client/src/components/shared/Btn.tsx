@@ -9,7 +9,7 @@ const Btn = ({ children, variant, className, type }: IBtn) => {
    return (
       <button
          type={type}
-         className={`${className} font-heading flex items-center gap-2 px-4 py-2 rounded-xl transition hover:scale-110 hover:cursor-pointer text-xl font-semibold  ${verificarVariante()}`}
+         className={`${className} font-heading flex items-center gap-2 px-4 py-2 rounded-xl transition hover:scale-110 hover:cursor-pointer text-xl font-semibold ${verificarVariante()}`}
       >
          {children}
       </button>
