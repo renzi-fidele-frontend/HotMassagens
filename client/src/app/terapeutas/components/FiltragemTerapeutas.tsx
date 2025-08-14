@@ -10,6 +10,7 @@ import { RadioGroup, RadioGroupItem } from "../../../components/ui/radio-group";
 import { UseFiltrosValue } from "@/context/Provider";
 import { cidadesEmPortugal, coresDeCabelo, coresDeOlho, nacionalidades } from "@/content/data";
 import SecaoCollapsivel from "./SecaoCollapsivel";
+import { Baby, Cannabis, Cigarette, Ear, Eye, Globe, Palette, Ruler, Scale } from "lucide-react";
 
 const FiltragemTerapeutas = () => {
    const [toggleFiltros, setToggleFiltros] = useState<IToggleFiltros>({
@@ -61,8 +62,6 @@ const FiltragemTerapeutas = () => {
 
    return (
       <section className="space-y-4 sticky top-[20px]">
-         {/* TODO: Melhorar a UI da Filtragem de terapeutas ao adicionar ícones para melhorar a percepção */}
-         {/* TODO: Renderizar o nr de terapeutas disponíveis para cada distrito */}
          {/* Filtragem da localização */}
          <SecaoCollapsivel mostrar={toggleFiltros.localizacao} titulo="Localização" onOpenChange={() => toggleSection("localizacao")}>
             <ScrollArea className="h-[100px] sm:h-[130px]">
@@ -76,6 +75,7 @@ const FiltragemTerapeutas = () => {
                            className="border-yellow-200"
                         />
                         <Label htmlFor={`local-${v}`}>{v}</Label>
+                        {/* TODO: Renderizar o nr de terapeutas disponíveis para cada distrito */}
                      </div>
                   ))}
                </div>
@@ -106,7 +106,11 @@ const FiltragemTerapeutas = () => {
             <div className="space-y-6 *:space-y-2">
                {/* Cor dos olhos */}
                <div>
-                  <p className="font-semibold">Cor dos olhos</p>
+                  <div className="flex items-center gap-2">
+                     <Eye color="#ffff95" />
+                     <p className="font-semibold">Cor dos olhos</p>
+                  </div>
+
                   <div className="grid grid-cols-2 gap-2">
                      {coresDeOlho.map((v, k) => (
                         <div key={k} className="flex items-center gap-2">
@@ -123,7 +127,10 @@ const FiltragemTerapeutas = () => {
                </div>
                {/* Altura */}
                <div>
-                  <p className="font-semibold">Altura</p>
+                  <div className="flex items-center gap-2">
+                     <Ruler color="#ffff95" />
+                     <p className="font-semibold">Altura</p>
+                  </div>
                   <div>
                      <div className="flex items-center justify-between mb-3 text-zinc-400">
                         <span>{filtros.altura[0]} cm</span>
@@ -140,7 +147,10 @@ const FiltragemTerapeutas = () => {
                </div>
                {/* Peso */}
                <div>
-                  <p className="font-semibold">Peso</p>
+                  <div className="flex items-center gap-2">
+                     <Scale color="#ffff95" />
+                     <p className="font-semibold">Peso</p>
+                  </div>
                   <div>
                      <div className="flex items-center justify-between mb-3 text-zinc-400">
                         <span>{filtros.peso[0]} kg</span>
@@ -151,7 +161,10 @@ const FiltragemTerapeutas = () => {
                </div>
                {/* Cor do cabelo */}
                <div>
-                  <p className="font-semibold">Cor do cabelo</p>
+                  <div className="flex items-center gap-2">
+                     <Palette color="#ffff95" />
+                     <p className="font-semibold">Cor do cabelo</p>
+                  </div>
                   <div className="grid grid-cols-2 gap-2">
                      {coresDeCabelo.map((v, k) => (
                         <div key={k} className="flex items-center gap-2">
@@ -178,7 +191,10 @@ const FiltragemTerapeutas = () => {
             <div className="space-y-6 *:space-y-2">
                {/* Nacionalidade */}
                <div>
-                  <p className="font-semibold">Nacionalidade</p>
+                  <div className="flex items-center gap-2">
+                     <Globe color="#ffff95" />
+                     <p className="font-semibold">Nacionalidade</p>
+                  </div>
                   <div className="flex flex-col gap-3">
                      {nacionalidades.map((v, k) => (
                         <div className="flex items-center gap-2" key={k}>
@@ -195,7 +211,10 @@ const FiltragemTerapeutas = () => {
                </div>
                {/* Piercings */}
                <div>
-                  <p className="font-semibold">Usa Piercings?</p>
+                  <div className="flex items-center gap-2">
+                     <Ear color="#ffff95" />
+                     <p className="font-semibold">Usa Piercings?</p>
+                  </div>
                   <RadioGroup
                      value={processarFiltrosDefaultValue(filtros.usaPiercings)}
                      onValueChange={(v) => atualizarFiltros("usaPiercings", processarRadio(v))}
@@ -217,7 +236,11 @@ const FiltragemTerapeutas = () => {
                </div>
                {/* Tatuagens */}
                <div>
-                  <p className="font-semibold">Tem tatuagens?</p>
+                  <div className="flex items-center gap-2">
+                     <Cannabis color="#ffff95" />
+                     <p className="font-semibold">Tem tatuagens?</p>
+                  </div>
+
                   <RadioGroup
                      value={processarFiltrosDefaultValue(filtros.temTatuagens)}
                      onValueChange={(v) => atualizarFiltros("temTatuagens", processarRadio(v))}
@@ -239,7 +262,10 @@ const FiltragemTerapeutas = () => {
                </div>
                {/* Fumante */}
                <div>
-                  <p className="font-semibold">Fumante?</p>
+                  <div className="flex items-center gap-2">
+                     <Cigarette color="#ffff95" />
+                     <p className="font-semibold">Fumante?</p>
+                  </div>
                   <RadioGroup
                      value={processarFiltrosDefaultValue(filtros.fumante)}
                      onValueChange={(v) => atualizarFiltros("fumante", processarRadio(v))}

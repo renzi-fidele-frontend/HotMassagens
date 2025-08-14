@@ -10,8 +10,7 @@ function Slider({ className, defaultValue, value, min = 0, max = 100, ...props }
       () => (Array.isArray(value) ? value : Array.isArray(defaultValue) ? defaultValue : [min, max]),
       [value, defaultValue, min, max]
    );
-
-   // TODO: Ao fazer hover sobre o componente track mudar o cursor para grab
+   
    return (
       <SliderPrimitive.Root
          data-slot="slider"

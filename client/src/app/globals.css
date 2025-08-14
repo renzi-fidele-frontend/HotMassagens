@@ -46,6 +46,7 @@
 .gradiente {
    background: -webkit-linear-gradient(50deg, #eec340, #ffff95, #deac17);
    -webkit-background-clip: text;
+   background-clip: text;
    -webkit-text-fill-color: transparent;
 }
 
