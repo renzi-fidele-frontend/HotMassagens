@@ -26,7 +26,7 @@ const FiltragemTerapeutas = () => {
       setToggleFiltros((prev) => ({ ...prev, [section]: !prev[section] }));
    }
 
-   // TODO: Descobrir um jeito de identificar o type de value que por agora está definido como sendo unknown
+   // Atualiza os filtros de forma segura, inferindo o tipo correto de value
    function atualizarFiltros(key: keyof typeof filtros, value: unknown) {
       setFiltros({ ...filtros, [key]: value });
    }

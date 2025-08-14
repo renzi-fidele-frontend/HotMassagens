@@ -3,9 +3,9 @@
 import CardTerapeuta from "@/components/shared/CardTerapeuta";
 import { UseFiltrosValue } from "@/context/Provider";
 import { Iterapeuta } from "@/types/global";
+import Image from "next/image";
 import { useEffect, useState } from "react";
-
-// TODO: Adicionar uma ilustração caso não haja nenhuma terapeuta correspondente com os filtros
+import foto from "@/../public/images/404Optz.webp";
 
 const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
    const { filtros } = UseFiltrosValue();
@@ -116,10 +116,21 @@ const ListagemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
    }, [filtros, terapeutas]);
 
    return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-7">
-         {terapeutasFiltradas.map((v, k) => (
-            <CardTerapeuta modoFiltragem={true} terapeuta={v} key={k} />
-         ))}
+      <div>
+         {terapeutasFiltradas.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-7">
+               {terapeutasFiltradas.map((v, k) => (
+                  <CardTerapeuta modoFiltragem={true} terapeuta={v} key={k} />
+               ))}
+            </div>
+         ) : (
+            <div className="flex flex-col items-center w-full text-center gap-6 lg:pt-7">
+               <Image src={foto} className="w-[80%] sm:w-auto" alt="Ilustração de uma boneca dando massagem a um cliente" />
+               <p className="bg-gray-800 p-2 rounded-2xl text-balance text-sm lg:text-xl">
+                  Nenhuma terapeuta coincide com os filtros aplicados, tente mudar um pouco ou clique no botão de limpar os filtros
+               </p>
+            </div>
+         )}
       </div>
    );
 };
