@@ -10,7 +10,7 @@ import { RadioGroup, RadioGroupItem } from "../../../components/ui/radio-group";
 import { UseFiltrosValue } from "@/context/Provider";
 import { cidadesEmPortugal, coresDeCabelo, coresDeOlho, nacionalidades } from "@/content/data";
 import SecaoCollapsivel from "./SecaoCollapsivel";
-import { Baby, Cannabis, Cigarette, Ear, Eye, Globe, Palette, Ruler, Scale } from "lucide-react";
+import { Cannabis, Cigarette, Ear, Eye, Globe, Palette, Ruler, Scale } from "lucide-react";
 
 const FiltragemTerapeutas = () => {
    const [toggleFiltros, setToggleFiltros] = useState<IToggleFiltros>({

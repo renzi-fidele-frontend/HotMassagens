@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Home } from "lucide-react";
 
 // TODO: A página de not-found não é rendereizada quando visito uma rota inexistente
-const notFound = () => {
+const NotFound = () => {
    return (
       <div className="bg-linear-to-b from-black to-gray-800 pt-10 pb-20">
          <Container className="flex flex-col gap-11 items-center text-center">
@@ -24,4 +24,4 @@ const notFound = () => {
    );
 };
 
-export default notFound;
+export default NotFound;
