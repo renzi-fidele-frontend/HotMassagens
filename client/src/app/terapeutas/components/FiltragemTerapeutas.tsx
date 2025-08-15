@@ -5,14 +5,14 @@ import { ScrollArea } from "../../../components/ui/scroll-area";
 import { Label } from "../../../components/ui/label";
 import { Checkbox } from "../../../components/ui/checkbox";
 import { Slider } from "../../../components/ui/slider";
-import { IToggleFiltros } from "@/types/global";
+import { Iterapeuta, IToggleFiltros } from "@/types/global";
 import { RadioGroup, RadioGroupItem } from "../../../components/ui/radio-group";
 import { UseFiltrosValue } from "@/context/Provider";
 import { cidadesEmPortugal, coresDeCabelo, coresDeOlho, nacionalidades } from "@/content/data";
 import SecaoCollapsivel from "./SecaoCollapsivel";
 import { Cannabis, Cigarette, Ear, Eye, Globe, Palette, Ruler, Scale } from "lucide-react";
 
-const FiltragemTerapeutas = () => {
+const FiltragemTerapeutas = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
    const [toggleFiltros, setToggleFiltros] = useState<IToggleFiltros>({
       localizacao: true,
       idade: true,
@@ -60,6 +60,16 @@ const FiltragemTerapeutas = () => {
       }
    }
 
+   function calcularTerapeutasPorDistrito(distrito: string) {
+      let total = 0;
+      terapeutas.forEach((v) => {
+         if (v.distrito === distrito) {
+            total++;
+         }
+      });
+      return total;
+   }
+
    return (
       <section className="space-y-4 sticky top-[20px]">
          {/* Filtragem da localização */}
@@ -74,8 +84,14 @@ const FiltragemTerapeutas = () => {
                            id={`local-${v}`}
                            className="border-yellow-200"
                         />
-                        <Label htmlFor={`local-${v}`}>{v}</Label>
-                        {/* TODO: Renderizar o nr de terapeutas disponíveis para cada distrito */}
+                        <Label htmlFor={`local-${v}`}>
+                           {v}{" "}
+                           <span
+                              className={`${calcularTerapeutasPorDistrito(v) === 0 ? "bg-zinc-400" : "bg-green-700"} px-1.5 py-0.5 rounded-3xl font-extrabold`}
+                           >
+                              {calcularTerapeutasPorDistrito(v)}
+                           </span>
+                        </Label>
                      </div>
                   ))}
                </div>

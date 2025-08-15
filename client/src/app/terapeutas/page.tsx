@@ -26,11 +26,11 @@ export default async function Terapeutas() {
                <hr className="bg-gradiente py-1 border-0" />
             </div>
             {/* Barra de pesquisa */}
-            <SearchBar />
+            <SearchBar terapeutas={terapeutas} />
             {/* Corpo */}
             <main className="flex gap-8">
                <div className="hidden md:block md:basis-[30%] xl:basis-[25%]">
-                  <FiltragemTerapeutas />
+                  <FiltragemTerapeutas terapeutas={terapeutas} />
                </div>
                <div className="md:basis-[70%] xl:basis-[75%]">
                   <ListagemTerapeutas terapeutas={terapeutas} />

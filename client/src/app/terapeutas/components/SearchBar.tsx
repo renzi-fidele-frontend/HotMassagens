@@ -9,8 +9,9 @@ import FiltragemTerapeutas from "./FiltragemTerapeutas";
 import { UseFiltrosValue } from "@/context/Provider";
 import BotaoDeLimparFiltros from "./BotaoDeLimparFiltros";
 import { useState } from "react";
+import { Iterapeuta } from "@/types/global";
 
-const SearchBar = () => {
+const SearchBar = ({ terapeutas }: { terapeutas: Iterapeuta[] }) => {
    const { filtros, setFiltros } = UseFiltrosValue();
    const [open, setOpen] = useState(false);
 
@@ -40,7 +41,7 @@ const SearchBar = () => {
                </DrawerTrigger>
                <DrawerContent className="bg-black pb-5 px-5">
                   <ScrollArea className="mt-5 h-[50dvh]">
-                     <FiltragemTerapeutas />
+                     <FiltragemTerapeutas terapeutas={terapeutas} />
                   </ScrollArea>
                   <div className="flex flex-col items-center mt-9 gap-4">
                      <hr className="bg-white w-full" />
