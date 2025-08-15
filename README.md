@@ -1,7 +1,9 @@
+![Hot Massages](https://github.com/user-attachments/assets/8b0414e4-ef95-4ef8-8a98-ccf15b4bb2b8)
 # HotMassagens — Portal de massagistas
+Site para encontrar as melhores massagistas, terapeutas e SPAs do distrito de Lisboa. Feito para uso comercial com painel de gestão (Strapi) para que o cliente controle conteúdos, imagens e perfis.
 
-Projeto: site para encontrar as melhores massagistas, terapeutas e SPAs do distrito de Lisboa. Feito para uso comercial com painel de gestão (Strapi) para que o cliente controle conteúdos, imagens e perfis.
-
+## Esboço do Figma
+- https://www.figma.com/design/KNxvqScsHFkdhDIjSHXC2e/Hot-Massagens?node-id=0-1&t=r9zzkalFHc40XAWb-1
 ## Visão geral
 - Plataforma Next.js (frontend) + Strapi CMS (backend) para gestão de conteúdo.
 - Objetivo: descoberta e filtragem avançada de profissionais e espaços de bem‑estar em Lisboa.
