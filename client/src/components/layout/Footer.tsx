@@ -22,7 +22,7 @@ const Footer = () => {
                   <div className="flex text-lg sm:text-xl lg:text-base lg:flex-col mt-4 mb-7 lg:mb-0 gap-5 lg:gap-3 underline lg:no-underline flex-wrap sm:flex-nowrap justify-center">
                      <Link href="/">Início</Link>
                      <Link href="/#sobre">Sobre</Link>
-                     <Link href="/#terapeutas">Terapeutas</Link>
+                     <Link href="/terapeutas">Terapeutas</Link>
                      <Link href="/contato">Contato</Link>
                   </div>
                </div>
